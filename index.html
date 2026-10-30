@@ -236,6 +236,42 @@
       white-space: nowrap;
     }
 
+    /* Ablauf Process Steps Animation */
+    .step-card {
+      position: relative;
+      background: #FFFFFF;
+      border-radius: 1.5rem;
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
+    .step-border-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      border-radius: 1.5rem;
+      z-index: 20;
+    }
+    .step-connector {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .step-connector {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -24px;
+        width: 24px;
+        height: 24px;
+        z-index: 30;
+        pointer-events: none;
+      }
+    }
+
     /* Respect Reduced Motion (WCAG 2.2 / Accessibility) */
     @media (prefers-reduced-motion: reduce) {
       *, ::before, ::after {
@@ -248,6 +284,15 @@
         transform: none !important;
       }
       .card-glare {
+        display: none !important;
+      }
+      .step-fill {
+        opacity: 1 !important;
+      }
+      .step-border-draw, .step-connector-line {
+        stroke-dashoffset: 0 !important;
+      }
+    }
         display: none !important;
       }
     }
@@ -1194,63 +1239,130 @@
   <section id="ablauf" class="py-20 px-6 border-t border-pastel-sage/50">
     <div class="max-w-5xl mx-auto space-y-12">
       
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-pastel-caramelDark">
-          Verlässlicher Zeitplan
+      <!-- Section Header with Replay Action -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div class="space-y-2 max-w-2xl">
+          <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-brand-indigo">
+            Verlässlicher Zeitplan
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
+            In 4 Schritten zu Ihrer schlüsselfertigen Website
+          </h2>
+          <p class="text-sm sm:text-base text-ink-600 leading-relaxed">
+            Klar geregelter Ablauf mit minimalem Zeitaufwand für Sie als Handwerksmeister.
+          </p>
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
-          In 4 Schritten zu Ihrer schlüsselfertigen Website
-        </h2>
-        <p class="text-sm sm:text-base text-ink-600 leading-relaxed">
-          Klar geregelter Ablauf mit minimalem Zeitaufwand für Sie als Handwerksmeister.
-        </p>
+        <button type="button" onclick="playAblaufAnimation(true)" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-pastel-sage text-xs font-mono font-bold text-brand-indigo hover:bg-pastel-sand hover:border-brand-indigo/40 transition-all shadow-2xs self-start sm:self-auto cursor-pointer">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+            <path d="M21 3v5h-5"/>
+          </svg>
+          <span>Ablauf neu abspielen</span>
+        </button>
       </div>
 
-      <!-- 4 Process Steps Grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Shared SVG Gradient for Card Border -->
+      <svg width="0" height="0" class="absolute pointer-events-none">
+        <defs>
+          <linearGradient id="stepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#540D6E" />
+            <stop offset="50%" stop-color="#EE4266" />
+            <stop offset="100%" stop-color="#540D6E" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <!-- 4 Process Steps Grid with Animated Connectors -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 relative">
         
         <!-- Step 1 -->
-        <div class="bg-white rounded-3xl p-6 border border-pastel-sage shadow-xs space-y-3 relative">
-          <div class="w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center">
-            01
+        <div id="card-step-1" class="step-card p-6 shadow-xs space-y-3">
+          <div id="fill-step-1" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6F5E1] via-white to-[#F3FCF0] opacity-0 transition-opacity pointer-events-none"></div>
+          <svg class="step-border-svg">
+            <rect x="1.5" y="1.5" width="calc(100% - 3px)" height="calc(100% - 3px)" rx="24" ry="24" fill="none" stroke="#CCE0C7" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <rect id="rect-step-1" class="step-border-draw" x="1.5" y="1.5" width="calc(100% - 3px)" height="calc(100% - 3px)" rx="24" ry="24" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="relative z-10 space-y-3">
+            <div id="badge-step-1" class="step-badge w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center transition-all duration-300">
+              01
+            </div>
+            <h3 class="text-base font-bold text-ink-950">Bedarf besprechen</h3>
+            <p class="text-xs text-ink-600 leading-relaxed">
+              In einem kurzen 15- bis 20-minütigen Telefonat klären wir Ihre angebotenen Leistungen, Ihren regionalen Einzugsbereich und Ihre offenen Stellen.
+            </p>
           </div>
-          <h3 class="text-base font-bold text-ink-950">Bedarf besprechen</h3>
-          <p class="text-xs text-ink-600 leading-relaxed">
-            In einem kurzen 15- bis 20-minütigen Telefonat klären wir Ihre angebotenen Leistungen, Ihren regionalen Einzugsbereich und Ihre offenen Stellen.
-          </p>
+          <div class="step-connector">
+            <svg width="28" height="24" viewBox="0 0 28 24" fill="none" class="overflow-visible">
+              <path d="M 0 12 L 24 12" stroke="#CCE0C7" stroke-width="2" stroke-dasharray="3 3"/>
+              <path id="conn-step-1" class="step-connector-line" d="M 0 12 L 20 12 M 14 6 L 20 12 L 14 18" stroke="#540D6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </div>
 
         <!-- Step 2 -->
-        <div class="bg-white rounded-3xl p-6 border border-pastel-sage shadow-xs space-y-3 relative">
-          <div class="w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center">
-            02
+        <div id="card-step-2" class="step-card p-6 shadow-xs space-y-3">
+          <div id="fill-step-2" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6F5E1] via-white to-[#F3FCF0] opacity-0 transition-opacity pointer-events-none"></div>
+          <svg class="step-border-svg">
+            <rect x="1.5" y="1.5" width="calc(100% - 3px)" height="calc(100% - 3px)" rx="24" ry="24" fill="none" stroke="#CCE0C7" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <rect id="rect-step-2" class="step-border-draw" x="1.5" y="1.5" width="calc(100% - 3px)" height="calc(100% - 3px)" rx="24" ry="24" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="relative z-10 space-y-3">
+            <div id="badge-step-2" class="step-badge w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center transition-all duration-300">
+              02
+            </div>
+            <h3 class="text-base font-bold text-ink-950">Entwurf abstimmen</h3>
+            <p class="text-xs text-ink-600 leading-relaxed">
+              Wir erstellen kostenlos einen individuellen Vorab-Entwurf inklusive Texten für Ihr Gewerk. Erst wenn Ihnen das Konzept gefällt, beauftragen Sie uns.
+            </p>
           </div>
-          <h3 class="text-base font-bold text-ink-950">Entwurf abstimmen</h3>
-          <p class="text-xs text-ink-600 leading-relaxed">
-            Wir erstellen kostenlos einen individuellen Vorab-Entwurf inklusive Texten für Ihr Gewerk. Erst wenn Ihnen das Konzept gefällt, beauftragen Sie uns.
-          </p>
+          <div class="step-connector">
+            <svg width="28" height="24" viewBox="0 0 28 24" fill="none" class="overflow-visible">
+              <path d="M 0 12 L 24 12" stroke="#CCE0C7" stroke-width="2" stroke-dasharray="3 3"/>
+              <path id="conn-step-2" class="step-connector-line" d="M 0 12 L 20 12 M 14 6 L 20 12 L 14 18" stroke="#540D6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </div>
 
         <!-- Step 3 -->
-        <div class="bg-white rounded-3xl p-6 border border-pastel-sage shadow-xs space-y-3 relative">
-          <div class="w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center">
-            03
+        <div id="card-step-3" class="step-card p-6 shadow-xs space-y-3">
+          <div id="fill-step-3" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6F5E1] via-white to-[#F3FCF0] opacity-0 transition-opacity pointer-events-none"></div>
+          <svg class="step-border-svg">
+            <rect x="1.5" y="1.5" width="calc(100% - 3px)" height="calc(100% - 3px)" rx="24" ry="24" fill="none" stroke="#CCE0C7" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <rect id="rect-step-3" class="step-border-draw" x="1.5" y="1.5" width="calc(100% - 3px)" height="calc(100% - 3px)" rx="24" ry="24" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="relative z-10 space-y-3">
+            <div id="badge-step-3" class="step-badge w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center transition-all duration-300">
+              03
+            </div>
+            <h3 class="text-base font-bold text-ink-950">Schlüsselfertig umsetzen</h3>
+            <p class="text-xs text-ink-600 leading-relaxed">
+              Nach Erhalt aller Freigaben setzen wir Ihre Website und Formulare innerhalb von 7 Werktagen technisch vollständig und schlüsselfertig um.
+            </p>
           </div>
-          <h3 class="text-base font-bold text-ink-950">Schlüsselfertig umsetzen</h3>
-          <p class="text-xs text-ink-600 leading-relaxed">
-            Nach Erhalt aller Freigaben setzen wir Ihre Website und Formulare innerhalb von 7 Werktagen technisch vollständig und schlüsselfertig um.
-          </p>
+          <div class="step-connector">
+            <svg width="28" height="24" viewBox="0 0 28 24" fill="none" class="overflow-visible">
+              <path d="M 0 12 L 24 12" stroke="#CCE0C7" stroke-width="2" stroke-dasharray="3 3"/>
+              <path id="conn-step-3" class="step-connector-line" d="M 0 12 L 20 12 M 14 6 L 20 12 L 14 18" stroke="#540D6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </div>
 
         <!-- Step 4 -->
-        <div class="bg-white rounded-3xl p-6 border border-pastel-sage shadow-xs space-y-3 relative">
-          <div class="w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center">
-            04
+        <div id="card-step-4" class="step-card p-6 shadow-xs space-y-3">
+          <div id="fill-step-4" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6F5E1] via-white to-[#F3FCF0] opacity-0 transition-opacity pointer-events-none"></div>
+          <svg class="step-border-svg">
+            <rect x="1.5" y="1.5" width="calc(100% - 3px)" height="calc(100% - 3px)" rx="24" ry="24" fill="none" stroke="#CCE0C7" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <rect id="rect-step-4" class="step-border-draw" x="1.5" y="1.5" width="calc(100% - 3px)" height="calc(100% - 3px)" rx="24" ry="24" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="relative z-10 space-y-3">
+            <div id="badge-step-4" class="step-badge w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center transition-all duration-300">
+              04
+            </div>
+            <h3 class="text-base font-bold text-ink-950">Prüfen & übergeben</h3>
+            <p class="text-xs text-ink-600 leading-relaxed">
+              Gemeinsame Endabnahme, Aufschaltung auf Ihre Wunschdomain und vollständige Übergabe aller Zugänge. Das System gehört zu 100 % Ihrem Betrieb.
+            </p>
           </div>
-          <h3 class="text-base font-bold text-ink-950">Prüfen & übergeben</h3>
-          <p class="text-xs text-ink-600 leading-relaxed">
-            Gemeinsame Endabnahme, Aufschaltung auf Ihre Wunschdomain und vollständige Übergabe aller Zugänge. Das System gehört zu 100 % Ihrem Betrieb.
-          </p>
         </div>
 
       </div>
@@ -1855,6 +1967,7 @@
       try { initGSAPAnimations(); } catch (e) { console.error('GSAPAnim error:', e); }
       try { animateHeroGraph(); } catch (e) { console.error('HeroGraph error:', e); }
       try { initGraphScrubbing(); } catch (e) { console.error('GraphScrub error:', e); }
+      try { initAblaufProcessAnimation(); } catch (e) { console.error('Ablauf error:', e); }
 
       // Refresh ScrollTrigger calculations after initial layout settles
       if (typeof ScrollTrigger !== 'undefined') {
@@ -2352,7 +2465,158 @@
       });
     }
 
-  </script>
+    // ═══════════════════════════════════════════
+    // SEQUENTIAL PROCESS STEPS PIPELINE (#ablauf)
+    // ═══════════════════════════════════════════
+    let ablaufTimeline = null;
+
+    function initAblaufProcessAnimation() {
+      if (typeof gsap === 'undefined') return;
+
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) {
+        for (let i = 1; i <= 4; i++) {
+          const rect = document.getElementById(`rect-step-${i}`);
+          const fill = document.getElementById(`fill-step-${i}`);
+          const badge = document.getElementById(`badge-step-${i}`);
+          if (rect) rect.style.strokeDashoffset = '0';
+          if (fill) fill.style.opacity = '1';
+          if (badge) {
+            badge.style.backgroundColor = '#540D6E';
+            badge.style.color = '#FFFFFF';
+            badge.style.borderColor = '#540D6E';
+          }
+          if (i < 4) {
+            const conn = document.getElementById(`conn-step-${i}`);
+            if (conn) conn.style.strokeDashoffset = '0';
+          }
+        }
+        return;
+      }
+
+      // Initialize path stroke dash arrays
+      for (let i = 1; i <= 4; i++) {
+        const rect = document.getElementById(`rect-step-${i}`);
+        if (rect) {
+          const len = rect.getTotalLength();
+          rect.style.strokeDasharray = len;
+          rect.style.strokeDashoffset = len;
+        }
+        if (i < 4) {
+          const conn = document.getElementById(`conn-step-${i}`);
+          if (conn) {
+            const len = conn.getTotalLength();
+            conn.style.strokeDasharray = len;
+            conn.style.strokeDashoffset = len;
+          }
+        }
+      }
+
+      // Hook into ScrollTrigger to auto-trigger when entering viewport
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.create({
+          trigger: "#ablauf",
+          start: "top 72%",
+          once: true,
+          onEnter: () => playAblaufAnimation(false)
+        });
+      }
+    }
+
+    function playAblaufAnimation(replay = false) {
+      if (typeof gsap === 'undefined') return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const rects = [1, 2, 3, 4].map(i => document.getElementById(`rect-step-${i}`));
+      const conns = [1, 2, 3].map(i => document.getElementById(`conn-step-${i}`));
+      const fills = [1, 2, 3, 4].map(i => document.getElementById(`fill-step-${i}`));
+      const badges = [1, 2, 3, 4].map(i => document.getElementById(`badge-step-${i}`));
+      const cards = [1, 2, 3, 4].map(i => document.getElementById(`card-step-${i}`));
+
+      if (ablaufTimeline) {
+        ablaufTimeline.kill();
+      }
+
+      // Reset state if replaying
+      rects.forEach(r => {
+        if (!r) return;
+        const l = r.getTotalLength();
+        r.style.strokeDasharray = l;
+        r.style.strokeDashoffset = l;
+      });
+
+      conns.forEach(c => {
+        if (!c) return;
+        const l = c.getTotalLength();
+        c.style.strokeDasharray = l;
+        c.style.strokeDashoffset = l;
+      });
+
+      fills.forEach(f => { if (f) f.style.opacity = '0'; });
+      badges.forEach(b => {
+        if (!b) return;
+        b.style.backgroundColor = '';
+        b.style.color = '';
+        b.style.borderColor = '';
+        b.style.transform = 'none';
+      });
+      cards.forEach(c => {
+        if (!c) return;
+        c.style.boxShadow = '';
+        c.style.transform = 'none';
+      });
+
+      const tl = gsap.timeline();
+      ablaufTimeline = tl;
+
+      for (let i = 0; i < 4; i++) {
+        if (!rects[i]) continue;
+
+        // 1. "Malt" den Rand der Karte in Passender Akzentfarbe (Indigo/Watermelon)
+        tl.to(rects[i], {
+          strokeDashoffset: 0,
+          duration: 0.75,
+          ease: "power2.inOut"
+        });
+
+        // 2. Karte füllt sich sanft und hebt sich leicht ab
+        if (fills[i]) {
+          tl.to(fills[i], {
+            opacity: 1,
+            duration: 0.35,
+            ease: "power1.out"
+          }, "-=0.25");
+        }
+
+        if (cards[i]) {
+          tl.to(cards[i], {
+            boxShadow: "0 12px 28px -6px rgba(84, 13, 110, 0.12)",
+            y: -2,
+            duration: 0.35
+          }, "-=0.35");
+        }
+
+        // 3. Schritt-Badge (01, 02...) füllt sich mit Indigo
+        if (badges[i]) {
+          tl.to(badges[i], {
+            backgroundColor: "#540D6E",
+            color: "#FFFFFF",
+            borderColor: "#540D6E",
+            scale: 1.08,
+            duration: 0.25
+          }, "-=0.3");
+        }
+
+        // 4. "Dann eine Linie zur nächsten" zeichnen (Pfeil schießt zur nächsten Karte)
+        if (i < 3 && conns[i]) {
+          tl.to(conns[i], {
+            strokeDashoffset: 0,
+            duration: 0.42,
+            ease: "power2.out"
+          }, "-=0.08");
+        }
+      }
+    }
 
   </script>
 

@@ -188,3 +188,26 @@ Auf ausdrücklichen Wunsch des Nutzers (*„nein mach diese story scroll dings d
 - **JavaScript & GSAP:** Alle zugehörigen Funktionen (`initBauplanScrollAnimation()`, `updateBauplanUI()`, `scrubToProgress()`) und deren Aufrufe in `DOMContentLoaded` wurden restlos gelöscht.
 - **Scroll-Verhalten:** Keine blockierenden Pinned-ScrollTriggers mehr im Dokument. Die Seite scrollt vollkommen frei, leichtgängig und natürlich durch alle Abschnitte.
 - **Verifikation:** Playwright-Test bestätigt 0 Konsolenfehler, `hasBauplanInDom: false` und 0 verbliebene Emojis.
+
+---
+
+## 11. Sequenzielle Vektor-Mal- & Füll-Animation für den Ablauf (#ablauf)
+
+Auf Nutzerwunsch (*„ich will dass es mein ersten anfängt dann 'malt' sich so ein rand aus einer passende farbe dann eine linie zur nächsten und dann füllt sich das so“*) wurde die 4-Schritte-Ablaufsektion mit einer sequenziellen SVG-Strich- und Flächenanimation versehen:
+1. **SVG-Randzeichnung (`stroke-dashoffset`):**
+   - Jede der 4 Karten besitzt einen hochpräzisen SVG-`<rect>`-Rahmen mit Vektorgleitbahn (`rx="24"`).
+   - Farbgebung: Harmonischer Farbverlauf von Indigo (`#540D6E`) über Watermelon (`#EE4266`) zurück zu Indigo.
+   - Der Rand zeichnet sich flüssig um die abgerundeten Ecken der Karte.
+2. **Kartenfüllung & Elevation:**
+   - Sobald der Rand vollendet ist, füllt sich das Karteninnere sanft mit einer beruhigenden Honeydew-Farbtönung (`#E6F5E1` zu `#F3FCF0`).
+   - Die Schritt-Nummern-Badge (`01` bis `04`) füllt sich mit tiefem Indigo und weißer Schrift; die Karte hebt sich dezent mit Schattenwurf an.
+3. **Verbindende Pfeillinie zur nächsten Karte:**
+   - Ein Vektorpfeil schießt aus der rechten Kante der Karte hervor und verbindet sich präzise mit der folgenden Karte.
+   - Die Sequenz wandert kontinuierlich von Schritt 01 über 02 und 03 bis zu Schritt 04.
+4. **Interaktiver Replay-Button & ScrollTrigger:**
+   - Startet automatisch beim Hineinscrollen via GSAP ScrollTrigger (`trigger: "#ablauf", start: "top 72%"`).
+   - Ein Button „Ablauf neu abspielen“ im Header erlaubt jederzeitiges manuelles Wiederholen.
+   - Barrierefreiheit: Sofortige statische Fertigstellung bei `prefers-reduced-motion`.
+5. **Verifikation:**
+   - Playwright-Visualisierung bestätigt fehlerfreie Funktion aller 4 Phasen.
+   - 0 Emojis im gesamten Code.
