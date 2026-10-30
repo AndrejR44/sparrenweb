@@ -177,3 +177,14 @@ Auf Basis des installierten `seo-geo-aeo` Skills (`https://github.com/SNLabat/SE
 - **Hero-Graph & Odometer:** Läuft flüssig ab (184 % Vorab-Daten, 4,5 h Ersparnis, SVG-Pfad zeichnet sich selbst).
 - **Bauplan-Assembly:** Viewport friert beim Scrollen ein; Schicht 1 bis 4 montieren sich schrittweise bis zu `100% Schlüsselfertig Live`.
 - **Emoji-Audit:** 0 Treffer (Strikte Einhaltung der Anti-Emoji-Vorgabe).
+
+---
+
+## 10. Entfernung der Story-Scroll-Sektion (Auf Nutzerwunsch)
+
+Auf ausdrücklichen Wunsch des Nutzers (*„nein mach diese story scroll dings doch weg“*) wurde die Pinned-Scroll-Sektion vollständig und rückstandsfrei aus dem Projekt entfernt:
+- **Markup:** `<section id="bauplan">` (über 260 Zeilen) wurde gelöscht. Der Seitenfluss geht nun direkt und ohne künstlichen Scroll-Stopp von den Vorteilen (`#vorteile`) in die interaktive Formular-Demo (`#demo`) über.
+- **Navigation:** Die Menülinks „Bauplan“ in der Desktop-Navbar sowie im mobilen Drawer wurden entfernt.
+- **JavaScript & GSAP:** Alle zugehörigen Funktionen (`initBauplanScrollAnimation()`, `updateBauplanUI()`, `scrubToProgress()`) und deren Aufrufe in `DOMContentLoaded` wurden restlos gelöscht.
+- **Scroll-Verhalten:** Keine blockierenden Pinned-ScrollTriggers mehr im Dokument. Die Seite scrollt vollkommen frei, leichtgängig und natürlich durch alle Abschnitte.
+- **Verifikation:** Playwright-Test bestätigt 0 Konsolenfehler, `hasBauplanInDom: false` und 0 verbliebene Emojis.
