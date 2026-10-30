@@ -214,17 +214,21 @@ Auf Nutzerwunsch (*„ich will dass es mein ersten anfängt dann 'malt' sich so 
 
 ---
 
-## 12. Kontinuierliche Verbindungslinie & Einheitliche Motion für den Ablauf (#ablauf)
+## 12. Kontinuierlicher Rahmen-Aufbau & Mittlere Verbindungslinie (#ablauf)
 
-Auf Nutzerwunsch (*„die verbindungsliie soll kontinurirlich sein also keine pfeile und es soll alles eine motion sein“*) wurde die Ablauf-Animation verfeinert:
-1. **Keine Pfeilspitzen mehr:**
-   - Alle Pfeilspitzen (`M 14 6 L 20 12 L 14 18`) und gestrichelten Muster wurden entfernt.
-   - Die Verbindungslinien sind nun exakt horizontale, solide SVG-Pfade (`d="M 0 12 L 28 12"`), die genau die 28-px-Lücke (`lg:gap-7`) zwischen den Kartenkanten überbrücken.
-2. **Einheitliche, nahtlose Gesamt-Motion:**
-   - Der Zeichenstift fließt in einer einzigen unterbrechungsfreien Bewegung durch alle 4 Schritte: Rand von Karte 1 -> Verbindungslinie -> Rand von Karte 2 -> Verbindungslinie -> Rand von Karte 3 -> Verbindungslinie -> Rand von Karte 4.
-   - Das Ausfüllen der Karte, die Schattenelevation und das Einfärben der Schritt-Badge laufen parallel am Ende jedes Kartenzeichnens ab, sodass der Zeichenfluss niemals stoppt oder stockt.
-   - Die Verbindungslinie läuft mit linearem Fluss (`ease: "none"`), wodurch der Übergang zwischen Rand und Brücke absolut nahtlos wirkt.
-3. **Verifikation & Qualität:**
-   - Playwright-Test bestätigt 0 Konsolenfehler und saubere Vektorpfade im DOM.
-   - Screenshots `ablauf_continuous_mid.png` und `ablauf_continuous_complete.png` verifizieren den flüssigen Ablauf.
-   - Strikte Einhaltung der 0-Emoji-Regel (0 Emojis).
+Auf Nutzerwunsch (*„ich will das so wie in 3 haben ich will aber dass es die animation von der ersten hat das bedeutet die erste leuchtet nicht direkt auf sondern fängt an wird dann immer größer bist der rahmen gefüllt ist geht dann in die linie über die füllt sich (die linie verbindet ide kacheln in der mitte)“*) wurde die Ablauf-Animation wie folgt implementiert:
+1. **Design & Kachel-Stil (wie in Variante 3):**
+   - Clean gestaltete Kacheln mit abgerundeten Ecken (`rx="24"`), dezentem Salbeigrün-Grundrahmen (`#CCE0C7`) und zarter Honeydew-Füllung (`#E6F5E1` zu `#F3FCF0`).
+   - Die Verbindungslinien sitzen exakt mittig bei `top: 50%` (`transform: translateY(-50%)`) und überbrücken die 28-px-Lücke zwischen den Kacheln.
+2. **Animierter Rahmen-Aufbau ("wird immer größer bis der Rahmen gefüllt ist"):**
+   - Die Kachel leuchtet nicht sofort auf, sondern fängt an der mittleren Eintrittsstelle an.
+   - Zwei synchrone Akzent-Vektorbögen (oben und unten im harmonischen Verlauf `#540D6E` $\rightarrow$ `#EE4266`) wachsen entlang des Rahmens von links nach rechts, bis der Rahmen vollständig umschlossen ist.
+   - Genau beim Schließen des Rahmens leuchtet die Kachel auf (sanfte Flächenfüllung, Anhebung mit Schattenwurf, Schritt-Badge wechselt zu leuchtendem Indigo mit weißer Ziffer).
+3. **Nahtloser Übergang in die mittlere Verbindungslinie:**
+   - Direkt am Treffpunkt an der rechten Kachelkante fließt die Farbe ohne Unterbrechung in die mittlere Verbindungslinie (`strokeDashoffset: 0`).
+   - Die Linie füllt sich und trifft exakt in der Mitte der nächsten Kachel ein.
+   - Dort startet sofort das Zeichnen des Rahmens von Kachel 2, wächst bis zum Schluss, leuchtet auf, und fließt weiter in Kachel 3 und Kachel 4.
+4. **Verifikation:**
+   - Playwright-Visualisierung auf Live-Server `http://localhost:8081` bestätigt 0 Konsolenfehler und absolut ruckelfreien Fluss.
+   - Screenshots `live_card1_growing.png`, `live_line1_into_card2.png`, `live_card2_growing.png` und `live_flow_complete.png` dokumentieren jede Animationsphase.
+   - Einhaltung der 0-Emoji-Richtlinie (0 Emojis).
