@@ -2604,29 +2604,29 @@
 
         if (!topP || !botP) continue;
 
-        // 1. Rahmen fängt an, wird immer größer bis der Rahmen gefüllt ist
+        // 1. Kachel-Rahmen fängt an, wird immer größer bis der Rahmen gefüllt ist
         tl.to([topP, botP], {
           strokeDashoffset: 0,
-          duration: 0.58,
+          duration: 0.52,
           ease: "power1.inOut"
         });
 
-        // 2. Parallel beim Fertigstellen: Kachel leuchtet auf (Fläche füllt sich, Badge leuchtet, Karte hebt sich ab)
+        // 2. Kachel wird vollständig fertig (Fläche füllt sich, Ziffer leuchtet auf, Karte hebt sich ab)
         if (fill) {
           tl.to(fill, {
             opacity: 1,
-            duration: 0.3,
+            duration: 0.22,
             ease: "power1.out"
-          }, "-=0.25");
+          }, "-=0.18");
         }
 
         if (card) {
           tl.to(card, {
             boxShadow: "0 14px 30px -6px rgba(84, 13, 110, 0.14)",
             y: -2,
-            duration: 0.3,
+            duration: 0.22,
             ease: "power1.out"
-          }, "-=0.3");
+          }, "<");
         }
 
         if (badge) {
@@ -2635,18 +2635,21 @@
             color: "#FFFFFF",
             borderColor: "#540D6E",
             scale: 1.08,
-            duration: 0.25,
+            duration: 0.22,
             ease: "back.out(1.5)"
-          }, "-=0.3");
+          }, "<");
         }
 
-        // 3. Geht dann nahtlos in die Linie über (die füllt sich, verbindet die Kacheln in der Mitte)
+        // 3. WENN DIE KACHEL FERTIG IST:
+        // Erst jetzt fängt die Linie rechts neben ihr an sich zu füllen!
         if (i < 4 && conn) {
           tl.to(conn, {
             strokeDashoffset: 0,
-            duration: 0.18,
-            ease: "none"
+            duration: 0.22,
+            ease: "power1.inOut"
           });
+          // WENN DIE LINIE FERTIG IST:
+          // Dann erst fängt im nächsten Durchlauf die nächste Kachel an!
         }
       }
     }
