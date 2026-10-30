@@ -224,11 +224,12 @@ Auf Nutzerwunsch (*„ich will das so wie in 3 haben ich will aber dass es die a
    - Die Kachel leuchtet nicht sofort auf, sondern fängt an der mittleren Eintrittsstelle an.
    - Zwei synchrone Akzent-Vektorbögen (oben und unten im harmonischen Verlauf `#540D6E` $\rightarrow$ `#EE4266`) wachsen entlang des Rahmens von links nach rechts, bis der Rahmen vollständig umschlossen ist.
    - Genau beim Schließen des Rahmens leuchtet die Kachel auf (sanfte Flächenfüllung, Anhebung mit Schattenwurf, Schritt-Badge wechselt zu leuchtendem Indigo mit weißer Ziffer).
-3. **Nahtloser Übergang in die mittlere Verbindungslinie:**
-   - Direkt am Treffpunkt an der rechten Kachelkante fließt die Farbe ohne Unterbrechung in die mittlere Verbindungslinie (`strokeDashoffset: 0`).
-   - Die Linie füllt sich und trifft exakt in der Mitte der nächsten Kachel ein.
-   - Dort startet sofort das Zeichnen des Rahmens von Kachel 2, wächst bis zum Schluss, leuchtet auf, und fließt weiter in Kachel 3 und Kachel 4.
+3. **Strikt sequenzielle Kaskade (Kachel fertig $\rightarrow$ Linie füllt sich $\rightarrow$ Linie fertig $\rightarrow$ nächste Kachel):**
+   - Auf Nutzerwunsch (*„wenn eine kachel fertig ist die linie rechts neben ihr sich anfängt zu füllen und dann wenn die linie fertig ist dann die nächste kachel“*) wurde die Timeline präzise getaktet:
+   - **Phase A (Kachel $i$):** Der Rahmen zeichnet sich von links nach rechts, schließt sich, die Kachel füllt sich und leuchtet auf. Kachel $i$ ist nun zu 100 % fertig.
+   - **Phase B (Linie $i$):** Erst jetzt – nachdem Kachel $i$ vollständig abgeschlossen ist – beginnt sich die mittlere Verbindungslinie rechts neben ihr zu füllen. Kachel $i+1$ verharrt währenddessen noch im Ruhezustand.
+   - **Phase C (Kachel $i+1$):** Erst wenn die Verbindungslinie die nächste Kachel erreicht und 100 % gefüllt ist, beginnt der Rahmen von Kachel $i+1$ zu wachsen.
 4. **Verifikation:**
    - Playwright-Visualisierung auf Live-Server `http://localhost:8081` bestätigt 0 Konsolenfehler und absolut ruckelfreien Fluss.
-   - Screenshots `live_card1_growing.png`, `live_line1_into_card2.png`, `live_card2_growing.png` und `live_flow_complete.png` dokumentieren jede Animationsphase.
+   - Screenshots `live_seq_1_kachel1_fertig_linie1_fuellt.png`, `live_seq_2_linie1_fertig_kachel2_fuellt.png`, `live_seq_3_kachel2_fertig_linie2_fuellt.png` und `live_seq_4_complete.png` dokumentieren jede Animationsphase.
    - Einhaltung der 0-Emoji-Richtlinie (0 Emojis).
