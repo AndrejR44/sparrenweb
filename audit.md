@@ -211,3 +211,20 @@ Auf Nutzerwunsch (*„ich will dass es mein ersten anfängt dann 'malt' sich so 
 5. **Verifikation:**
    - Playwright-Visualisierung bestätigt fehlerfreie Funktion aller 4 Phasen.
    - 0 Emojis im gesamten Code.
+
+---
+
+## 12. Kontinuierliche Verbindungslinie & Einheitliche Motion für den Ablauf (#ablauf)
+
+Auf Nutzerwunsch (*„die verbindungsliie soll kontinurirlich sein also keine pfeile und es soll alles eine motion sein“*) wurde die Ablauf-Animation verfeinert:
+1. **Keine Pfeilspitzen mehr:**
+   - Alle Pfeilspitzen (`M 14 6 L 20 12 L 14 18`) und gestrichelten Muster wurden entfernt.
+   - Die Verbindungslinien sind nun exakt horizontale, solide SVG-Pfade (`d="M 0 12 L 28 12"`), die genau die 28-px-Lücke (`lg:gap-7`) zwischen den Kartenkanten überbrücken.
+2. **Einheitliche, nahtlose Gesamt-Motion:**
+   - Der Zeichenstift fließt in einer einzigen unterbrechungsfreien Bewegung durch alle 4 Schritte: Rand von Karte 1 -> Verbindungslinie -> Rand von Karte 2 -> Verbindungslinie -> Rand von Karte 3 -> Verbindungslinie -> Rand von Karte 4.
+   - Das Ausfüllen der Karte, die Schattenelevation und das Einfärben der Schritt-Badge laufen parallel am Ende jedes Kartenzeichnens ab, sodass der Zeichenfluss niemals stoppt oder stockt.
+   - Die Verbindungslinie läuft mit linearem Fluss (`ease: "none"`), wodurch der Übergang zwischen Rand und Brücke absolut nahtlos wirkt.
+3. **Verifikation & Qualität:**
+   - Playwright-Test bestätigt 0 Konsolenfehler und saubere Vektorpfade im DOM.
+   - Screenshots `ablauf_continuous_mid.png` und `ablauf_continuous_complete.png` verifizieren den flüssigen Ablauf.
+   - Strikte Einhaltung der 0-Emoji-Regel (0 Emojis).
