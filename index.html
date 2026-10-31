@@ -202,10 +202,7 @@
       border-color: #2563EB;
     }
 
-    /* Subtle graph cursor tracker tooltip */
-    #graphTooltip {
-      transition: opacity 0.12s ease, transform 0.08s ease-out;
-    }
+
 
     /* 3D Tilt container */
     .tilt-card {
@@ -514,7 +511,7 @@
   <!-- ═══════════════════════════════════════════ -->
   <!-- A. STICKY NAVBAR                            -->
   <!-- ═══════════════════════════════════════════ -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: transparent;">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: transparent;">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
       
       <!-- Brand Logo + Region Badge -->
@@ -535,18 +532,16 @@
         </div>
       </a>
 
-      <!-- Central Nav Links (Clean information architecture) -->
+      <!-- Central Nav Links (Vereinfacht nach Vorgabe) -->
       <div class="hidden lg:flex items-center gap-1 bg-white/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-pastel-sage/50 shadow-xs">
-        <a href="#beispiel" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3 py-1.5 rounded-full transition-all font-medium">Beispiel</a>
-        <a href="#vorteile" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3 py-1.5 rounded-full transition-all font-medium">Vorteile</a>
-        <a href="#demo" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3 py-1.5 rounded-full transition-all font-medium">Formular-Demo</a>
-        <a href="#ablauf" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3 py-1.5 rounded-full transition-all font-medium">Ablauf</a>
-        <a href="#preise" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3 py-1.5 rounded-full transition-all font-medium">Preise</a>
-        <a href="#ueber-uns" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3 py-1.5 rounded-full transition-all font-medium">Über uns</a>
-        <a href="#faq" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3 py-1.5 rounded-full transition-all font-medium">FAQ</a>
+        <a href="#beispiel" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3.5 py-1.5 rounded-full transition-all font-medium">Beispiele</a>
+        <a href="#vorteile" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3.5 py-1.5 rounded-full transition-all font-medium">Leistungen</a>
+        <a href="#ablauf" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3.5 py-1.5 rounded-full transition-all font-medium">Ablauf</a>
+        <a href="#preise" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3.5 py-1.5 rounded-full transition-all font-medium">Preise</a>
+        <a href="#ueber-uns" class="text-[13px] text-ink-700 hover:text-ink-950 hover:bg-pastel-sand/60 px-3.5 py-1.5 rounded-full transition-all font-medium">Über uns</a>
       </div>
 
-      <!-- Action Button & Direct Phone Access (Taste Skill: Phone Number is King) -->
+      <!-- Action Button & Direct Phone Access -->
       <div class="flex items-center gap-2.5">
         <a href="tel:05212580910" class="hidden xl:inline-flex items-center gap-2 text-xs font-bold font-mono text-ink-900 bg-pastel-sand/80 hover:bg-pastel-sand border border-pastel-caramel/30 px-3.5 py-2 rounded-full transition-all shadow-2xs">
           <i data-lucide="phone" class="w-3.5 h-3.5 text-pastel-caramel"></i>
@@ -559,36 +554,34 @@
         </a>
 
         <!-- Mobile menu toggle -->
-        <button id="mobile-menu-btn" class="lg:hidden text-ink-800 p-2 rounded-xl bg-pastel-sand/70 border border-pastel-caramel/30" aria-label="Menü öffnen">
-          <i data-lucide="menu" class="w-5 h-5"></i>
+        <button id="mobile-menu-btn" class="lg:hidden text-ink-800 p-2.5 rounded-xl bg-pastel-sand/70 border border-pastel-caramel/30 focus:outline-none focus:ring-2 focus:ring-pastel-caramel" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" id="mobile-menu-icon" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-pastel-cream/98 backdrop-blur-lg border-b border-pastel-sage/50 px-6 py-5 space-y-3 shadow-lg">
-      <a href="#beispiel" class="block text-sm text-ink-700 hover:text-ink-950 py-1.5 font-medium">Beispiel</a>
-      <a href="#vorteile" class="block text-sm text-ink-700 hover:text-ink-950 py-1.5 font-medium">Vorteile</a>
-      <a href="#demo" class="block text-sm text-ink-700 hover:text-ink-950 py-1.5 font-medium">Formular-Demo</a>
+    <div id="mobile-menu" class="hidden lg:hidden bg-pastel-cream/98 backdrop-blur-lg border-b border-pastel-sage/50 px-6 py-5 space-y-3 shadow-lg" role="region" aria-label="Mobiles Navigationsmenü">
+      <a href="#beispiel" class="block text-sm text-ink-700 hover:text-ink-950 py-1.5 font-medium">Beispiele</a>
+      <a href="#vorteile" class="block text-sm text-ink-700 hover:text-ink-950 py-1.5 font-medium">Leistungen</a>
       <a href="#ablauf" class="block text-sm text-ink-700 hover:text-ink-950 py-1.5 font-medium">Ablauf</a>
       <a href="#preise" class="block text-sm text-ink-700 hover:text-ink-950 py-1.5 font-medium">Preise</a>
       <a href="#ueber-uns" class="block text-sm text-ink-700 hover:text-ink-950 py-1.5 font-medium">Über uns</a>
-      <a href="#faq" class="block text-sm text-ink-700 hover:text-ink-950 py-1.5 font-medium">FAQ</a>
       <a href="tel:05212580910" class="flex items-center justify-center gap-2 text-sm font-bold text-ink-900 bg-pastel-sand/90 border border-pastel-caramel/30 px-4 py-2.5 rounded-full text-center">
         <i data-lucide="phone" class="w-4 h-4 text-pastel-caramel"></i>
         <span>Direkt anrufen: 0521 / 25 80 910</span>
       </a>
-      <a href="#kontakt" class="block bg-pastel-caramel text-white text-sm font-semibold px-4 py-2.5 rounded-full text-center mt-2 shadow-sm">Projekt unverbindlich anfragen</a>
+      <a href="#kontakt" class="block bg-pastel-caramel text-white text-sm font-semibold px-4 py-2.5 rounded-full text-center mt-2 shadow-sm">Projekt anfragen</a>
     </div>
   </nav>
 
 
-    <!-- ═══════════════════════════════════════════ -->
-  <!-- B. HERO-SEKTION (VERSTÄNDLICH & FOKUSSIERT) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 1. HERO MIT KONZEPTDEMO-VORSCHAU            -->
   <!-- ═══════════════════════════════════════════ -->
   <section class="pt-32 sm:pt-36 pb-20 px-6 hero-bg relative overflow-hidden">
     
-    <!-- Subtle Topographic Contour Elevation (Bespoke OWL Hills, no checkered grid) -->
+    <!-- Subtle Topographic Contour Elevation (Bespoke OWL Hills) -->
     <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-45 overflow-hidden z-0" preserveAspectRatio="none" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="contourGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -602,224 +595,133 @@
       <path d="M-100 430 C 220 370, 520 480, 860 390 C 1180 310, 1400 420, 1600 370" stroke="url(#contourGrad)" stroke-width="1.2" stroke-linecap="round"/>
       <path d="M-100 540 C 260 480, 560 580, 900 500 C 1220 430, 1420 520, 1600 480" stroke="url(#contourGrad)" stroke-width="1.2" stroke-linecap="round"/>
       <path d="M-100 660 C 280 600, 600 700, 940 610 C 1260 530, 1450 630, 1600 590" stroke="url(#contourGrad)" stroke-width="1.2" stroke-linecap="round"/>
-      <!-- Precision Architectural Registration Crosshairs in Margins -->
-      <g stroke="rgba(100, 116, 139, 0.2)" stroke-width="1">
-        <line x1="80" y1="120" x2="96" y2="120"/>
-        <line x1="88" y1="112" x2="88" y2="128"/>
-        <line x1="1344" y1="120" x2="1360" y2="120"/>
-        <line x1="1352" y1="112" x2="1352" y2="128"/>
-        <line x1="80" y1="720" x2="96" y2="720"/>
-        <line x1="88" y1="712" x2="88" y2="728"/>
-        <line x1="1344" y1="720" x2="1360" y2="720"/>
-        <line x1="1352" y1="712" x2="1352" y2="728"/>
-      </g>
     </svg>
     
     <div class="max-w-6xl mx-auto relative z-10">
       
-      <!-- Asymmetric Editorial Grid (7 Cols Left / 5 Cols Right) -->
+      <!-- 2-Spalten Layout: Links Text & Aktionen, Rechts Konzeptdemo-Vorschau -->
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         
-        <!-- Left Column: Editorial Value Proposition & Direct Access (7 cols) -->
+        <!-- Left Column: Nutzenversprechen & CTAs (7 cols) -->
         <div class="lg:col-span-7 space-y-6 text-left hero-anim-col">
           
-          <!-- Headline (H1) -->
-          <h1 class="hero-anim-item text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.14] text-ink-950 tracking-tight">
-            Eine Website, die Ihren Betrieb klar zeigt.
+          <!-- Zielgruppenzeile ohne Pill-Rahmen -->
+          <div class="text-xs sm:text-sm font-semibold text-ink-600 tracking-wide uppercase">
+            Websites für Handwerksbetriebe in Bielefeld & OWL
+          </div>
+          
+          <!-- H1 -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.15] text-ink-950 tracking-tight">
+            Eine Website, die Ihrem Handwerk gerecht wird.
           </h1>
 
-          <!-- Subheadline -->
-          <p class="hero-anim-item text-base sm:text-lg text-ink-600 leading-relaxed font-normal">
-            Mit verständlichen Leistungen, vorqualifizierten Kundenanfragen und einer einfachen Bewerbung per Smartphone. Wir übernehmen Gestaltung, Texte und technische Einrichtung – zum fairen Festpreis, ohne Agentur-Monatsabo.
+          <!-- Untertext -->
+          <p class="text-base sm:text-lg text-ink-600 leading-relaxed font-normal">
+            Wir gestalten Ihre Website, schreiben die Texte und richten alles technisch ein. Mit klaren Leistungen und einem Anfrageformular, das die wichtigsten Angaben vorab abfragt.
           </p>
 
-          <!-- Direct Phone Contact Box (Taste Skill: Phone Number is King) -->
-          <div class="hero-anim-item pt-1">
-            <a href="tel:05212580910" class="inline-flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 bg-white/95 hover:bg-white border border-pastel-sage hover:border-pastel-caramel px-4 py-3 rounded-2xl shadow-2xs transition-all group">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-pastel-sand border border-pastel-caramel/40 flex items-center justify-center text-pastel-caramelDark group-hover:scale-105 transition-transform">
-                  <i data-lucide="phone-call" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <div class="text-[10px] font-mono font-bold uppercase text-ink-500">Direkter Meister-Draht</div>
-                  <div class="text-sm font-extrabold text-ink-950 tracking-tight font-mono group-hover:text-pastel-caramelDark transition-colors">0521 / 25 80 910</div>
-                </div>
-              </div>
-              <div class="sm:border-l sm:border-pastel-sage/60 sm:pl-4 text-[11px] text-ink-600 font-medium">
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#2563EB] mr-1"></span>
-                Mo–Fr 07:30–17:00 Uhr erreichbar · Kein Callcenter
-              </div>
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+            <a href="#kontakt" class="inline-flex items-center justify-center gap-2 bg-pastel-caramel hover:bg-pastel-caramelHover text-white text-sm sm:text-base font-semibold px-7 py-3.5 rounded-full transition-all shadow-md shadow-pastel-caramel/25 hover:shadow-lg hover:-translate-y-0.5">
+              <span>Projekt unverbindlich anfragen</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+
+            <a href="#beispiel" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-pastel-sand/60 text-ink-900 border border-pastel-sage hover:border-pastel-caramel/40 text-sm sm:text-base font-semibold px-6 py-3.5 rounded-full transition-all shadow-2xs">
+              <i data-lucide="eye" class="w-4 h-4 text-pastel-caramel"></i>
+              <span>Demo-Website ansehen</span>
             </a>
           </div>
 
-          <!-- 3 Bestätigte Nutzen-Punkte -->
-          <div class="hero-anim-item flex flex-wrap items-center gap-2.5 pt-1">
-            <div class="bg-white/95 border border-pastel-sage px-3.5 py-1.5 rounded-full shadow-2xs flex items-center gap-2">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-pastel-caramel flex-shrink-0"></i>
-              <span class="text-xs font-bold text-ink-900">0 € Agentur-Monatsabo</span>
-              <span class="text-[11px] text-ink-500">(100 % Ihr Eigentum)</span>
+          <!-- Preis- & Vertrauenszeile direkt unter den Buttons -->
+          <div class="pt-1 space-y-1">
+            <div class="text-xs sm:text-sm font-bold text-ink-950">
+              1.490 € netto einmalig · Kein Agentur-Monatsabo
             </div>
-            <div class="bg-white/95 border border-pastel-sage px-3.5 py-1.5 rounded-full shadow-2xs flex items-center gap-2">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-pastel-caramel flex-shrink-0"></i>
-              <span class="text-xs font-bold text-ink-900">Rundum-Entlastung</span>
-              <span class="text-[11px] text-ink-500">(Wir schreiben Texte)</span>
-            </div>
-            <div class="bg-white/95 border border-pastel-sage px-3.5 py-1.5 rounded-full shadow-2xs flex items-center gap-2">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-pastel-caramel flex-shrink-0"></i>
-              <span class="text-xs font-bold text-ink-900">Erst sehen, dann entscheiden</span>
-              <span class="text-[11px] text-ink-500">(Vorab-Entwurf)</span>
+            <div class="text-xs text-ink-600">
+              Hosting separat: ca. 8–15 € pro Monat.
             </div>
           </div>
 
-          <!-- Action Buttons & Microtext -->
-          <div class="hero-anim-item pt-1 space-y-2.5">
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-              <a href="#kontakt" class="inline-flex items-center justify-center gap-2 bg-pastel-caramel hover:bg-pastel-caramelHover text-white font-semibold text-sm px-7 py-3.5 rounded-full transition-all shadow-md shadow-pastel-caramel/25 hover:-translate-y-0.5">
-                <i data-lucide="send" class="w-4 h-4"></i>
-                <span>Projekt unverbindlich anfragen</span>
-              </a>
-              <a href="#beispiel" class="inline-flex items-center justify-center gap-2 bg-white/90 hover:bg-white border border-pastel-sage text-ink-800 font-semibold text-sm px-6 py-3.5 rounded-full transition-all shadow-2xs hover:border-pastel-caramel">
-                <span>Beispiel ansehen</span>
-                <i data-lucide="arrow-down" class="w-4 h-4 text-ink-500"></i>
-              </a>
+          <!-- Kompakte Vorteilszeile (3 Punkte) -->
+          <div class="grid sm:grid-cols-3 gap-2.5 pt-2 text-xs text-ink-700">
+            <div class="flex items-center gap-2 bg-white/90 border border-pastel-sage/70 px-3 py-2 rounded-xl">
+              <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0"></i>
+              <span class="font-medium">Gestaltung, Texte & Technik inklusive</span>
             </div>
-            <div class="text-[11px] text-ink-500 font-medium">
-              Komplettpaket für 1.490 € netto einmalig · Unverbindliches 15-Minuten-Erstgespräch
+            <div class="flex items-center gap-2 bg-white/90 border border-pastel-sage/70 px-3 py-2 rounded-xl">
+              <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0"></i>
+              <span class="font-medium">Persönlicher Ansprechpartner</span>
             </div>
+            <div class="flex items-center gap-2 bg-white/90 border border-pastel-sage/70 px-3 py-2 rounded-xl">
+              <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0"></i>
+              <span class="font-medium">Unverbindlicher Vorab-Entwurf</span>
+            </div>
+          </div>
+
+          <!-- Dezente Kontaktzeile darunter -->
+          <div class="pt-2 text-xs sm:text-sm text-ink-600 flex items-center gap-2">
+            <span>Lieber direkt sprechen?</span>
+            <a href="tel:05212580910" class="font-bold text-ink-950 hover:text-pastel-caramel flex items-center gap-1.5 transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-pastel-caramel"></i>
+              <span>0521 / 25 80 910</span>
+            </a>
           </div>
 
         </div>
 
-        <!-- Right Column: Interactive Self-Drawing Trajectory Graph (5 cols) -->
-        <div class="lg:col-span-5 hero-anim-graph">
-          <div class="product-card rounded-3xl p-6 sm:p-7 border border-pastel-sage shadow-xl tilt-card relative bg-white/95">
-            <div class="card-glare"></div>
-            
-            <!-- Header of Graph Card -->
-            <div class="flex items-center justify-between pb-3.5 border-b border-pastel-sage/50">
-              <div>
-                <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-pastel-caramel animate-pulse"></span>
-                  <span class="text-[11px] font-mono font-bold uppercase text-pastel-caramelDark tracking-wider">Ergebnis-Entwicklung</span>
-                </div>
-                <h3 class="text-base font-extrabold text-ink-950 mt-0.5">
-                  Qualifizierte Vorab-Anfragen
-                </h3>
-              </div>
+        <!-- Right Column: Konzeptdemo-Vorschau (5 cols) -->
+        <div class="lg:col-span-5 relative mt-6 lg:mt-0">
+          <a href="#beispiel" class="block group text-left focus:outline-none focus:ring-2 focus:ring-pastel-caramel rounded-3xl" title="Zur ausführlichen Konzeptdemo springen">
+            <div class="bg-white rounded-3xl p-5 sm:p-6 border border-pastel-sage shadow-lg hover:shadow-xl transition-all group-hover:border-pastel-caramel/50 relative overflow-hidden">
               
-              <button id="replayGraphBtn" onclick="animateHeroGraph(true)" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pastel-sand/70 hover:bg-pastel-caramel hover:text-white border border-pastel-caramel/30 text-ink-800 text-xs font-semibold font-mono transition-all shadow-2xs group" title="Animation erneut abspielen">
-                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 group-hover:-rotate-90 transition-transform duration-300"></i>
-                <span>Neu zeichnen</span>
-              </button>
-            </div>
-
-            <!-- SVG Graph Container -->
-            <div class="relative py-2" id="graphContainer">
-              <!-- Scrubbing Tooltip -->
-              <div id="graphTooltip" class="absolute hidden pointer-events-none z-30 bg-ink-950 text-white text-[11px] font-mono px-3 py-1.5 rounded-xl shadow-lg border border-pastel-caramel/40 -translate-x-1/2 -translate-y-full mb-2">
-                <div id="graphTooltipVal" class="font-bold text-pastel-sand">0 Anfragen</div>
-                <div id="graphTooltipStage" class="text-[10px] text-ink-300">Start</div>
-              </div>
-
-              <svg id="heroGraphSvg" viewBox="0 0 520 310" class="w-full h-auto overflow-visible select-none cursor-crosshair">
-                <defs>
-                  <linearGradient id="heroGraphLineGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#64748B" />
-                    <stop offset="50%" stop-color="#2563EB" />
-                    <stop offset="100%" stop-color="#0F172A" />
-                  </linearGradient>
-                  <linearGradient id="heroGraphAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#2563EB" stop-opacity="0.20" />
-                    <stop offset="50%" stop-color="#2563EB" stop-opacity="0.06" />
-                    <stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.0" />
-                  </linearGradient>
-                  <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#2563EB" flood-opacity="0.25"/>
-                  </filter>
-                </defs>
-
-                <!-- Coordinate Grid Background -->
-                <g class="grid-lines" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3 3">
-                  <!-- Horizontal grid lines -->
-                  <line x1="50" y1="260" x2="480" y2="260" stroke="#64748B" stroke-opacity="0.3" stroke-dasharray="none" />
-                  <line x1="50" y1="190" x2="480" y2="190" />
-                  <line x1="50" y1="120" x2="480" y2="120" />
-                  <line x1="50" y1="50" x2="480" y2="50" />
-
-                  <!-- Vertical grid lines -->
-                  <line x1="50" y1="50" x2="50" y2="260" stroke="#64748B" stroke-opacity="0.3" stroke-dasharray="none" />
-                  <line x1="155" y1="50" x2="155" y2="260" />
-                  <line x1="260" y1="50" x2="260" y2="260" />
-                  <line x1="365" y1="50" x2="365" y2="260" />
-                  <line x1="470" y1="50" x2="470" y2="260" />
-                </g>
-
-                <!-- Axis Labels -->
-                <g class="axis-labels" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748B">
-                  <!-- Y Labels -->
-                  <text x="42" y="264" text-anchor="end" font-weight="600">0</text>
-                  <text x="42" y="194" text-anchor="end" font-weight="600">10</text>
-                  <text x="42" y="124" text-anchor="end" font-weight="600">20</text>
-                  <text x="42" y="54" text-anchor="end" font-weight="700" fill="#2563EB">30+</text>
-
-                  <!-- X Labels -->
-                  <text x="50" y="280" text-anchor="middle" font-weight="600">Start</text>
-                  <text x="155" y="280" text-anchor="middle" font-weight="600">Woche 2</text>
-                  <text x="260" y="280" text-anchor="middle" font-weight="600">Woche 4</text>
-                  <text x="365" y="280" text-anchor="middle" font-weight="600">Woche 6</text>
-                  <text x="470" y="280" text-anchor="middle" font-weight="700" fill="#2563EB">Woche 8+</text>
-                </g>
-
-                <!-- Area Fill under curve -->
-                <path id="heroGraphArea" d="M 50 260 C 130 260, 190 215, 260 160 C 330 105, 400 65, 470 50 L 470 260 L 50 260 Z" fill="url(#heroGraphAreaGrad)" opacity="0" class="transition-opacity duration-700" />
-
-                <!-- Self-drawing Stroke Line (Starts at 0, 0 bottom-left and curves up) -->
-                <path id="heroGraphCurve" d="M 50 260 C 130 260, 190 215, 260 160 C 330 105, 400 65, 470 50" fill="none" stroke="url(#heroGraphLineGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glowFilter)" />
-
-                <!-- Interactive Milestone Nodes (Clean, calm, solid dots) -->
-                <g id="milestone1" opacity="0" class="cursor-pointer">
-                  <circle cx="155" cy="232" r="6" fill="#64748B" stroke="#0F172A" stroke-width="2.5" />
-                </g>
-
-                <g id="milestone2" opacity="0" class="cursor-pointer">
-                  <circle cx="260" cy="160" r="6" fill="#2563EB" stroke="#FFFFFF" stroke-width="2.5" />
-                </g>
-
-                <g id="milestone3" opacity="0" class="cursor-pointer">
-                  <circle cx="470" cy="50" r="7" fill="#0F172A" stroke="#FFFFFF" stroke-width="2.5" />
-                </g>
-              </svg>
-            </div>
-
-            <!-- 3 Animated Live Metric Cards below Graph -->
-            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-pastel-sage/50 text-center">
-              <div class="bg-pastel-sand/30 p-2 rounded-2xl border border-pastel-sage/60">
-                <div class="text-sm font-extrabold font-mono text-pastel-caramelDark">
-                  +<span id="counterStat1">0</span>%
+              <!-- Kennzeichnung an der Vorschau -->
+              <div class="flex items-center justify-between pb-4 border-b border-pastel-sage/50">
+                <div class="inline-flex items-center gap-1.5 bg-pastel-sand/80 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold text-ink-950">
+                  <span class="w-2 h-2 rounded-full bg-pastel-caramel"></span>
+                  <span>Konzeptdemo – kein Kundenprojekt</span>
                 </div>
-                <div class="text-[10px] text-ink-600 font-medium leading-tight mt-0.5">Vorab-Daten</div>
-              </div>
-
-              <div class="bg-pastel-sand/30 p-2 rounded-2xl border border-pastel-sage/60">
-                <div class="text-sm font-extrabold font-mono text-ink-950">
-                  0 €
+                <div class="text-[11px] font-semibold text-pastel-caramel flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                  <span>Demo öffnen</span>
+                  <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
                 </div>
-                <div class="text-[10px] text-ink-600 font-medium leading-tight mt-0.5">Monatsabo</div>
               </div>
 
-              <div class="bg-pastel-sand/30 p-2 rounded-2xl border border-pastel-sage/60">
-                <div class="text-sm font-extrabold font-mono text-pastel-caramelDark">
-                  ~<span id="counterStat3">0</span> h
+              <!-- Vorschau-Inhalt: Elektro- & Gebäudetechnik Bielefeld -->
+              <div class="pt-5 space-y-4">
+                <div class="space-y-1.5">
+                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-ink-500">
+                    Elektro- & Gebäudetechnik Bielefeld
+                  </span>
+                  <h3 class="text-lg sm:text-xl font-extrabold text-ink-950 leading-snug group-hover:text-pastel-caramel transition-colors">
+                    Zuverlässige Elektroinstallation & Smart Home für Bielefeld & OWL
+                  </h3>
+                  <p class="text-xs text-ink-600 line-clamp-2 leading-relaxed">
+                    Inhabergeführter Meisterbetrieb. Saubere Installationen, E-Check und moderne Gebäudetechnik aus Meisterhand.
+                  </p>
                 </div>
-                <div class="text-[10px] text-ink-600 font-medium leading-tight mt-0.5">Zeit/Woche gespart</div>
-              </div>
-            </div>
 
-            <!-- Micro-caption -->
-            <div class="pt-2 text-center text-[10px] font-mono text-ink-500">
-              Visualisierung: Entlastungseffekt durch Vorqualifizierung & Kurzbewerbung
+                <!-- 3 Leistungs-Pills der Demo -->
+                <div class="flex flex-wrap gap-1.5 pt-1 text-[11px]">
+                  <span class="bg-pastel-sand/50 text-ink-800 px-2.5 py-1 rounded-md font-medium border border-pastel-sage/50">Installation & Neubau</span>
+                  <span class="bg-pastel-sand/50 text-ink-800 px-2.5 py-1 rounded-md font-medium border border-pastel-sage/50">E-Check & Wartung</span>
+                  <span class="bg-pastel-sand/50 text-ink-800 px-2.5 py-1 rounded-md font-medium border border-pastel-sage/50">Wallbox & PV</span>
+                </div>
+
+                <!-- Vorschau Kontakt-Auszug -->
+                <div class="p-3.5 bg-pastel-sand/30 rounded-2xl border border-pastel-sage/60 flex items-center justify-between text-xs">
+                  <div>
+                    <div class="text-[10px] font-mono text-ink-500 font-semibold uppercase">Muster-Kontakt</div>
+                    <div class="font-bold text-ink-950">0521 / 123 456 78</div>
+                  </div>
+                  <span class="bg-white px-3 py-1.5 rounded-lg border border-pastel-sage text-ink-900 font-bold text-[11px] shadow-2xs">
+                    Anfrage online
+                  </span>
+                </div>
+              </div>
+
             </div>
-          </div>
+          </a>
         </div>
 
       </div>
@@ -844,21 +746,21 @@
 
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- 1. GEKENNZEICHNETE KONZEPTDEMO             -->
+  <!-- 2. AUSFÜHRLICHE KONZEPTDEMO                 -->
   <!-- ═══════════════════════════════════════════ -->
   <section id="beispiel" class="py-20 px-6 border-t border-pastel-sage/50 bg-pastel-cream">
     <div class="max-w-5xl mx-auto space-y-10">
       
       <div class="text-center max-w-2xl mx-auto space-y-3">
-        <div class="inline-flex items-center gap-1.5 bg-white border border-pastel-caramel/30 px-3.5 py-1 rounded-full text-xs font-mono font-bold text-pastel-caramelDark shadow-2xs">
+        <div class="inline-flex items-center gap-1.5 bg-white border border-pastel-caramel/30 px-3.5 py-1 rounded-full text-xs font-mono font-bold text-ink-950 shadow-2xs">
           <i data-lucide="eye" class="w-3.5 h-3.5 text-pastel-caramel"></i>
           <span>Konzeptdemo – kein Kundenprojekt</span>
         </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
-          So wirkt ein moderner Meisterbetrieb online
+          So könnte die Website Ihres Betriebs aussehen.
         </h2>
         <p class="text-sm sm:text-base text-ink-600 leading-relaxed">
-          Ruhige Gestaltung, lesbare Fachtexte und schnelle Ladezeiten auf jedem Smartphone: Ein Beispiel dafür, wie wir Handwerksbetriebe in Bielefeld & OWL präsentieren.
+          Ein Beispiel für klare Leistungen, direkte Kontaktmöglichkeiten und eine übersichtliche Darstellung auf dem Smartphone.
         </p>
       </div>
 
@@ -867,13 +769,13 @@
         <!-- Mockup Header Bar -->
         <div class="bg-pastel-sand/60 px-4 py-3 border-b border-pastel-sage/50 flex items-center justify-between text-xs font-mono">
           <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-pastel-sage/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-pastel-caramel/60 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-pastel-caramel inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-pastel-sage inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-pastel-sage inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-pastel-sage inline-block"></span>
           </div>
           <div class="bg-white/90 px-4 py-1 rounded-full border border-pastel-sage text-ink-700 text-[11px] font-medium shadow-2xs flex items-center gap-1.5">
             <i data-lucide="lock" class="w-3 h-3 text-pastel-caramel"></i>
-            <span>meisterbetrieb-beispiel.de</span>
+            <span>elektrotechnik-beispiel.de</span>
           </div>
           <div class="text-[10px] text-ink-400 font-bold uppercase hidden sm:block">
             Vorschau
@@ -885,64 +787,64 @@
           
           <!-- Mock Hero -->
           <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-pastel-sage/40">
-            <div class="space-y-3 max-w-xl">
-              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-pastel-caramelDark bg-pastel-sand px-2.5 py-0.5 rounded-full border border-pastel-caramel/30">
+            <div class="space-y-3 max-w-xl text-left">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-ink-950 bg-pastel-sand px-2.5 py-0.5 rounded-full border border-pastel-caramel/30">
                 Elektro- & Gebäudetechnik Bielefeld
               </span>
               <h3 class="text-2xl sm:text-3xl font-extrabold text-ink-950 leading-snug">
-                Zuverlässige Elektroinstallation & Smart Home für Bielefeld & OWL.
+                Zuverlässige Elektroinstallation & Gebäudetechnik für Bielefeld & OWL.
               </h3>
               <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
-                Inhabergeführter Meisterbetrieb seit 1998. Wir planen, installieren und warten Ihre Anlagen fachgerecht, termintreu und sauber.
+                Inhabergeführter Fachbetrieb in Ihrer Region. Wir planen, installieren und warten Ihre Anlagen fachgerecht, termintreu und sauber.
               </p>
               <div class="flex flex-wrap gap-2 pt-1 text-xs">
                 <span class="bg-white px-3 py-1 rounded-lg border border-pastel-sage font-medium text-ink-800">Installation & Neubau</span>
                 <span class="bg-white px-3 py-1 rounded-lg border border-pastel-sage font-medium text-ink-800">E-Check & Wartung</span>
-                <span class="bg-white px-3 py-1 rounded-lg border border-pastel-sage font-medium text-ink-800">Wallbox & Photovoltaik</span>
+                <span class="bg-white px-3 py-1 rounded-lg border border-pastel-sage font-medium text-ink-800">Wallbox & PV-Anschluss</span>
               </div>
             </div>
 
-            <!-- Direct Contact Card in Demo -->
-            <div class="w-full md:w-auto bg-white p-5 rounded-2xl border border-pastel-sage shadow-xs space-y-3 flex-shrink-0">
-              <div class="text-[11px] font-bold text-ink-500 uppercase font-mono">Direkter Kontakt</div>
+            <!-- Direct Contact Card in Demo (Sichere, inaktive Links) -->
+            <div class="w-full md:w-auto bg-white p-5 rounded-2xl border border-pastel-sage shadow-xs space-y-3 flex-shrink-0 text-left">
+              <div class="text-[11px] font-bold text-ink-500 uppercase font-mono">Muster-Kontakt</div>
               <div class="space-y-1.5 text-xs text-ink-900 font-bold">
-                <div class="flex items-center gap-2 text-pastel-caramelDark">
-                  <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                <div class="flex items-center gap-2 text-ink-950">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 text-pastel-caramel"></i>
                   <span>0521 / 123 456 78</span>
                 </div>
                 <div class="flex items-center gap-2 text-ink-700 font-medium">
                   <i data-lucide="mail" class="w-3.5 h-3.5 text-pastel-caramel"></i>
-                  <span>kontakt@meisterbetrieb.de</span>
+                  <span>kontakt@musterbetrieb-owl.de</span>
                 </div>
               </div>
-              <a href="#kontakt" class="block text-center bg-pastel-sand hover:bg-pastel-caramel hover:text-white text-ink-950 text-xs font-bold py-2.5 px-4 rounded-xl transition-all border border-pastel-caramel/30">
-                Anfrage stellen
+              <a href="#demo" class="block text-center bg-pastel-sand hover:bg-pastel-caramel hover:text-white text-ink-950 text-xs font-bold py-2.5 px-4 rounded-xl transition-all border border-pastel-caramel/30">
+                Formular testen
               </a>
             </div>
           </div>
 
-          <!-- Mockup Key Principles Callout -->
-          <div class="grid sm:grid-cols-3 gap-4 pt-2">
+          <!-- Mockup Leistungs-Schwerpunkte des Handwerksbetriebs (Echte Handwerksinhalte statt Webdesign-Eigenlob) -->
+          <div class="grid sm:grid-cols-3 gap-4 pt-2 text-left">
             <div class="bg-white p-4 rounded-xl border border-pastel-sage/70 text-xs space-y-1">
               <div class="font-bold text-ink-950 flex items-center gap-1.5">
                 <i data-lucide="zap" class="w-3.5 h-3.5 text-pastel-caramel"></i>
-                <span>Schnelle Ladezeit</span>
+                <span>Moderne Hausinstallation</span>
               </div>
-              <p class="text-ink-600 leading-relaxed text-[11px]">Schlanker Programmcode lädt auch im mobilen Netz in unter 1 Sekunde.</p>
+              <p class="text-ink-600 leading-relaxed text-[11px]">Fachgerechte Neu- und Umverkabelung von Wohn- und Gewerbeobjekten nach aktuellen VDE-Normen.</p>
             </div>
             <div class="bg-white p-4 rounded-xl border border-pastel-sage/70 text-xs space-y-1">
               <div class="font-bold text-ink-950 flex items-center gap-1.5">
-                <i data-lucide="smartphone" class="w-3.5 h-3.5 text-pastel-caramel"></i>
-                <span>Mobil optimiert</span>
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-pastel-caramel"></i>
+                <span>E-Check & Betriebssicherheit</span>
               </div>
-              <p class="text-ink-600 leading-relaxed text-[11px]">Kunden und Bewerber erreichen alle Kernfunktionen mit einem Daumenklick.</p>
+              <p class="text-ink-600 leading-relaxed text-[11px]">Prüfung elektrischer Anlagen und Betriebsmittel für Gewerbekunden und Hausverwaltungen mit Prüfprotokoll.</p>
             </div>
             <div class="bg-white p-4 rounded-xl border border-pastel-sage/70 text-xs space-y-1">
               <div class="font-bold text-ink-950 flex items-center gap-1.5">
-                <i data-lucide="file-text" class="w-3.5 h-3.5 text-pastel-caramel"></i>
-                <span>Handwerkstexte</span>
+                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-pastel-caramel"></i>
+                <span>Wallbox & Zählerschrank</span>
               </div>
-              <p class="text-ink-600 leading-relaxed text-[11px]">Kein Standard-Agentursprech, sondern verständliche deutsche Fachtexte.</p>
+              <p class="text-ink-600 leading-relaxed text-[11px]">Vorbereitung und Installation von Ladeinfrastruktur inklusive Anmeldung beim Netzbetreiber.</p>
             </div>
           </div>
 
@@ -953,101 +855,73 @@
   </section>
 
 
-
   <!-- ═══════════════════════════════════════════ -->
-  <!-- 2. DREI KONKRETE VORTEILE                   -->
+  <!-- 3. DREI KONKRETE VORTEILE                   -->
   <!-- ═══════════════════════════════════════════ -->
   <section id="vorteile" class="py-20 px-6 border-t border-pastel-sage/50">
     <div class="max-w-5xl mx-auto space-y-12">
       
       <div class="text-center max-w-2xl mx-auto space-y-3">
-        <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-pastel-caramelDark">
-          Praktischer Nutzen
-        </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
           Drei konkrete Verbesserungen für Ihren Betrieb
         </h2>
         <p class="text-sm sm:text-base text-ink-600 leading-relaxed">
-          Keine abstrakten Werbeversprechen, sondern echte Entlastung im Arbeitsalltag von Meister und Büro.
+          Echte Entlastung im Arbeitsalltag von Meister und Büroteam.
         </p>
       </div>
 
-      <!-- 3 Core Advantages Grid -->
+      <!-- 3 Core Advantages Grid (Klare Nutzenkarten ohne doppelte Footer) -->
       <div class="grid md:grid-cols-3 gap-6">
         
         <!-- Vorteil 1 -->
-        <div class="bg-white rounded-3xl p-7 border border-pastel-sage shadow-xs space-y-4 flex flex-col justify-between tilt-card">
-          <div class="card-glare"></div>
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-pastel-sand border border-pastel-caramel/40 flex items-center justify-center text-pastel-caramelDark">
-              <i data-lucide="layout-grid" class="w-5 h-5"></i>
-            </div>
-            <h3 class="text-lg font-bold text-ink-950">
-              1. Leistungen verständlich zeigen
-            </h3>
-            <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
-              Erklärt klar, welche Arbeiten Ihr Betrieb übernimmt und für wen. Kunden aus Ihrer Region erkennen sofort, ob Sie der passende Ansprechpartner sind – und unpassende Anfragen werden vermieden.
-            </p>
+        <div class="bg-white rounded-3xl p-7 border border-pastel-sage shadow-xs space-y-3 text-left">
+          <div class="w-10 h-10 rounded-xl bg-pastel-sand border border-pastel-caramel/40 flex items-center justify-center text-pastel-caramel">
+            <i data-lucide="layout-grid" class="w-5 h-5"></i>
           </div>
-          <div class="pt-2 text-[11px] font-semibold text-pastel-caramelDark flex items-center gap-1.5">
-            <i data-lucide="check" class="w-3.5 h-3.5"></i>
-            <span>Schluss mit unklaren Leistungsbeschreibungen</span>
-          </div>
+          <h3 class="text-lg font-bold text-ink-950">
+            Leistungen verständlich zeigen
+          </h3>
+          <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
+            Kunden sehen sofort, welche Arbeiten Ihr Betrieb übernimmt und wofür Sie stehen. Interessenten aus Ihrer Region erkennen auf einen Blick, ob Sie der passende Betrieb sind.
+          </p>
         </div>
 
         <!-- Vorteil 2 -->
-        <div class="bg-white rounded-3xl p-7 border border-pastel-sage shadow-xs space-y-4 flex flex-col justify-between tilt-card">
-          <div class="card-glare"></div>
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-pastel-sand border border-pastel-caramel/40 flex items-center justify-center text-pastel-caramelDark">
-              <i data-lucide="clipboard-check" class="w-5 h-5"></i>
-            </div>
-            <h3 class="text-lg font-bold text-ink-950">
-              2. Anfragen mit den wichtigen Angaben erhalten
-            </h3>
-            <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
-              Projektart, Ort und optionale Fotos strukturiert erfassen. Sie sparen sich lange Rückrufe zur Klärung von Basisdaten und können Aufwand und Machbarkeit vor dem ersten Gespräch einschätzen.
-            </p>
+        <div class="bg-white rounded-3xl p-7 border border-pastel-sage shadow-xs space-y-3 text-left">
+          <div class="w-10 h-10 rounded-xl bg-pastel-sand border border-pastel-caramel/40 flex items-center justify-center text-pastel-caramel">
+            <i data-lucide="clipboard-check" class="w-5 h-5"></i>
           </div>
-          <div class="pt-2 text-[11px] font-semibold text-pastel-caramelDark flex items-center gap-1.5">
-            <i data-lucide="check" class="w-3.5 h-3.5"></i>
-            <span>Strukturierte Projektdaten vor dem Anruf</span>
-          </div>
+          <h3 class="text-lg font-bold text-ink-950">
+            Anfragen mit wichtigen Angaben erhalten
+          </h3>
+          <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
+            Statt unklarer Zurufe fragt das Formular die wichtigsten Projektdaten direkt vorab ab. Sie sparen sich zeitraubende Rückfragen und können Aufwand und Machbarkeit gezielt einschätzen.
+          </p>
         </div>
 
         <!-- Vorteil 3 -->
-        <div class="bg-white rounded-3xl p-7 border border-pastel-sage shadow-xs space-y-4 flex flex-col justify-between tilt-card">
-          <div class="card-glare"></div>
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-pastel-sand border border-pastel-caramel/40 flex items-center justify-center text-pastel-caramelDark">
-              <i data-lucide="smartphone" class="w-5 h-5"></i>
-            </div>
-            <h3 class="text-lg font-bold text-ink-950">
-              3. Bewerbungen einfacher machen
-            </h3>
-            <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
-              Interessierte Fachkräfte können ihre Kontaktdaten und relevante Berufserfahrung direkt per Smartphone übermitteln – ohne Lebenslauf-Pflicht oder umständliche PC-Formulare am Feierabend.
-            </p>
+        <div class="bg-white rounded-3xl p-7 border border-pastel-sage shadow-xs space-y-3 text-left">
+          <div class="w-10 h-10 rounded-xl bg-pastel-sand border border-pastel-caramel/40 flex items-center justify-center text-pastel-caramel">
+            <i data-lucide="smartphone" class="w-5 h-5"></i>
           </div>
-          <div class="pt-2 text-[11px] font-semibold text-pastel-caramelDark flex items-center gap-1.5">
-            <i data-lucide="check" class="w-3.5 h-3.5"></i>
-            <span>Hürdenfreier Erstkontakt für Gesellen & Azubis</span>
-          </div>
+          <h3 class="text-lg font-bold text-ink-950">
+            Bewerbungen einfacher machen
+          </h3>
+          <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
+            Fachkräfte und Azubis können sich in wenigen Schritten per Smartphone melden – ohne komplizierten Papierkram oder Lebenslauf-Zwang am Feierabend.
+          </p>
         </div>
 
       </div>
 
-      <!-- Realistische Einordnung: Nachfrage vs. Verarbeitung -->
-      <div class="product-card rounded-2xl p-6 sm:p-8 border border-pastel-sage/70 bg-pastel-sand/20 space-y-3">
-        <div class="flex items-center gap-2 text-xs font-bold font-mono text-pastel-caramelDark uppercase">
-          <i data-lucide="info" class="w-4 h-4"></i>
-          <span>Wichtig zur Erwartungshaltung: Nachfrage & Verarbeitung</span>
+      <!-- Gekürzter Hinweis zur Besucherherkunft -->
+      <div class="rounded-2xl p-6 sm:p-7 border border-pastel-sage/70 bg-pastel-sand/20 space-y-2 text-left">
+        <div class="flex items-center gap-2 text-xs font-bold font-mono text-ink-950 uppercase">
+          <i data-lucide="info" class="w-4 h-4 text-pastel-caramel"></i>
+          <span>Wichtig zur Erwartungshaltung</span>
         </div>
-        <h4 class="text-base sm:text-lg font-extrabold text-ink-950">
-          Woher kommen die Interessenten auf Ihre Website?
-        </h4>
         <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
-          Eine Website ist ein Werkzeug zur Umwandlung vorhandener Nachfrage in strukturierte Kontakte. Sie ersetzt nicht das Vertrauen in Ihren Betrieb, sondern bündelt das Interesse aus bestehenden Weiterempfehlungen, Ihrem Google-Unternehmensprofil, Beschriftungen auf Firmenfahrzeugen (QR-Code) und lokaler Auffindbarkeit in Bielefeld & OWL. Wir versprechen keine automatischen Besucherströme, sondern ein System, das Interessenten verlässlich abholt.
+          Ihre Website hilft, vorhandenes Interesse in konkrete Anfragen umzuwandeln – etwa aus Empfehlungen oder Ihrem Google-Unternehmensprofil. Automatische Besucher- oder Auftragszahlen versprechen wir nicht.
         </p>
       </div>
 
@@ -1056,31 +930,34 @@
 
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- 3. INTERAKTIVE FORMULAR-DEMO                -->
+  <!-- 4. INTERAKTIVE FORMULAR-DEMO                -->
   <!-- ═══════════════════════════════════════════ -->
   <section id="demo" class="py-20 px-6 border-t border-pastel-sage/50 bg-pastel-cream">
     <div class="max-w-4xl mx-auto space-y-10">
       
       <div class="text-center max-w-2xl mx-auto space-y-3">
-        <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-pastel-caramelDark">
-          Interaktive Vorschau
-        </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
           Formular-Abläufe live ausprobieren
         </h2>
         <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
-          So könnte die Bedienung auf Ihrer Website aussehen. Dies ist eine interaktive Demo zur Veranschaulichung; es werden keine Daten übertragen.
+          So könnte die Bedienung auf Ihrer Website aussehen.
         </p>
+        
+        <!-- Sichtbarer Hinweis zur Demo-Sicherheit -->
+        <div class="inline-flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-full border border-pastel-sage text-xs font-semibold text-ink-700 shadow-2xs">
+          <i data-lucide="shield-check" class="w-4 h-4 text-pastel-caramel"></i>
+          <span>Interaktive Demo – es werden keine Daten übermittelt.</span>
+        </div>
 
-        <!-- Segmented Tab Switcher (Klare deutsche Begriffe & Accessible Tabs) -->
+        <!-- Segmented Tab Switcher: Standardmäßig Kundenanfrage testen -->
         <div role="tablist" aria-label="Formular-Demos" class="inline-flex p-1.5 bg-pastel-sand/80 rounded-2xl border border-pastel-caramel/30 mt-4 shadow-xs max-w-full">
-          <button role="tab" aria-selected="true" aria-controls="simView-fachkraft" onclick="switchSimMode('fachkraft')" id="simTab-fachkraft" class="sim-tab-btn active px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-ink-950 bg-white shadow-xs transition-all flex items-center gap-2">
-            <i data-lucide="smartphone" class="w-4 h-4 text-pastel-caramel"></i>
-            <span>Kurzbewerbung testen</span>
-          </button>
-          <button role="tab" aria-selected="false" aria-controls="simView-filter" onclick="switchSimMode('filter')" id="simTab-filter" class="sim-tab-btn px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-medium text-ink-600 hover:text-ink-950 transition-all flex items-center gap-2">
-            <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+          <button role="tab" aria-selected="true" aria-controls="simView-filter" onclick="switchSimMode('filter')" id="simTab-filter" class="sim-tab-btn active px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-ink-950 bg-white shadow-xs transition-all flex items-center gap-2">
+            <i data-lucide="clipboard-list" class="w-4 h-4 text-pastel-caramel"></i>
             <span>Kundenanfrage testen</span>
+          </button>
+          <button role="tab" aria-selected="false" aria-controls="simView-fachkraft" onclick="switchSimMode('fachkraft')" id="simTab-fachkraft" class="sim-tab-btn px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-medium text-ink-600 hover:text-ink-950 transition-all flex items-center gap-2">
+            <i data-lucide="smartphone" class="w-4 h-4"></i>
+            <span>Kurzbewerbung testen</span>
           </button>
         </div>
       </div>
@@ -1088,105 +965,23 @@
       <!-- Demo Container -->
       <div class="bg-white rounded-3xl p-6 sm:p-10 border border-pastel-sage shadow-xl max-w-2xl mx-auto">
         
-        <!-- ── TAB 1: KURZBEWERBUNG ── -->
-        <div id="simView-fachkraft" role="tabpanel" aria-labelledby="simTab-fachkraft" class="sim-view block space-y-6">
+        <!-- ── TAB 1: KUNDENANFRAGE (STANDARD AKTIV) ── -->
+        <div id="simView-filter" role="tabpanel" aria-labelledby="simTab-filter" class="sim-view block space-y-6">
           <div class="flex items-center justify-between border-b border-pastel-sage/50 pb-3">
-            <div>
-              <span class="text-[10px] font-mono font-bold uppercase text-pastel-caramelDark">Modul: Bewerbungen erleichtern</span>
-              <div class="text-sm font-bold text-ink-950">Kurzbewerbung ohne Lebenslauf-Pflicht</div>
-            </div>
-            <div id="fkStepIndicator" class="text-xs font-mono font-bold text-ink-500">Schritt 1 von 3</div>
-          </div>
-
-          <!-- Step 1 -->
-          <div id="fkScreen-1" class="fk-screen block space-y-4">
-            <div class="text-sm font-bold text-ink-900">1. Welche Tätigkeit interessiert Sie in unserem Betrieb?</div>
-            <div class="grid gap-2.5">
-              <button type="button" onclick="setFachkraftStep(2)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-bold text-ink-900 flex items-center justify-between">
-                <span>Geselle / Fachkraft im Handwerk</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
-              </button>
-              <button type="button" onclick="setFachkraftStep(2)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-bold text-ink-900 flex items-center justify-between">
-                <span>Meister / Vorarbeiter / Obermonteur</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
-              </button>
-              <button type="button" onclick="setFachkraftStep(2)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-bold text-ink-900 flex items-center justify-between">
-                <span>Ausbildung im Handwerk (Azubi)</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div id="fkScreen-2" class="fk-screen hidden space-y-4">
-            <div class="text-sm font-bold text-ink-900">2. Welche Berufserfahrung bringen Sie mit?</div>
-            <div class="grid gap-2.5">
-              <button type="button" onclick="setFachkraftStep(3)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-medium text-ink-900 flex items-center justify-between">
-                <span>Abgeschlossene Berufsausbildung</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
-              </button>
-              <button type="button" onclick="setFachkraftStep(3)" class="w-full text-left p-3.5 rounded-xl border-2 border-pastel-caramel bg-pastel-sand/40 transition-all text-xs font-bold text-ink-950 flex items-center justify-between">
-                <span>3+ Jahre Gesellenerfahrung · Führerschein Klasse B vorhanden</span>
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel"></i>
-              </button>
-              <button type="button" onclick="setFachkraftStep(3)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-medium text-ink-900 flex items-center justify-between">
-                <span>Berufseinsteiger / Auf der Suche nach Ausbildungsplatz</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
-              </button>
-            </div>
-            <button type="button" onclick="setFachkraftStep(1)" class="text-xs text-ink-500 hover:text-ink-900 flex items-center gap-1 pt-1">
-              <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-              <span>Zurück zu Schritt 1</span>
-            </button>
-          </div>
-
-          <!-- Step 3: Ergebnis & Nutzen -->
-          <div id="fkScreen-3" class="fk-screen hidden space-y-4">
-            <div class="p-4 bg-pastel-cream rounded-2xl border border-pastel-sage/70 space-y-2.5">
-              <div class="flex items-center gap-2 text-xs font-bold text-ink-950">
-                <i data-lucide="check-circle" class="w-4 h-4 text-pastel-caramel"></i>
-                <span>So geht die Kurzbewerbung bei Ihnen im Betrieb ein:</span>
-              </div>
-              <div class="text-xs text-ink-700 bg-white p-3 rounded-xl border border-pastel-sage/50 space-y-1 font-mono">
-                <div><strong>Bewerber:</strong> Lukas M. (Bielefeld)</div>
-                <div><strong>Interesse:</strong> Geselle im Handwerk</div>
-                <div><strong>Erfahrung:</strong> 4 Jahre Geselle · Führerschein B vorhanden</div>
-                <div><strong>Kontakt:</strong> Mobiltelefon angegeben</div>
-              </div>
-              <p class="text-[11px] text-ink-600 leading-relaxed">
-                Die Daten werden gebündelt per E-Mail oder Benachrichtigung an Ihr Büro oder Smartphone übermittelt – ohne langes Warten auf Bewerbungsmappen.
-              </p>
-            </div>
-            <div class="flex items-center justify-between pt-1">
-              <button type="button" onclick="setFachkraftStep(1)" class="text-xs text-ink-500 hover:text-ink-900 flex items-center gap-1">
-                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
-                <span>Demo zurücksetzen</span>
-              </button>
-              <a href="#kontakt" class="text-xs font-bold text-pastel-caramelDark hover:underline flex items-center gap-1">
-                <span>Für Ihren Betrieb anfragen</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── TAB 2: KUNDENANFRAGE ── -->
-        <div id="simView-filter" role="tabpanel" aria-labelledby="simTab-filter" class="sim-view hidden space-y-6">
-          <div class="flex items-center justify-between border-b border-pastel-sage/50 pb-3">
-            <div>
-              <span class="text-[10px] font-mono font-bold uppercase text-pastel-caramelDark">Modul: Kundenanfragen vorab strukturieren</span>
+            <div class="text-left">
+              <span class="text-[10px] font-mono font-bold uppercase text-ink-500">Modul: Kundenanfragen vorab strukturieren</span>
               <div class="text-sm font-bold text-ink-950">Projektangaben & optionaler Foto-Upload</div>
             </div>
             <div id="filterStepIndicator" class="text-xs font-mono font-bold text-ink-500">Schritt 1 von 3</div>
           </div>
 
           <!-- Step 1 -->
-          <div id="filterScreen-1" class="filter-screen block space-y-4">
+          <div id="filterScreen-1" class="filter-screen block space-y-4 text-left">
             <div class="text-sm font-bold text-ink-900">1. Worum geht es bei Ihrem Anliegen?</div>
             <div class="grid gap-2.5">
-              <button type="button" onclick="setFilterStep(2)" class="w-full text-left p-3.5 rounded-xl border-2 border-pastel-caramel bg-pastel-sand/40 transition-all text-xs font-bold text-ink-950 flex items-center justify-between">
+              <button type="button" onclick="setFilterStep(2)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-bold text-ink-950 flex items-center justify-between">
                 <span>Komplettsanierung / Neuanlage</span>
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel"></i>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
               </button>
               <button type="button" onclick="setFilterStep(2)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-medium text-ink-900 flex items-center justify-between">
                 <span>Reparatur, Wartung & Instandsetzung</span>
@@ -1200,7 +995,7 @@
           </div>
 
           <!-- Step 2 -->
-          <div id="filterScreen-2" class="filter-screen hidden space-y-4">
+          <div id="filterScreen-2" class="filter-screen hidden space-y-4 text-left">
             <div class="text-sm font-bold text-ink-900">2. Zeitrahmen & optionales Foto vom Ist-Zustand</div>
             <div class="p-3 bg-pastel-sand/40 rounded-xl border border-pastel-sage flex items-center gap-3 text-xs text-ink-800">
               <i data-lucide="image" class="w-5 h-5 text-pastel-caramel"></i>
@@ -1220,7 +1015,7 @@
           </div>
 
           <!-- Step 3: Ergebnis & Nutzen -->
-          <div id="filterScreen-3" class="filter-screen hidden space-y-4">
+          <div id="filterScreen-3" class="filter-screen hidden space-y-4 text-left">
             <div class="p-4 bg-pastel-cream rounded-2xl border border-pastel-sage/70 space-y-2.5">
               <div class="flex items-center gap-2 text-xs font-bold text-ink-950">
                 <i data-lucide="check-circle" class="w-4 h-4 text-pastel-caramel"></i>
@@ -1241,7 +1036,89 @@
                 <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
                 <span>Demo zurücksetzen</span>
               </button>
-              <a href="#kontakt" class="text-xs font-bold text-pastel-caramelDark hover:underline flex items-center gap-1">
+              <a href="#kontakt" class="text-xs font-bold text-ink-950 hover:text-pastel-caramel hover:underline flex items-center gap-1">
+                <span>Für Ihren Betrieb anfragen</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TAB 2: KURZBEWERBUNG (ZWEITER TAB) ── -->
+        <div id="simView-fachkraft" role="tabpanel" aria-labelledby="simTab-fachkraft" class="sim-view hidden space-y-6">
+          <div class="flex items-center justify-between border-b border-pastel-sage/50 pb-3">
+            <div class="text-left">
+              <span class="text-[10px] font-mono font-bold uppercase text-ink-500">Modul: Bewerbungen erleichtern</span>
+              <div class="text-sm font-bold text-ink-950">Kurzbewerbung ohne Lebenslauf-Pflicht</div>
+            </div>
+            <div id="fkStepIndicator" class="text-xs font-mono font-bold text-ink-500">Schritt 1 von 3</div>
+          </div>
+
+          <!-- Step 1 -->
+          <div id="fkScreen-1" class="fk-screen block space-y-4 text-left">
+            <div class="text-sm font-bold text-ink-900">1. Welche Tätigkeit interessiert Sie in unserem Betrieb?</div>
+            <div class="grid gap-2.5">
+              <button type="button" onclick="setFachkraftStep(2)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-bold text-ink-900 flex items-center justify-between">
+                <span>Geselle / Fachkraft im Handwerk</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
+              </button>
+              <button type="button" onclick="setFachkraftStep(2)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-bold text-ink-900 flex items-center justify-between">
+                <span>Meister / Vorarbeiter / Obermonteur</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
+              </button>
+              <button type="button" onclick="setFachkraftStep(2)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-bold text-ink-900 flex items-center justify-between">
+                <span>Ausbildung im Handwerk (Azubi)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div id="fkScreen-2" class="fk-screen hidden space-y-4 text-left">
+            <div class="text-sm font-bold text-ink-900">2. Welche Berufserfahrung bringen Sie mit?</div>
+            <div class="grid gap-2.5">
+              <button type="button" onclick="setFachkraftStep(3)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-medium text-ink-900 flex items-center justify-between">
+                <span>Abgeschlossene Berufsausbildung</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
+              </button>
+              <button type="button" onclick="setFachkraftStep(3)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-bold text-ink-950 flex items-center justify-between">
+                <span>3+ Jahre Gesellenerfahrung · Führerschein Klasse B vorhanden</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
+              </button>
+              <button type="button" onclick="setFachkraftStep(3)" class="w-full text-left p-3.5 rounded-xl border border-pastel-sage hover:border-pastel-caramel hover:bg-pastel-sand/40 transition-all text-xs font-medium text-ink-900 flex items-center justify-between">
+                <span>Berufseinsteiger / Auf der Suche nach Ausbildungsplatz</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-ink-400"></i>
+              </button>
+            </div>
+            <button type="button" onclick="setFachkraftStep(1)" class="text-xs text-ink-500 hover:text-ink-900 flex items-center gap-1 pt-1">
+              <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+              <span>Zurück zu Schritt 1</span>
+            </button>
+          </div>
+
+          <!-- Step 3: Ergebnis & Nutzen -->
+          <div id="fkScreen-3" class="fk-screen hidden space-y-4 text-left">
+            <div class="p-4 bg-pastel-cream rounded-2xl border border-pastel-sage/70 space-y-2.5">
+              <div class="flex items-center gap-2 text-xs font-bold text-ink-950">
+                <i data-lucide="check-circle" class="w-4 h-4 text-pastel-caramel"></i>
+                <span>So geht die Kurzbewerbung bei Ihnen im Betrieb ein:</span>
+              </div>
+              <div class="text-xs text-ink-700 bg-white p-3 rounded-xl border border-pastel-sage/50 space-y-1 font-mono">
+                <div><strong>Bewerber:</strong> Lukas M. (Bielefeld)</div>
+                <div><strong>Interesse:</strong> Geselle im Handwerk</div>
+                <div><strong>Erfahrung:</strong> 4 Jahre Geselle · Führerschein B vorhanden</div>
+                <div><strong>Kontakt:</strong> Mobiltelefon angegeben</div>
+              </div>
+              <p class="text-[11px] text-ink-600 leading-relaxed">
+                Die Daten werden gebündelt per E-Mail oder Benachrichtigung an Ihr Büro oder Smartphone übermittelt – ohne langes Warten auf Bewerbungsmappen.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <button type="button" onclick="setFachkraftStep(1)" class="text-xs text-ink-500 hover:text-ink-900 flex items-center gap-1">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                <span>Demo zurücksetzen</span>
+              </button>
+              <a href="#kontakt" class="text-xs font-bold text-ink-950 hover:text-pastel-caramel hover:underline flex items-center gap-1">
                 <span>Für Ihren Betrieb anfragen</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </a>
@@ -1256,31 +1133,19 @@
 
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- 4. DER PROJEKTABLAUF (4 SCHRITTE)           -->
+  <!-- 5. DER PROJEKTABLAUF (4 SCHRITTE)           -->
   <!-- ═══════════════════════════════════════════ -->
   <section id="ablauf" class="py-20 px-6 border-t border-pastel-sage/50">
     <div class="max-w-5xl mx-auto space-y-12">
       
-      <!-- Section Header with Replay Action -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-        <div class="space-y-2 max-w-2xl">
-          <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-brand-indigo">
-            Verlässlicher Zeitplan
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
-            In 4 Schritten zu Ihrer schlüsselfertigen Website
-          </h2>
-          <p class="text-sm sm:text-base text-ink-600 leading-relaxed">
-            Klar geregelter Ablauf mit minimalem Zeitaufwand für Sie als Handwerksmeister.
-          </p>
-        </div>
-        <button type="button" onclick="playAblaufAnimation(true)" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-pastel-sage text-xs font-mono font-bold text-brand-indigo hover:bg-pastel-sand hover:border-brand-indigo/40 transition-all shadow-2xs self-start sm:self-auto cursor-pointer">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
-            <path d="M21 3v5h-5"/>
-          </svg>
-          <span>Ablauf neu abspielen</span>
-        </button>
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
+          In 4 Schritten zu Ihrer schlüsselfertigen Website
+        </h2>
+        <p class="text-sm sm:text-base text-ink-600 leading-relaxed">
+          Klar geregelter Ablauf mit minimalem Zeitaufwand für Sie als Handwerksmeister.
+        </p>
       </div>
 
       <!-- Shared SVG Gradient for Card Border -->
@@ -1295,7 +1160,7 @@
       </svg>
 
       <!-- 4 Process Steps Grid with Animated Connectors -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 relative">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 relative text-left">
         
         <!-- Step 1 -->
         <div id="card-step-1" class="step-card p-6 shadow-xs space-y-3">
@@ -1311,7 +1176,7 @@
             </div>
             <h3 class="text-base font-bold text-ink-950">Bedarf besprechen</h3>
             <p class="text-xs text-ink-600 leading-relaxed">
-              In einem kurzen 15- bis 20-minütigen Telefonat klären wir Ihre angebotenen Leistungen, Ihren regionalen Einzugsbereich und Ihre offenen Stellen.
+              In einem 15- bis 20-minütigen Telefonat klären wir Ihre angebotenen Leistungen, Ihren regionalen Einzugsbereich und Schwerpunkte.
             </p>
           </div>
           <div class="step-connector">
@@ -1336,7 +1201,7 @@
             </div>
             <h3 class="text-base font-bold text-ink-950">Entwurf abstimmen</h3>
             <p class="text-xs text-ink-600 leading-relaxed">
-              Wir erstellen kostenlos einen individuellen Vorab-Entwurf inklusive Texten für Ihr Gewerk. Erst wenn Ihnen das Konzept gefällt, beauftragen Sie uns.
+              Wir erstellen einen individuellen Vorab-Entwurf inklusive Texten für Ihr Gewerk. Erst wenn Ihnen das Konzept gefällt, beauftragen Sie die Umsetzung.
             </p>
           </div>
           <div class="step-connector">
@@ -1359,9 +1224,9 @@
             <div id="badge-step-3" class="step-badge w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center transition-all duration-300">
               03
             </div>
-            <h3 class="text-base font-bold text-ink-950">Schlüsselfertig umsetzen</h3>
+            <h3 class="text-base font-bold text-ink-950">Website umsetzen</h3>
             <p class="text-xs text-ink-600 leading-relaxed">
-              Nach Erhalt aller Freigaben setzen wir Ihre Website und Formulare innerhalb von 7 Werktagen technisch vollständig und schlüsselfertig um.
+              Nach Erhalt aller erforderlichen Freigaben und Inhalte setzen wir Ihre Website und Formulare innerhalb von 7 Werktagen schlüsselfertig um.
             </p>
           </div>
           <div class="step-connector">
@@ -1384,9 +1249,9 @@
             <div id="badge-step-4" class="step-badge w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 text-xs font-mono font-bold text-ink-950 flex items-center justify-center transition-all duration-300">
               04
             </div>
-            <h3 class="text-base font-bold text-ink-950">Prüfen & übergeben</h3>
+            <h3 class="text-base font-bold text-ink-950">Prüfen und übergeben</h3>
             <p class="text-xs text-ink-600 leading-relaxed">
-              Gemeinsame Endabnahme, Aufschaltung auf Ihre Wunschdomain und vollständige Übergabe aller Zugänge. Das System gehört zu 100 % Ihrem Betrieb.
+              Gemeinsame Endabnahme, Aufschaltung auf Ihre Wunschdomain und vollständige Übergabe aller vereinbarten Zugänge und Nutzungsrechte an Ihren Betrieb.
             </p>
           </div>
         </div>
@@ -1397,239 +1262,190 @@
   </section>
 
 
-<section id="preise" class="py-24 px-6 border-t border-pastel-sage/50">
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 6. PREISE (HAUPTPAKET & ZUSATZANGEBOTE)     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="preise" class="py-24 px-6 border-t border-pastel-sage/50">
     <div class="max-w-5xl mx-auto space-y-16">
       
       <div class="text-center max-w-2xl mx-auto">
-        <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-pastel-caramelDark mb-3">
-          100 % Preistransparenz
-        </div>
         <h2 class="text-3xl sm:text-5xl font-extrabold text-ink-950">
-          Klare Festpreise. 0 € Monatsabo.
+          Klare Festpreise. Kein Agentur-Monatsabo.
         </h2>
         <p class="text-ink-600 text-base mt-3">
-          Wählen Sie das Paket, das zu Ihrer aktuellen Betriebsgröße passt. Einmalige Investition – das System gehört zu 100 % Ihnen.
+          Transparente Festpreise für Handwerksbetriebe in Bielefeld & OWL. Einmalige Investition – das System gehört zu 100 % Ihrem Betrieb.
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-3 gap-6 items-stretch">
-        
-        <!-- Karte 1 (Links) -->
-        <div class="bg-white rounded-3xl p-8 border border-pastel-sage shadow-xs flex flex-col justify-between tilt-card">
-          <div class="card-glare"></div>
-          <div>
-            <div class="mb-5">
-              <h3 class="text-lg font-bold text-ink-950">Google- & Bewertungs-Booster</h3>
-              <p class="text-xs text-ink-500 mt-1 leading-snug">Schneller Einstieg für mehr 5-Sterne-Bewertungen & lokale Top-Sichtbarkeit</p>
+      <!-- 1. HAUPTANGEBOT PROMINENT ZUERST (Website-Komplettpaket für 1.490 €) -->
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-white rounded-3xl p-8 sm:p-10 border-2 border-pastel-caramel shadow-xl text-left relative overflow-hidden">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-pastel-sage/50">
+            <div>
+              <span class="text-xs font-bold text-pastel-caramel uppercase tracking-wider font-mono">Hauptangebot</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-ink-950 mt-1">Website-Komplettpaket – 1.490 € netto einmalig</h3>
+              <p class="text-xs sm:text-sm text-ink-600 mt-1">Das schlüsselfertige System für strukturierte Kundenanfragen & einfache Bewerbungen</p>
             </div>
-            
-            <div class="mb-6 pb-6 border-b border-pastel-sage/40">
-              <div class="flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold font-mono text-ink-950">490 €</span>
-                <span class="text-xs font-semibold text-ink-600">/ einmalig</span>
-              </div>
-              <div class="text-[11px] font-mono text-pastel-caramelDark font-bold mt-1">
-                0 € monatliche Gebühren • In 48 Std. startklar
-              </div>
-            </div>
-
-            <ul class="space-y-3 mb-8 text-xs text-ink-700">
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                Komplette Google-Unternehmensprofil-Optimierung für Bielefeld & OWL
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                <strong>5 physische NFC-Bewertungskarten</strong> für Ihre Monteure auf der Baustelle
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                1-Klick-Bewertungslink & QR-Code für Ihre Rechnungen
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                Eintragung in die 25 wichtigsten regionalen Branchenverzeichnisse
-              </li>
-              <li class="flex items-start gap-2.5 font-bold text-ink-950">
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                Direkter Bewertungslink & 5 NFC-Karten für unkompliziertes Kundenfeedback vor Ort
-              </li>
-            </ul>
-          </div>
-
-          <a href="#kontakt" class="block text-center bg-pastel-cream hover:bg-pastel-sand border border-pastel-sage text-ink-900 font-bold text-xs py-3.5 rounded-full transition-all">
-            Booster für 490 € anfragen
-          </a>
-        </div>
-
-        <!-- Karte 2 (Mitte – Hervorgehoben als Website-Komplettpaket) -->
-        <div class="pricing-popular bg-white rounded-3xl p-8 shadow-2xl flex flex-col justify-between tilt-card relative scale-[1.02] z-10">
-          <div class="card-glare"></div>
-          <div>
-            <div class="mb-5 pt-1">
-              <h3 class="text-xl font-extrabold text-ink-950">Website-Komplettpaket</h3>
-              <p class="text-xs text-ink-600 mt-1 leading-snug">Das schlüsselfertige System für strukturiere Kundenanfragen & einfache mobile Kurzbewerbungen</p>
-            </div>
-            
-            <div class="mb-6 pb-6 border-b border-pastel-sage/50">
-              <div class="flex items-baseline gap-2">
+            <div class="sm:text-right flex-shrink-0">
+              <div class="flex sm:justify-end items-baseline gap-1">
                 <span class="text-4xl sm:text-5xl font-extrabold font-mono text-ink-950">1.490 €</span>
-                <span class="text-xs font-semibold text-ink-600">/ netto einmalig</span>
+                <span class="text-xs font-semibold text-ink-600">netto einmalig</span>
               </div>
-              <div class="text-[11px] font-mono text-ink-500 font-bold mt-1">
-                0 € Agentur-Monatsabo • Zzgl. reguläres Hosting (ca. 8–15 €/Monat)
-              </div>
+              <div class="text-xs font-bold text-pastel-caramel mt-0.5">Kein Agentur-Monatsabo</div>
+              <div class="text-[11px] text-ink-500 mt-0.5">Hosting separat: ca. 8–15 € pro Monat</div>
             </div>
+          </div>
 
-            <ul class="space-y-3 mb-8 text-xs text-ink-800 font-medium">
-              <li class="flex items-start gap-2.5 font-bold text-ink-950">
-                <i data-lucide="check-check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                Alles aus „Google- & Bewertungs-Booster“ inklusive (inkl. 5 NFC-Karten)
+          <!-- Enthaltene Leistungen -->
+          <div class="py-6">
+            <div class="text-xs font-bold uppercase tracking-wider text-ink-950 mb-3 font-mono">Enthaltene Leistungen:</div>
+            <ul class="grid sm:grid-cols-2 gap-3 text-xs text-ink-800">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                <span><strong>Schlüsselfertige Website:</strong> Individuelle Gestaltung & professionelle Fachtexte für Ihr Gewerk</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                <strong>Schlüsselfertige Handwerker-Website</strong> – Umsetzung nach Freigabe binnen 7 Werktagen
+                <span><strong>7 Werktage Umsetzung:</strong> Verlässliche Umsetzung nach Erhalt aller Freigaben & Inhalte</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                <strong>Mobiles Kurzbewerbungs-Formular</strong> (Bewerbung per Smartphone ohne Lebenslauf-Pflicht)
+                <span><strong>Kundenanfrage-Formular:</strong> Strukturierte Abfrage von Projektart, Ort & optionalem Foto-Upload</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                <strong>Strukturiertes Kundenanfrage-Formular</strong> mit Projektangaben & optionalem Foto-Upload
+                <span><strong>Mobiles Kurzbewerbungs-Formular:</strong> Hürdenfreie Bewerbung per Smartphone ohne Lebenslauf-Pflicht</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                <strong>Google-Jobs-Vorbereitung (Schema-Markup)</strong> + druckfertiger Bulli-QR-Code
+                <span><strong>Google- & Bewertungs-Basics:</strong> Profil-Optimierung, 5 physische Baustellen-NFC-Karten & Bewertungslink</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                <strong>Rundum-Entlastung:</strong> Wir übernehmen Gestaltung, Texte und Einrichtung – Sie geben frei
+                <span><strong>Google-Jobs & Bulli-QR-Code:</strong> Technische Schema-Vorbereitung für Jobs & druckfertiger Fahrzeug-Code</span>
               </li>
-              <li class="flex items-start gap-2.5 font-bold text-ink-950">
-                <i data-lucide="shield-check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                Kostenloser Vorab-Entwurf: Erst Entwurf ansehen, dann über die Umsetzung entscheiden
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                <span><strong>Rundum-Entlastung:</strong> Wir übernehmen Konzept, Texte und Technik – Sie prüfen und geben frei</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                <span><strong>Unverbindlicher Vorab-Entwurf:</strong> Erst das Design ansehen, dann über die Umsetzung entscheiden</span>
               </li>
             </ul>
           </div>
 
-          <a href="#kontakt" class="block text-center bg-pastel-caramel hover:bg-pastel-caramelHover text-white font-bold text-xs py-4 rounded-full transition-all shadow-md shadow-pastel-caramel/30 hover:-translate-y-0.5">
-            Komplettpaket unverbindlich anfragen
-          </a>
-        </div>
-
-        <!-- Karte 3 (Rechts) -->
-        <div class="bg-white rounded-3xl p-8 border border-pastel-sage shadow-xs flex flex-col justify-between tilt-card">
-          <div class="card-glare"></div>
-          <div>
-            <div class="mb-5">
-              <h3 class="text-lg font-bold text-ink-950">Betriebs-Automation & Telefon-Assistenz</h3>
-              <p class="text-xs text-ink-500 mt-1 leading-snug">Für Betriebe mit hohem Anrufaufkommen und bestehender Büroorganisation</p>
+          <div class="pt-4 border-t border-pastel-sage/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-xs text-ink-600">
+              Vollständige Übergabe aller Zugänge nach Fertigstellung. 100 % Ihr Eigentum.
             </div>
-            
-            <div class="mb-6 pb-6 border-b border-pastel-sage/40">
-              <div class="flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold font-mono text-ink-950">2.990 €</span>
-                <span class="text-xs font-semibold text-ink-600">/ netto einmalig</span>
-              </div>
-              <div class="text-[11px] font-mono text-ink-500 font-bold mt-1">
-                Schlüsselfertiges Setup • Laufende Telefonie- & KI-Minuten nach tatsächlichem Verbrauch
-              </div>
-            </div>
-
-            <ul class="space-y-3 mb-8 text-xs text-ink-700">
-              <li class="flex items-start gap-2.5 font-bold text-ink-950">
-                <i data-lucide="check-check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                Alles aus „Website-Komplettpaket“ inklusive
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                24/7 KI-Telefonassistent für Anrufannahme & Notiz-Weiterleitung
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                Schnittstellen-Anbindung an gängige Handwerker-Software (nach technischer Vorprüfung)
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                Multi-Standort & Mehrgewerke-Setup (z. B. SHK + Elektro)
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
-                Persönliche Einführung für Ihr Büroteam in Bielefeld & OWL
-              </li>
-            </ul>
+            <a href="#kontakt" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-pastel-caramel hover:bg-pastel-caramelHover text-white text-sm font-semibold px-8 py-4 rounded-full transition-all shadow-md shadow-pastel-caramel/25 hover:shadow-lg hover:-translate-y-0.5 flex-shrink-0">
+              <span>Website-Komplettpaket anfragen</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
           </div>
 
-          <a href="#kontakt" class="block text-center bg-pastel-cream hover:bg-pastel-sand border border-pastel-sage text-ink-900 font-bold text-xs py-3.5 rounded-full transition-all">
-            Automation & Telefonie anfragen
-          </a>
         </div>
-
       </div>
 
-    </div>
-
-
-      <!-- Interaktives, transparentes Rechenbeispiel (Instruction 56) -->
-      <div class="product-card rounded-3xl p-7 sm:p-8 border border-pastel-sage bg-pastel-sand/20 space-y-5 max-w-3xl mx-auto tilt-card">
-        <div class="card-glare"></div>
-        <div class="flex items-center justify-between flex-wrap gap-2">
-          <div class="flex items-center gap-2 text-xs font-mono font-bold text-pastel-caramelDark uppercase">
-            <i data-lucide="calculator" class="w-4 h-4"></i>
-            <span>Interaktives Rechenbeispiel zur Orientierung</span>
-          </div>
-          <span class="text-[10px] font-mono font-bold text-ink-500 uppercase">Beispielhafte Kalkulation</span>
+      <!-- 2. ZUSATZ- / ERWEITERUNGSANGEBOTE (Optisch klar untergeordnet im 2-Spalten-Grid) -->
+      <div class="space-y-6">
+        <div class="text-center">
+          <h3 class="text-xl font-bold text-ink-950">Erweiterungen & Spezialpakete</h3>
+          <p class="text-xs text-ink-600 mt-1">Optionale Ergänzungen für gezielte Anforderungen</p>
         </div>
 
-        <div>
-          <h4 class="text-base sm:text-lg font-extrabold text-ink-950">
-            Wann hat sich das Website-Paket rechnerisch amortisiert?
-          </h4>
-          <p class="text-xs sm:text-sm text-ink-600 leading-relaxed mt-1">
-            Wählen Sie den typischen Deckungsbeitrag eines Auftrags in Ihrem Handwerksbetrieb:
-          </p>
-        </div>
+        <div class="grid md:grid-cols-2 gap-6 items-stretch text-left">
+          
+          <!-- Zusatzpaket 1: 490 € -->
+          <div class="bg-white rounded-3xl p-7 border border-pastel-sage shadow-xs flex flex-col justify-between">
+            <div class="space-y-4">
+              <div>
+                <span class="text-[11px] font-mono font-bold text-ink-500 uppercase">Einstieg & Profilpflege</span>
+                <h4 class="text-lg font-bold text-ink-950 mt-0.5">Google- & Bewertungs-Booster</h4>
+                <p class="text-xs text-ink-600 mt-1">Für Betriebe mit bestehender Website, die lokale Sichtbarkeit und Kundenbewertungen verbessern möchten.</p>
+              </div>
 
-        <!-- 3 Interactive Scenario Buttons -->
-        <div class="grid sm:grid-cols-3 gap-2.5">
-          <button type="button" onclick="setCalcScenario(800)" id="calcBtn-800" class="calc-scenario-btn p-3 rounded-2xl border border-pastel-sage bg-white hover:border-pastel-caramel text-left transition-all">
-            <div class="text-[11px] font-bold text-ink-500 font-mono">Kleinerer Auftrag</div>
-            <div class="text-sm font-extrabold font-mono text-ink-950 mt-0.5">ca. 800 €</div>
-            <div class="text-[10px] text-ink-500">z. B. Reparatur / E-Check</div>
-          </button>
-          <button type="button" onclick="setCalcScenario(1500)" id="calcBtn-1500" class="calc-scenario-btn active p-3 rounded-2xl border-2 border-pastel-caramel bg-pastel-sand/50 text-left transition-all shadow-xs">
-            <div class="text-[11px] font-bold text-pastel-caramelDark font-mono">Standard-Auftrag</div>
-            <div class="text-sm font-extrabold font-mono text-ink-950 mt-0.5">ca. 1.500 €</div>
-            <div class="text-[10px] text-ink-600">z. B. Wallbox / Teilsanierung</div>
-          </button>
-          <button type="button" onclick="setCalcScenario(3500)" id="calcBtn-3500" class="calc-scenario-btn p-3 rounded-2xl border border-pastel-sage bg-white hover:border-pastel-caramel text-left transition-all">
-            <div class="text-[11px] font-bold text-ink-500 font-mono">Größeres Projekt</div>
-            <div class="text-sm font-extrabold font-mono text-ink-950 mt-0.5">ca. 3.500 €+</div>
-            <div class="text-[10px] text-ink-500">z. B. Badsanierung / Zählerschrank</div>
-          </button>
-        </div>
+              <div class="py-3 border-y border-pastel-sage/40">
+                <div class="flex items-baseline gap-1">
+                  <span class="text-3xl font-extrabold font-mono text-ink-950">490 €</span>
+                  <span class="text-xs font-semibold text-ink-600">netto einmalig</span>
+                </div>
+                <div class="text-[11px] text-ink-500 mt-0.5">0 € monatliche Gebühren · Schnelle Umsetzung in wenigen Werktagen</div>
+              </div>
 
-        <!-- Dynamic Calculation Results -->
-        <div class="bg-white p-5 rounded-2xl border border-pastel-sage/70 space-y-2.5 text-xs text-ink-800">
-          <div class="flex justify-between items-center py-1 border-b border-pastel-sage/40">
-            <span>Einmalige Investition (Website-Komplettpaket):</span>
-            <span class="font-mono font-bold text-ink-950">1.490 € netto</span>
-          </div>
-          <div class="flex justify-between items-center py-1 border-b border-pastel-sage/40">
-            <span>Gewählter beispielhafter Deckungsbeitrag:</span>
-            <span id="calcValSelected" class="font-mono font-bold text-pastel-caramelDark">ca. 1.500 €</span>
-          </div>
-          <div class="flex justify-between items-center py-1.5 pt-2">
-            <span class="font-bold text-ink-900">Rechnerisches Ergebnis:</span>
-            <span id="calcValResult" class="font-bold text-ink-950 font-mono bg-pastel-sand/60 px-3 py-1 rounded-lg border border-pastel-caramel/30">
-              Bereits mit dem 1. Auftrag amortisiert
-            </span>
-          </div>
-        </div>
+              <ul class="space-y-2.5 text-xs text-ink-700">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                  <span>Komplette Optimierung Ihres Google-Unternehmensprofils für Bielefeld & OWL</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                  <span>5 physische NFC-Bewertungskarten für Monteure auf der Baustelle</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                  <span>1-Klick-Bewertungslink & druckfertiger QR-Code für Rechnungen</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                  <span>Eintragung und Bereinigung in 25 relevanten regionalen Branchenverzeichnissen</span>
+                </li>
+              </ul>
+            </div>
 
-        <div class="text-[11px] text-ink-500 leading-snug">
-          Hinweis: Jeder Handwerksbetrieb arbeitet mit unterschiedlichen Margen und Kapazitäten. Das Rechenbeispiel ist unverbindlich und stellt keine Garantie dar. Das System verursacht 0 € laufende Agentur-Monatsabos.
+            <div class="pt-6">
+              <a href="#kontakt" class="block text-center bg-pastel-sand hover:bg-white border border-pastel-sage text-ink-900 font-bold text-xs py-3 rounded-xl transition-all">
+                Booster für 490 € anfragen
+              </a>
+            </div>
+          </div>
+
+          <!-- Zusatzpaket 2: 2.990 € -->
+          <div class="bg-white rounded-3xl p-7 border border-pastel-sage shadow-xs flex flex-col justify-between">
+            <div class="space-y-4">
+              <div>
+                <span class="text-[11px] font-mono font-bold text-ink-500 uppercase">Automation & Telefonie</span>
+                <h4 class="text-lg font-bold text-ink-950 mt-0.5">Betriebs-Automation & Telefon-Assistenz</h4>
+                <p class="text-xs text-ink-600 mt-1">Für Betriebe mit hohem Anrufaufkommen und bestehender Büroorganisation.</p>
+              </div>
+
+              <div class="py-3 border-y border-pastel-sage/40">
+                <div class="flex items-baseline gap-1">
+                  <span class="text-3xl font-extrabold font-mono text-ink-950">2.990 €</span>
+                  <span class="text-xs font-semibold text-ink-600">netto einmalig</span>
+                </div>
+                <div class="text-[11px] text-ink-500 mt-0.5">Laufende Telefonie- & KI-Minuten nach tatsächlichem Verbrauch</div>
+              </div>
+
+              <ul class="space-y-2.5 text-xs text-ink-700">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                  <span><strong>Alles aus „Website-Komplettpaket“ inklusive</strong></span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                  <span>24/7 KI-Telefonassistent für Anrufannahme & Notiz-Weiterleitung</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                  <span>Schnittstellen-Anbindung an gängige Handwerker-Software (nach technischer Vorprüfung)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0 mt-0.5"></i>
+                  <span>Persönliche Einrichtung & Einführung für Ihr Büroteam in Bielefeld & OWL</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-6">
+              <a href="#kontakt" class="block text-center bg-pastel-sand hover:bg-white border border-pastel-sage text-ink-900 font-bold text-xs py-3 rounded-xl transition-all">
+                Automation für 2.990 € anfragen
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -1638,29 +1454,29 @@
 
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- 5. PERSÖNLICHER ANBIETERBEREICH             -->
+  <!-- 7. PERSÖNLICHER ANSPRECHPARTNER             -->
   <!-- ═══════════════════════════════════════════ -->
   <section id="ueber-uns" class="py-20 px-6 border-t border-pastel-sage/50 bg-pastel-cream">
     <div class="max-w-4xl mx-auto space-y-8">
       
       <div class="text-center max-w-2xl mx-auto space-y-3">
-        <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-pastel-caramelDark">
-          Persönlich vor Ort
-        </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
-          Wer hinter SparrenWeb steht
+          Persönlicher Ansprechpartner
         </h2>
         <p class="text-sm sm:text-base text-ink-600 leading-relaxed">
-          Keine unpersönliche Großagentur mit wechselnden Callcenter-Mitarbeitern, sondern ein fester, verlässlicher Ansprechpartner in Bielefeld.
+          Keine anonyme Großagentur mit wechselnden Callcenter-Mitarbeitern, sondern direkte Betreuung in Bielefeld & OWL.
         </p>
       </div>
 
       <div class="bg-white rounded-3xl p-8 sm:p-10 border border-pastel-sage shadow-md space-y-6">
-        <div class="grid md:grid-cols-12 gap-8 items-center">
+        <div class="grid md:grid-cols-12 gap-8 items-center text-left">
           
+          <!-- Profilbild-Container / Hook für Foto -->
           <div class="md:col-span-4 flex flex-col items-center text-center space-y-3">
-            <div class="w-24 h-24 rounded-full bg-pastel-sand border-2 border-pastel-caramel/40 flex items-center justify-center text-pastel-caramelDark text-2xl font-mono font-extrabold">
-              SW
+            <div id="author-photo-container" class="w-28 h-28 rounded-2xl bg-pastel-sand border border-pastel-sage flex flex-col items-center justify-center p-3 text-ink-600 overflow-hidden relative shadow-2xs">
+              <!-- Platzhalter für echtes Foto des Gründers/Inhabers -->
+              <i data-lucide="user" class="w-10 h-10 text-pastel-caramel mb-1"></i>
+              <span class="text-[10px] font-mono font-medium text-ink-500">SparrenWeb Ansprechpartner</span>
             </div>
             <div>
               <div class="font-extrabold text-base text-ink-950">SparrenWeb</div>
@@ -1669,31 +1485,20 @@
           </div>
 
           <div class="md:col-span-8 space-y-3 text-xs sm:text-sm text-ink-600 leading-relaxed">
-            <!-- GEO / AI Synthesis Entity Definition Box -->
-            <div class="p-3.5 bg-pastel-sand/50 rounded-xl border border-brand-indigo/20 text-xs text-ink-800 space-y-1.5 font-medium">
-              <div class="font-bold text-brand-indigo flex items-center gap-1.5 font-mono text-[11px] uppercase">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-indigo"></i>
-                <span>SparrenWeb Unternehmensprofil · Bielefeld &amp; OWL</span>
-              </div>
-              <p class="leading-relaxed text-[11px]">
-                <strong>SparrenWeb</strong> ist der spezialisierte Webdesign-Dienstleister für Meisterbetriebe und Handwerksunternehmen in Bielefeld, Gütersloh, Herford, Paderborn und ganz Ostwestfalen-Lippe (OWL). Wir entwickeln schlüsselfertige Websites zum garantierten Einmal-Festpreis von <strong>1.490 € netto</strong> (0 € monatliches Agenturabo) mit strukturierter Kundenanfrage-Vorqualifizierung, Foto-Upload und 60-Sekunden-Kurzbewerbungen ohne Lebenslauf.
-              </p>
-            </div>
-
             <p>
-              Handwerksmeister haben keine Zeit, sich mit Agentur-Kauderwelsch, unklaren monatlichen Retainern oder überladenen Technik-Systemen herumzuschlagen. Wenn auf der Baustelle gearbeitet wird, muss die Website im Hintergrund verlässlich funktionieren.
+              Handwerksmeister haben keine Zeit für Agentur-Kauderwelsch, unklare Monatsabos oder überladene Software-Systeme. Wenn auf der Baustelle gearbeitet wird, muss die Website im Hintergrund verlässlich funktionieren.
             </p>
             <p>
-              Wir entwickeln schlüsselfertige Internetseiten speziell für Handwerksbetriebe in Bielefeld, Gütersloh, Herford, Paderborn und ganz OWL. Direkt erreichbar, transparent kalkuliert und mit einem klaren Fokus auf das, was im Alltag zählt: strukturierte Anfragen und einfache Bewerbungen.
+              Wir entwickeln schlüsselfertige Internetseiten speziell für Handwerksbetriebe in Bielefeld, Gütersloh, Herford, Paderborn und ganz OWL. Direkt erreichbar, transparent kalkuliert und mit klarem Fokus auf das, was im Alltag zählt: strukturierte Anfragen und einfache Bewerbungen.
             </p>
             <div class="pt-2 flex flex-wrap gap-4 text-xs font-bold text-ink-900">
               <div class="flex items-center gap-1.5">
                 <i data-lucide="phone" class="w-4 h-4 text-pastel-caramel"></i>
-                <span>Direkter Draht: <a href="tel:05212580910" class="hover:underline text-pastel-caramelDark">0521 / 25 80 910</a></span>
+                <span>Direkter Draht: <a href="tel:05212580910" class="hover:underline text-ink-950">0521 / 25 80 910</a></span>
               </div>
               <div class="flex items-center gap-1.5">
                 <i data-lucide="mail" class="w-4 h-4 text-pastel-caramel"></i>
-                <span>E-Mail: hallo@sparrenweb.de</span>
+                <span>E-Mail: <a href="mailto:hallo@sparrenweb.de" class="hover:underline text-ink-950">hallo@sparrenweb.de</a></span>
               </div>
             </div>
           </div>
@@ -1705,17 +1510,13 @@
   </section>
 
 
-
   <!-- ═══════════════════════════════════════════ -->
-  <!-- 6. FAQ ACCORDION                            -->
+  <!-- 8. FAQ & ABSCHLIESSENDER KONTAKT            -->
   <!-- ═══════════════════════════════════════════ -->
-  <section id="faq" class="py-20 px-6 border-t border-pastel-sage/50 bg-pastel-sand/10">
+<section id="faq" class="py-20 px-6 border-t border-pastel-sage/50 bg-pastel-sand/10">
     <div class="max-w-3xl mx-auto space-y-10">
       
       <div class="text-center max-w-2xl mx-auto space-y-3">
-        <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-pastel-caramelDark">
-          Häufige Fragen
-        </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
           Klare Antworten vor der Zusammenarbeit
         </h2>
@@ -1839,22 +1640,18 @@
 <section id="kontakt" class="py-24 px-6 border-t border-pastel-sage/50 bg-pastel-sand/30">
     <div class="max-w-4xl mx-auto">
       
-      <div class="product-card rounded-3xl p-8 sm:p-12 border border-pastel-sage shadow-xl text-left space-y-6 tilt-card max-w-2xl mx-auto">
-        <div class="card-glare"></div>
+      <div class="rounded-3xl p-8 sm:p-12 border border-pastel-sage bg-white shadow-xl text-left space-y-6 max-w-2xl mx-auto">
         
         <div class="text-center space-y-2">
-          <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-pastel-caramelDark">
-            Unverbindliche Anfrage
-          </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-950">
-            Projekt unverbindlich anfragen
+            Passt das zu Ihrem Betrieb?
           </h2>
           <p class="text-ink-600 text-sm max-w-lg mx-auto leading-relaxed">
-            Beschreiben Sie kurz Ihren Bedarf. Wir melden uns innerhalb von 1–2 Werktagen für ein kurzes, unverbindliches 15-Minuten-Gespräch bei Ihnen.
+            Sprechen wir in 15 Minuten über Ihre Vorstellungen. Kostenlos, unverbindlich und direkt auf Ihr Gewerk bezogen.
           </p>
         </div>
 
-        <!-- Accessible, Validated Form -->
+        <!-- Accessible, Validated Form (Rein clientseitig simuliert, keine persistente Speicherung) -->
         <form id="projectContactForm" onsubmit="handleFormSubmit(event)" class="space-y-4 pt-2">
           <div id="formFeedback" class="hidden p-4 rounded-xl border text-xs leading-relaxed"></div>
 
@@ -1911,7 +1708,7 @@
             <strong>Was passiert nach dem Absenden?</strong> Wir sichten Ihre Angaben und melden uns telefonisch bei Ihnen, um Ihren genauen Bedarf in einem 15-minütigen Gespräch zu klären. Es entsteht keinerlei Kaufverpflichtung.
           </div>
 
-          <button type="submit" id="contactSubmitBtn" class="w-full bg-pastel-caramel hover:bg-pastel-caramelHover text-white font-bold text-sm py-4 rounded-full transition-all shadow-md shadow-pastel-caramel/30 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+          <button type="submit" id="contactSubmitBtn" class="w-full bg-pastel-caramel hover:bg-pastel-caramelHover text-white font-bold text-sm py-4 rounded-full transition-all shadow-md shadow-pastel-caramel/30 hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
             <i data-lucide="send" class="w-4 h-4"></i>
             <span>Projekt unverbindlich anfragen</span>
           </button>
@@ -1928,14 +1725,9 @@
 
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- FOOTER                                      -->
-  <!-- ═══════════════════════════════════════════ -->
-  
-
-  <!-- ═══════════════════════════════════════════ -->
   <!-- FOOTER & RECHTSHINWEISE                     -->
   <!-- ═══════════════════════════════════════════ -->
-  <footer class="border-t border-pastel-sage/50 py-12 px-6 bg-pastel-cream">
+<footer class="border-t border-pastel-sage/50 py-12 px-6 bg-pastel-cream">
     <div class="max-w-5xl mx-auto space-y-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-pastel-sage/40 pb-6">
         <div class="flex items-center gap-3">
@@ -1949,11 +1741,11 @@
           <span class="text-sm font-bold text-ink-950">SparrenWeb · Bielefeld & Ostwestfalen-Lippe</span>
         </div>
         <div class="flex flex-wrap items-center gap-4 text-xs text-ink-600 font-medium">
-          <a href="#beispiel" class="hover:text-ink-950 transition-colors">Beispiel</a>
-          <a href="#vorteile" class="hover:text-ink-950 transition-colors">Vorteile</a>
-          <a href="#demo" class="hover:text-ink-950 transition-colors">Formular-Demo</a>
+          <a href="#beispiel" class="hover:text-ink-950 transition-colors">Beispiele</a>
+          <a href="#vorteile" class="hover:text-ink-950 transition-colors">Leistungen</a>
           <a href="#ablauf" class="hover:text-ink-950 transition-colors">Ablauf</a>
           <a href="#preise" class="hover:text-ink-950 transition-colors">Preise</a>
+          <a href="#ueber-uns" class="hover:text-ink-950 transition-colors">Über uns</a>
           <a href="#faq" class="hover:text-ink-950 transition-colors">FAQ</a>
           <a href="#kontakt" class="hover:text-ink-950 transition-colors">Kontakt</a>
         </div>
@@ -1970,6 +1762,7 @@
       </div>
     </div>
   </footer>
+
 
   <!-- ═══════════════════════════════════════════ -->
   <!-- JAVASCRIPT & INTERACTIVE CONTROLLERS        -->
@@ -1991,8 +1784,6 @@
       try { initMobileMenu(); } catch (e) { console.error('MobileMenu error:', e); }
       try { init3DTilt(); } catch (e) { console.error('Tilt error:', e); }
       try { initGSAPAnimations(); } catch (e) { console.error('GSAPAnim error:', e); }
-      try { animateHeroGraph(); } catch (e) { console.error('HeroGraph error:', e); }
-      try { initGraphScrubbing(); } catch (e) { console.error('GraphScrub error:', e); }
       try { initAblaufProcessAnimation(); } catch (e) { console.error('Ablauf error:', e); }
 
       // Refresh ScrollTrigger calculations after initial layout settles
@@ -2022,24 +1813,67 @@
       });
     }
 
-    // ─── Mobile Menu Toggle ───
+    // ─── Accessible Mobile Menu ───
     function initMobileMenu() {
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('mobile-menu-icon');
       if (!mobileMenuBtn || !mobileMenu) return;
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+
+      function openMenu() {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        mobileMenuBtn.setAttribute('aria-label', 'Menü schließen');
+        if (menuIcon) {
+          menuIcon.setAttribute('data-lucide', 'x');
+          lucide.createIcons();
+        }
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.setAttribute('aria-label', 'Menü öffnen');
+        if (menuIcon) {
+          menuIcon.setAttribute('data-lucide', 'menu');
+          lucide.createIcons();
+        }
+      }
+
+      mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
       });
+
       mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
+          closeMenu();
         });
+      });
+
+      // Close on ESC key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          closeMenu();
+          mobileMenuBtn.focus();
+        }
+      });
+
+      // Close on click outside
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+          closeMenu();
+        }
       });
     }
 
-
     // ═══════════════════════════════════════════
-    // GSAP HERO & SCROLLTRIGGER ANIMATIONS
+    // GSAP SCROLLTRIGGER ANIMATIONS
     // ═══════════════════════════════════════════
     function initGSAPAnimations() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -2051,19 +1885,11 @@
 
       // Hero Elements Staggered Entrance
       gsap.from('.hero-anim-item', {
-        y: 24,
+        y: 20,
         opacity: 0,
-        duration: 0.85,
+        duration: 0.8,
         stagger: 0.08,
         ease: "power3.out"
-      });
-
-      gsap.from('.hero-anim-graph', {
-        scale: 0.95,
-        opacity: 0,
-        duration: 1.0,
-        ease: "power2.out",
-        delay: 0.15
       });
 
       // ScrollTrigger for Sections
@@ -2081,10 +1907,10 @@
                 start: "top 82%",
                 toggleActions: "play none none none"
               },
-              y: 28,
+              y: 24,
               opacity: 0,
-              duration: 0.7,
-              stagger: 0.1,
+              duration: 0.65,
+              stagger: 0.08,
               ease: "power2.out"
             });
           }
@@ -2092,136 +1918,8 @@
       }
     }
 
-
     // ═══════════════════════════════════════════
-    // HERO SELF-DRAWING TRAJECTORY GRAPH (GSAP)
-    // ═══════════════════════════════════════════
-    function animateHeroGraph(replay = false) {
-      const curve = document.getElementById('heroGraphCurve');
-      const area = document.getElementById('heroGraphArea');
-      const counter1 = document.getElementById('counterStat1');
-      const counter3 = document.getElementById('counterStat3');
-      if (!curve) return;
-
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduced) {
-        curve.style.strokeDashoffset = '0';
-        if (area) area.style.opacity = '1';
-        ['milestone1', 'milestone2', 'milestone3'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.style.opacity = '1';
-        });
-        if (counter1) counter1.textContent = '184';
-        if (counter3) counter3.textContent = '4,5';
-        return;
-      }
-
-      const length = curve.getTotalLength();
-      curve.style.strokeDasharray = length;
-      curve.style.strokeDashoffset = length;
-
-      if (area) area.style.opacity = '0';
-      ['milestone1', 'milestone2', 'milestone3'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.style.opacity = '0';
-      });
-
-      if (typeof gsap === 'undefined') {
-        curve.style.strokeDashoffset = '0';
-        if (area) area.style.opacity = '1';
-        return;
-      }
-
-      const tl = gsap.timeline();
-
-      // 1. Draw SVG Path from 0, 0 upwards
-      tl.to(curve, {
-        strokeDashoffset: 0,
-        duration: 2.2,
-        ease: "power2.out",
-        onUpdate: function() {
-          const p = tl.progress();
-          if (p >= 0.28) gsap.to('#milestone1', { opacity: 1, duration: 0.3, overwrite: 'auto' });
-          if (p >= 0.58) gsap.to('#milestone2', { opacity: 1, duration: 0.3, overwrite: 'auto' });
-          if (p >= 0.94) gsap.to('#milestone3', { opacity: 1, duration: 0.3, overwrite: 'auto' });
-        }
-      });
-
-      // 2. Fade in shaded area under curve
-      tl.to(area, {
-        opacity: 1,
-        duration: 0.8,
-        ease: "power1.out"
-      }, "-=1.2");
-
-      // 3. Number Counter Odometer for Stats
-      const stat1Obj = { val: 0 };
-      tl.to(stat1Obj, {
-        val: 184,
-        duration: 1.8,
-        ease: "power2.out",
-        onUpdate: () => {
-          if (counter1) counter1.textContent = Math.round(stat1Obj.val);
-        }
-      }, "-=1.8");
-
-      const stat3Obj = { val: 0 };
-      tl.to(stat3Obj, {
-        val: 4.5,
-        duration: 1.8,
-        ease: "power2.out",
-        onUpdate: () => {
-          if (counter3) counter3.textContent = stat3Obj.val.toFixed(1).replace('.', ',');
-        }
-      }, "-=1.8");
-    }
-
-    // Interactive Graph Scrubbing Tooltip
-    function initGraphScrubbing() {
-      const container = document.getElementById('graphContainer');
-      const svg = document.getElementById('heroGraphSvg');
-      const tooltip = document.getElementById('graphTooltip');
-      const tooltipVal = document.getElementById('graphTooltipVal');
-      const tooltipStage = document.getElementById('graphTooltipStage');
-      if (!container || !svg || !tooltip) return;
-
-      svg.addEventListener('mousemove', (e) => {
-        const rect = svg.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const normX = mouseX / rect.width;
-
-        tooltip.classList.remove('hidden');
-        tooltip.style.left = `${mouseX}px`;
-        tooltip.style.top = `${e.clientY - rect.top}px`;
-
-        if (normX < 0.22) {
-          tooltipVal.textContent = 'Status Quo: 0 Vorab-Filter';
-          tooltipStage.textContent = 'Woche 0: Viele unklare Telefonnotizen';
-        } else if (normX < 0.45) {
-          tooltipVal.textContent = '+5 qualifizierte Anfragen';
-          tooltipStage.textContent = 'Woche 2: Neuer Web-Auftritt online';
-        } else if (normX < 0.70) {
-          tooltipVal.textContent = '+16 strukturierte Kontakte';
-          tooltipStage.textContent = 'Woche 4: Vorab-Fotos & Zeitfenster erfasst';
-        } else if (normX < 0.88) {
-          tooltipVal.textContent = '+25 gefilterte Anfragen';
-          tooltipStage.textContent = 'Woche 6: Kaum noch zeitraubende Rückrufe';
-        } else {
-          tooltipVal.textContent = '+30+ planbare Anfragen';
-          tooltipStage.textContent = 'Woche 8+: Passende Kunden & Gesellen';
-        }
-      });
-
-      svg.addEventListener('mouseleave', () => {
-        tooltip.classList.add('hidden');
-      });
-    }
-
-
-
-
-    // ═══════════════════════════════════════════
-    // 3D TILT EFFECT WITH SPECULAR GLARE
+    // 3D TILT EFFECT
     // ═══════════════════════════════════════════
     function init3DTilt() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -2235,14 +1933,14 @@
           const y = e.clientY - rect.top;
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
-          const rotateX = ((y - centerY) / centerY) * -3.5;
-          const rotateY = ((x - centerX) / centerX) * 3.5;
+          const rotateX = ((y - centerY) / centerY) * -3;
+          const rotateY = ((x - centerX) / centerX) * 3;
 
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.008, 1.008, 1.008)`;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.005, 1.005, 1.005)`;
 
           if (glare) {
-            glare.style.opacity = '0.35';
-            glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.8) 0%, transparent 60%)`;
+            glare.style.opacity = '0.3';
+            glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.7) 0%, transparent 60%)`;
           }
         });
 
@@ -2253,9 +1951,8 @@
       });
     }
 
-
     // ═══════════════════════════════════════════
-    // FORMULAR-DEMO TAB SWITCHER (SMOOTH TRANSITIONS)
+    // INTERAKTIVE SIMULATOR TABS (KUNDENANFRAGE / KURZBEWERBUNG)
     // ═══════════════════════════════════════════
     function switchSimMode(modeKey) {
       document.querySelectorAll('.sim-tab-btn').forEach(btn => {
@@ -2287,7 +1984,6 @@
       lucide.createIcons();
     }
 
-    // Tab 1: Kurzbewerbung (3 Schritte)
     function setFachkraftStep(stepNum) {
       for (let i = 1; i <= 3; i++) {
         const screen = document.getElementById(`fkScreen-${i}`);
@@ -2311,7 +2007,6 @@
       lucide.createIcons();
     }
 
-    // Tab 2: Kundenanfrage (3 Schritte)
     function setFilterStep(stepNum) {
       for (let i = 1; i <= 3; i++) {
         const screen = document.getElementById(`filterScreen-${i}`);
@@ -2335,70 +2030,37 @@
       lucide.createIcons();
     }
 
-
-    // ═══════════════════════════════════════════
-    // INTERACTIVE AMORTISATION CALCULATOR
-    // ═══════════════════════════════════════════
-    function setCalcScenario(val) {
-      document.querySelectorAll('.calc-scenario-btn').forEach(btn => {
-        btn.classList.remove('active', 'border-2', 'border-pastel-caramel', 'bg-pastel-sand/50', 'shadow-xs');
-        btn.classList.add('border', 'border-pastel-sage', 'bg-white');
-      });
-
-      const activeBtn = document.getElementById(`calcBtn-${val}`);
-      if (activeBtn) {
-        activeBtn.classList.add('active', 'border-2', 'border-pastel-caramel', 'bg-pastel-sand/50', 'shadow-xs');
-        activeBtn.classList.remove('border-pastel-sage', 'bg-white');
-      }
-
-      const valSelected = document.getElementById('calcValSelected');
-      const valResult = document.getElementById('calcValResult');
-      if (!valSelected || !valResult) return;
-
-      if (val === 800) {
-        valSelected.textContent = 'ca. 800 €';
-        valResult.textContent = 'Rechnerisch nach 2 Aufträgen amortisiert (1.600 € Ertrag)';
-      } else if (val === 1500) {
-        valSelected.textContent = 'ca. 1.500 €';
-        valResult.textContent = 'Bereits mit dem 1. Auftrag amortisiert';
-      } else if (val === 3500) {
-        valSelected.textContent = 'ca. 3.500 €+';
-        valResult.textContent = 'Bereits mit 1 Auftrag überkompensiert (+2.010 € Überschuss)';
-      }
-
-      if (typeof gsap !== 'undefined' && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        gsap.fromTo([valSelected, valResult], { opacity: 0.4, scale: 0.98 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power1.out" });
-      }
-    }
-
-
     // ═══════════════════════════════════════════
     // FAQ ACCORDION
     // ═══════════════════════════════════════════
     function toggleFAQ(button) {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
       const answer = button.nextElementSibling;
-      const icon = button.querySelector('[data-lucide="chevron-down"]');
-      const isOpen = answer.classList.contains('open');
+      const icon = button.querySelector('i');
 
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-answer').forEach(a => {
-        const btn = a.previousElementSibling;
-        const ico = btn.querySelector('[data-lucide="chevron-down"]');
-        if (ico) ico.style.transform = 'rotate(0deg)';
+      // Close all other open FAQs
+      document.querySelectorAll('#faq button[aria-expanded="true"]').forEach(openBtn => {
+        if (openBtn !== button) {
+          openBtn.setAttribute('aria-expanded', 'false');
+          const otherAns = openBtn.nextElementSibling;
+          if (otherAns) otherAns.style.maxHeight = null;
+          const otherIcon = openBtn.querySelector('i');
+          if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+        }
       });
 
-      if (!isOpen) {
-        answer.classList.add('open');
-        button.setAttribute('aria-expanded', 'true');
+      button.setAttribute('aria-expanded', !expanded);
+      if (!expanded) {
+        answer.style.maxHeight = answer.scrollHeight + 32 + 'px';
         if (icon) icon.style.transform = 'rotate(180deg)';
       } else {
-        button.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+        if (icon) icon.style.transform = 'rotate(0deg)';
       }
     }
 
-
     // ═══════════════════════════════════════════
-    // ACCESSIBLE FORM VALIDATION & SUBMISSION
+    // FORMULAR-HANDLING (CLIENTSEITIG OHNE PERSISTENZ)
     // ═══════════════════════════════════════════
     function handleFormSubmit(e) {
       e.preventDefault();
@@ -2435,23 +2097,7 @@
       };
       const packageLabel = packageNames[packageVal] || 'Website-Komplettpaket';
 
-      // Safe local storage
-      const leadData = {
-        name,
-        phone,
-        email,
-        package: packageLabel,
-        location,
-        message,
-        timestamp: new Date().toISOString()
-      };
-      try {
-        sessionStorage.setItem('sparrenweb_anfrage', JSON.stringify(leadData));
-      } catch (err) {
-        // Fallback silently
-      }
-
-      // Render verified confirmation
+      // Render verified confirmation (Rein in-memory, keine Speicherung)
       feedback.classList.remove('hidden', 'bg-[#E2E8F0]', 'border-[#64748B]', 'text-[#0F172A]');
       feedback.classList.add('block', 'bg-[#E2E8F0]', 'border-[#2563EB]', 'text-[#0F172A]');
       feedback.innerHTML = `
@@ -2462,7 +2108,7 @@
           <div class="space-y-1">
             <div class="font-bold text-sm text-[#0F172A]">Vielen Dank für Ihre Anfrage!</div>
             <p class="text-xs text-[#64748B] leading-relaxed">
-              Ihre Projektdaten für <strong class="text-[#0F172A]">${escapeHtml(packageLabel)}</strong> wurden erfasst. Wir melden uns innerhalb von 1–2 Werktagen telefonisch unter <strong class="text-[#0F172A]">${escapeHtml(phone)}</strong> bei Ihnen für das kurze 15-Minuten-Gespräch.
+              Ihre Angaben für <strong class="text-[#0F172A]">${escapeHtml(packageLabel)}</strong> wurden übermittelt. Wir melden uns innerhalb von 1–2 Werktagen telefonisch unter <strong class="text-[#0F172A]">${escapeHtml(phone)}</strong> bei Ihnen für das unverbindliche 15-Minuten-Gespräch.
             </p>
           </div>
         </div>
@@ -2478,25 +2124,23 @@
 
     function showFormFeedback(type, text) {
       const feedback = document.getElementById('formFeedback');
+      if (!feedback) return;
+      feedback.className = 'block p-3.5 rounded-xl border text-xs leading-relaxed bg-white border-[#64748B] text-[#0F172A]';
+      feedback.innerHTML = `<strong>Hinweis:</strong> ${escapeHtml(text)}`;
       feedback.classList.remove('hidden');
-      if (type === 'error') {
-        feedback.classList.add('block', 'bg-[#E2E8F0]', 'border-[#64748B]', 'text-[#0F172A]');
-        feedback.innerHTML = `<strong>Bitte überprüfen:</strong> ${escapeHtml(text)}`;
-      }
     }
 
     function escapeHtml(str) {
-      return String(str).replace(/[&<>"']/g, function(m) {
-        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
-      });
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
     }
 
     // ═══════════════════════════════════════════
-    // SEQUENTIAL PROCESS STEPS PIPELINE (#ablauf)
+    // ABLAUF SVG ANIMATION (4 SCHRITTE)
     // ═══════════════════════════════════════════
     let ablaufTimeline = null;
-
-    function updateCardFramePaths() {
+function updateCardFramePaths() {
       const r = 24;
       const strokeW = 1.5;
 
@@ -2679,6 +2323,7 @@
       }
     }
 
+  </script>
   </script>
 
 </body>
