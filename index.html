@@ -45,38 +45,47 @@
         extend: {
           colors: {
             // User Palette:
-            // #540D6E (Indigo), #EE4266 (Watermelon), #FFD23F (Golden Pollen), #F3FCF0 (Honeydew), #1F271B (Charcoal Brown)
+            // --ash-grey: #CAD2C5
+            // --muted-teal: #84A98C
+            // --deep-teal: #52796F
+            // --dark-slate-grey: #354F52
+            // --charcoal-blue: #2F3E46
             brand: {
-              indigo: '#540D6E',
-              indigoDark: '#38064A',
-              indigoHover: '#430857',
-              watermelon: '#EE4266',
-              golden: '#FFD23F',
-              goldenLight: '#FFF4D0',
-              honeydew: '#F3FCF0',
-              honeydewSoft: '#E6F5E1',
-              charcoal: '#1F271B',
+              ash: '#CAD2C5',
+              mutedTeal: '#84A98C',
+              deepTeal: '#52796F',
+              darkSlate: '#354F52',
+              charcoalBlue: '#2F3E46',
+              indigo: '#354F52',
+              indigoDark: '#2F3E46',
+              indigoHover: '#283B3D',
+              watermelon: '#52796F',
+              golden: '#84A98C',
+              goldenLight: '#E8EFE8',
+              honeydew: '#F4F6F3',
+              honeydewSoft: '#E6EBE2',
+              charcoal: '#2F3E46',
             },
             pastel: {
-              sage: '#CCE0C7',        // Soft honeydew border
-              lightSage: '#E6F5E1',   // Very pale honeydew
-              cream: '#F3FCF0',       // Honeydew Canvas
-              sand: '#EBF7E7',        // Soft tinted honeydew card surface
-              caramel: '#540D6E',      // Primary Accent: Indigo (12.65:1 with white - AAA pass!)
-              caramelLight: '#EE4266', // Vibrant Watermelon
-              caramelDark: '#38064A',  // Deep Indigo (12.05:1 on Honeydew - AAA pass!)
-              caramelHover: '#430857', // Indigo hover
+              sage: '#CAD2C5',        // Ash Grey border
+              lightSage: '#E6EBE2',   // Very pale ash tint
+              cream: '#F4F6F3',       // Light canvas tint
+              sand: '#EAEFE8',        // Soft tinted card surface
+              caramel: '#354F52',      // Dark Slate Grey (8.08:1 on canvas - AAA pass!)
+              caramelLight: '#52796F', // Deep Teal
+              caramelDark: '#2F3E46',  // Charcoal Blue (10.18:1 on canvas - AAA pass!)
+              caramelHover: '#283B3D', // Hover state
             },
             ink: {
-              950: '#121710',
-              900: '#1F271B',         // Charcoal Brown (14.65:1 on Honeydew - AAA pass!)
-              800: '#2E3A28',
-              700: '#3D4C36',
-              600: '#4B5D43',         // 6.78:1 on Honeydew (WCAG AA pass!)
-              500: '#4B5D43',
-              400: '#687D5F',
-              300: '#8FA784',
-              200: '#D1E8CC',
+              950: '#1C2529',
+              900: '#2F3E46',         // Charcoal Blue (10.18:1 on canvas - AAA pass!)
+              800: '#354F52',         // Dark Slate Grey
+              700: '#3D5458',
+              600: '#52796F',         // Deep Teal (4.47:1 on canvas - AA pass!)
+              500: '#5F7C75',
+              400: '#84A98C',         // Muted Teal
+              300: '#A7C1AD',
+              200: '#CAD2C5',         // Ash Grey
             },
           },
           fontFamily: {
@@ -89,13 +98,21 @@
   </script>
 
   <style>
+    :root {
+      --ash-grey: #CAD2C5;
+      --muted-teal: #84A98C;
+      --deep-teal: #52796F;
+      --dark-slate-grey: #354F52;
+      --charcoal-blue: #2F3E46;
+    }
+
     * { box-sizing: border-box; }
     html {
-      background-color: #F3FCF0; /* Honeydew Canvas */
+      background-color: #F4F6F3; /* Light Ash Canvas */
     }
     body {
-      background: #F3FCF0;
-      color: #1F271B; /* Charcoal Brown */
+      background: #F4F6F3;
+      color: #2F3E46; /* Charcoal Blue */
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -108,11 +125,11 @@
 
     /* Accessible focus visible outlines (WCAG 2.4.7) */
     :focus-visible {
-      outline: 2.5px solid #540D6E !important;
+      outline: 2.5px solid #354F52 !important;
       outline-offset: 3px !important;
     }
     button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-      outline: 2.5px solid #540D6E !important;
+      outline: 2.5px solid #354F52 !important;
       outline-offset: 2px !important;
     }
 
@@ -124,13 +141,13 @@
     /* Bespoke Hero Background: Soft Natural Daylight Vignette + Elegant Depth */
     .hero-bg {
       background: 
-        radial-gradient(ellipse 90% 70% at 50% -15%, rgba(255, 246, 219, 0.75) 0%, rgba(243, 252, 240, 0.6) 65%, #F3FCF0 100%),
-        #F3FCF0;
+        radial-gradient(ellipse 90% 70% at 50% -15%, rgba(202, 210, 197, 0.45) 0%, rgba(244, 246, 243, 0.65) 65%, #F4F6F3 100%),
+        #F4F6F3;
       position: relative;
     }
 
     .dot-pattern {
-      background-image: radial-gradient(rgba(84, 13, 110, 0.12) 1.5px, transparent 1.5px);
+      background-image: radial-gradient(rgba(53, 79, 82, 0.14) 1.5px, transparent 1.5px);
       background-size: 24px 24px;
     }
 
@@ -139,9 +156,9 @@
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(204, 224, 199, 0.8);
+      border: 1px solid rgba(202, 210, 197, 0.8);
       box-shadow: 
-        0 15px 35px -10px rgba(31, 39, 27, 0.08),
+        0 15px 35px -10px rgba(47, 62, 70, 0.08),
         0 1px 3px rgba(0, 0, 0, 0.02);
     }
 
@@ -149,22 +166,22 @@
       background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(204, 224, 199, 0.65);
-      box-shadow: 0 8px 25px -8px rgba(31, 39, 27, 0.06);
+      border: 1px solid rgba(202, 210, 197, 0.65);
+      box-shadow: 0 8px 25px -8px rgba(47, 62, 70, 0.06);
     }
 
     .sand-card {
-      background: #EBF7E7;
-      border: 1px solid rgba(84, 13, 110, 0.2);
+      background: #EAEFE8;
+      border: 1px solid rgba(53, 79, 82, 0.2);
     }
 
     /* Navbar sticky scroll state */
     .navbar-scrolled {
-      background: rgba(243, 252, 240, 0.95) !important;
+      background: rgba(244, 246, 243, 0.95) !important;
       backdrop-filter: blur(16px) !important;
       -webkit-backdrop-filter: blur(16px) !important;
-      border-bottom: 1px solid rgba(204, 224, 199, 0.8) !important;
-      box-shadow: 0 4px 20px -5px rgba(31, 39, 27, 0.06) !important;
+      border-bottom: 1px solid rgba(202, 210, 197, 0.5) !important;
+      box-shadow: 0 4px 20px -4px rgba(47, 62, 70, 0.05);
     }
 
     /* Tactile card hover lifts */
@@ -173,8 +190,8 @@
     }
     .card-lift:hover {
       transform: translateY(-4px);
-      box-shadow: 0 18px 36px -12px rgba(140, 86, 38, 0.15);
-      border-color: rgba(140, 86, 38, 0.45);
+      box-shadow: 0 18px 36px -12px rgba(47, 62, 70, 0.12);
+      border-color: rgba(82, 121, 111, 0.45);
     }
 
     /* Subtle graph cursor tracker tooltip */
@@ -215,7 +232,7 @@
 
     /* Pricing card highlight */
     .pricing-popular {
-      border: 2.5px solid #540D6E !important;
+      border: 2.5px solid #354F52 !important;
       position: relative;
     }
     .pricing-popular::before {
@@ -224,7 +241,7 @@
       top: -13px;
       left: 50%;
       transform: translateX(-50%);
-      background: #540D6E;
+      background: #354F52;
       color: #FFFFFF;
       font-size: 11px;
       font-weight: 800;
@@ -232,7 +249,7 @@
       border-radius: 20px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      box-shadow: 0 2px 8px rgba(84, 13, 110, 0.35);
+      box-shadow: 0 2px 8px rgba(53, 79, 82, 0.35);
       white-space: nowrap;
     }
 
@@ -495,7 +512,7 @@
       <!-- Brand Logo + Region Badge -->
       <a href="#" class="flex items-center gap-3 group">
         <div class="w-9 h-9 rounded-xl bg-pastel-sand border border-pastel-caramel/40 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#540D6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#354F52" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 8L12 3L20 8"/>
             <path d="M4 14L12 9L20 14"/>
             <path d="M4 20L12 15L20 20"/>
@@ -567,9 +584,9 @@
     <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-45 overflow-hidden z-0" preserveAspectRatio="none" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="contourGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1F271B" stop-opacity="0.08" />
-          <stop offset="50%" stop-color="#540D6E" stop-opacity="0.05" />
-          <stop offset="100%" stop-color="#EE4266" stop-opacity="0.03" />
+          <stop offset="0%" stop-color="#2F3E46" stop-opacity="0.08" />
+          <stop offset="50%" stop-color="#354F52" stop-opacity="0.05" />
+          <stop offset="100%" stop-color="#52796F" stop-opacity="0.03" />
         </linearGradient>
       </defs>
       <path d="M-100 220 C 250 180, 500 290, 850 210 C 1150 140, 1350 240, 1600 190" stroke="url(#contourGrad)" stroke-width="1.2" stroke-linecap="round"/>
@@ -699,30 +716,30 @@
               <svg id="heroGraphSvg" viewBox="0 0 520 310" class="w-full h-auto overflow-visible select-none cursor-crosshair">
                 <defs>
                   <linearGradient id="heroGraphLineGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#FFD23F" />
-                    <stop offset="45%" stop-color="#EE4266" />
-                    <stop offset="100%" stop-color="#540D6E" />
+                    <stop offset="0%" stop-color="#84A98C" />
+                    <stop offset="50%" stop-color="#52796F" />
+                    <stop offset="100%" stop-color="#354F52" />
                   </linearGradient>
                   <linearGradient id="heroGraphAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#540D6E" stop-opacity="0.25" />
-                    <stop offset="50%" stop-color="#EE4266" stop-opacity="0.12" />
-                    <stop offset="100%" stop-color="#F3FCF0" stop-opacity="0.0" />
+                    <stop offset="0%" stop-color="#52796F" stop-opacity="0.25" />
+                    <stop offset="50%" stop-color="#84A98C" stop-opacity="0.10" />
+                    <stop offset="100%" stop-color="#F4F6F3" stop-opacity="0.0" />
                   </linearGradient>
                   <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#540D6E" flood-opacity="0.30"/>
+                    <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#354F52" flood-opacity="0.25"/>
                   </filter>
                 </defs>
 
                 <!-- Coordinate Grid Background -->
-                <g class="grid-lines" stroke="rgba(204, 213, 174, 0.45)" stroke-width="1" stroke-dasharray="3 3">
+                <g class="grid-lines" stroke="rgba(202, 210, 197, 0.45)" stroke-width="1" stroke-dasharray="3 3">
                   <!-- Horizontal grid lines -->
-                  <line x1="50" y1="260" x2="480" y2="260" stroke="rgba(140, 86, 38, 0.25)" stroke-dasharray="none" />
+                  <line x1="50" y1="260" x2="480" y2="260" stroke="rgba(53, 79, 82, 0.2)" stroke-dasharray="none" />
                   <line x1="50" y1="190" x2="480" y2="190" />
                   <line x1="50" y1="120" x2="480" y2="120" />
                   <line x1="50" y1="50" x2="480" y2="50" />
 
                   <!-- Vertical grid lines -->
-                  <line x1="50" y1="50" x2="50" y2="260" stroke="rgba(140, 86, 38, 0.25)" stroke-dasharray="none" />
+                  <line x1="50" y1="50" x2="50" y2="260" stroke="rgba(53, 79, 82, 0.2)" stroke-dasharray="none" />
                   <line x1="155" y1="50" x2="155" y2="260" />
                   <line x1="260" y1="50" x2="260" y2="260" />
                   <line x1="365" y1="50" x2="365" y2="260" />
@@ -730,19 +747,19 @@
                 </g>
 
                 <!-- Axis Labels -->
-                <g class="axis-labels" font-family="'JetBrains Mono', monospace" font-size="10" fill="#4F5C45">
+                <g class="axis-labels" font-family="'JetBrains Mono', monospace" font-size="10" fill="#52796F">
                   <!-- Y Labels -->
                   <text x="42" y="264" text-anchor="end" font-weight="600">0</text>
                   <text x="42" y="194" text-anchor="end" font-weight="600">10</text>
                   <text x="42" y="124" text-anchor="end" font-weight="600">20</text>
-                  <text x="42" y="54" text-anchor="end" font-weight="700" fill="#540D6E">30+</text>
+                  <text x="42" y="54" text-anchor="end" font-weight="700" fill="#354F52">30+</text>
 
                   <!-- X Labels -->
                   <text x="50" y="280" text-anchor="middle" font-weight="600">Start</text>
                   <text x="155" y="280" text-anchor="middle" font-weight="600">Woche 2</text>
                   <text x="260" y="280" text-anchor="middle" font-weight="600">Woche 4</text>
                   <text x="365" y="280" text-anchor="middle" font-weight="600">Woche 6</text>
-                  <text x="470" y="280" text-anchor="middle" font-weight="700" fill="#540D6E">Woche 8+</text>
+                  <text x="470" y="280" text-anchor="middle" font-weight="700" fill="#354F52">Woche 8+</text>
                 </g>
 
                 <!-- Area Fill under curve -->
@@ -753,15 +770,15 @@
 
                 <!-- Interactive Milestone Nodes (Clean, calm, solid dots) -->
                 <g id="milestone1" opacity="0" class="cursor-pointer">
-                  <circle cx="155" cy="232" r="6" fill="#FFD23F" stroke="#1F271B" stroke-width="2.5" />
+                  <circle cx="155" cy="232" r="6" fill="#84A98C" stroke="#2F3E46" stroke-width="2.5" />
                 </g>
 
                 <g id="milestone2" opacity="0" class="cursor-pointer">
-                  <circle cx="260" cy="160" r="6" fill="#EE4266" stroke="#FFFFFF" stroke-width="2.5" />
+                  <circle cx="260" cy="160" r="6" fill="#52796F" stroke="#FFFFFF" stroke-width="2.5" />
                 </g>
 
                 <g id="milestone3" opacity="0" class="cursor-pointer">
-                  <circle cx="470" cy="50" r="7" fill="#540D6E" stroke="#FFFFFF" stroke-width="2.5" />
+                  <circle cx="470" cy="50" r="7" fill="#354F52" stroke="#FFFFFF" stroke-width="2.5" />
                 </g>
               </svg>
             </div>
@@ -1262,9 +1279,9 @@
       <svg width="0" height="0" class="absolute pointer-events-none">
         <defs>
           <linearGradient id="stepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#540D6E" />
-            <stop offset="50%" stop-color="#EE4266" />
-            <stop offset="100%" stop-color="#540D6E" />
+            <stop offset="0%" stop-color="#354F52" />
+            <stop offset="50%" stop-color="#52796F" />
+            <stop offset="100%" stop-color="#354F52" />
           </linearGradient>
         </defs>
       </svg>
@@ -1274,9 +1291,9 @@
         
         <!-- Step 1 -->
         <div id="card-step-1" class="step-card p-6 shadow-xs space-y-3">
-          <div id="fill-step-1" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6F5E1] via-white to-[#F3FCF0] opacity-0 transition-opacity pointer-events-none"></div>
+          <div id="fill-step-1" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6EBE2] via-white to-[#F4F6F3] opacity-0 transition-opacity pointer-events-none"></div>
           <svg class="step-border-svg">
-            <rect id="bg-rect-step-1" fill="none" stroke="#CCE0C7" stroke-width="1.5" rx="24" ry="24"/>
+            <rect id="bg-rect-step-1" fill="none" stroke="#CAD2C5" stroke-width="1.5" rx="24" ry="24"/>
             <path id="top-path-step-1" class="step-border-draw" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
             <path id="bot-path-step-1" class="step-border-draw" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
           </svg>
@@ -1291,7 +1308,7 @@
           </div>
           <div class="step-connector">
             <svg width="28" height="24" viewBox="0 0 28 24" fill="none" class="overflow-visible">
-              <path d="M 0 12 L 28 12" stroke="#CCE0C7" stroke-width="1.5"/>
+              <path d="M 0 12 L 28 12" stroke="#CAD2C5" stroke-width="1.5"/>
               <path id="conn-step-1" class="step-connector-line" d="M 0 12 L 28 12" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
             </svg>
           </div>
@@ -1299,9 +1316,9 @@
 
         <!-- Step 2 -->
         <div id="card-step-2" class="step-card p-6 shadow-xs space-y-3">
-          <div id="fill-step-2" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6F5E1] via-white to-[#F3FCF0] opacity-0 transition-opacity pointer-events-none"></div>
+          <div id="fill-step-2" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6EBE2] via-white to-[#F4F6F3] opacity-0 transition-opacity pointer-events-none"></div>
           <svg class="step-border-svg">
-            <rect id="bg-rect-step-2" fill="none" stroke="#CCE0C7" stroke-width="1.5" rx="24" ry="24"/>
+            <rect id="bg-rect-step-2" fill="none" stroke="#CAD2C5" stroke-width="1.5" rx="24" ry="24"/>
             <path id="top-path-step-2" class="step-border-draw" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
             <path id="bot-path-step-2" class="step-border-draw" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
           </svg>
@@ -1316,7 +1333,7 @@
           </div>
           <div class="step-connector">
             <svg width="28" height="24" viewBox="0 0 28 24" fill="none" class="overflow-visible">
-              <path d="M 0 12 L 28 12" stroke="#CCE0C7" stroke-width="1.5"/>
+              <path d="M 0 12 L 28 12" stroke="#CAD2C5" stroke-width="1.5"/>
               <path id="conn-step-2" class="step-connector-line" d="M 0 12 L 28 12" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
             </svg>
           </div>
@@ -1324,9 +1341,9 @@
 
         <!-- Step 3 -->
         <div id="card-step-3" class="step-card p-6 shadow-xs space-y-3">
-          <div id="fill-step-3" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6F5E1] via-white to-[#F3FCF0] opacity-0 transition-opacity pointer-events-none"></div>
+          <div id="fill-step-3" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6EBE2] via-white to-[#F4F6F3] opacity-0 transition-opacity pointer-events-none"></div>
           <svg class="step-border-svg">
-            <rect id="bg-rect-step-3" fill="none" stroke="#CCE0C7" stroke-width="1.5" rx="24" ry="24"/>
+            <rect id="bg-rect-step-3" fill="none" stroke="#CAD2C5" stroke-width="1.5" rx="24" ry="24"/>
             <path id="top-path-step-3" class="step-border-draw" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
             <path id="bot-path-step-3" class="step-border-draw" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
           </svg>
@@ -1341,7 +1358,7 @@
           </div>
           <div class="step-connector">
             <svg width="28" height="24" viewBox="0 0 28 24" fill="none" class="overflow-visible">
-              <path d="M 0 12 L 28 12" stroke="#CCE0C7" stroke-width="1.5"/>
+              <path d="M 0 12 L 28 12" stroke="#CAD2C5" stroke-width="1.5"/>
               <path id="conn-step-3" class="step-connector-line" d="M 0 12 L 28 12" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
             </svg>
           </div>
@@ -1349,9 +1366,9 @@
 
         <!-- Step 4 -->
         <div id="card-step-4" class="step-card p-6 shadow-xs space-y-3">
-          <div id="fill-step-4" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6F5E1] via-white to-[#F3FCF0] opacity-0 transition-opacity pointer-events-none"></div>
+          <div id="fill-step-4" class="step-fill absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E6EBE2] via-white to-[#F4F6F3] opacity-0 transition-opacity pointer-events-none"></div>
           <svg class="step-border-svg">
-            <rect id="bg-rect-step-4" fill="none" stroke="#CCE0C7" stroke-width="1.5" rx="24" ry="24"/>
+            <rect id="bg-rect-step-4" fill="none" stroke="#CAD2C5" stroke-width="1.5" rx="24" ry="24"/>
             <path id="top-path-step-4" class="step-border-draw" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
             <path id="bot-path-step-4" class="step-border-draw" fill="none" stroke="url(#stepGrad)" stroke-width="2.5" stroke-linecap="round"/>
           </svg>
@@ -1915,7 +1932,7 @@
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-pastel-sage/40 pb-6">
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 rounded-xl bg-pastel-sand border border-pastel-caramel/40 flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#540D6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#354F52" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 8L12 3L20 8"/>
               <path d="M4 14L12 9L20 14"/>
               <path d="M4 20L12 15L20 20"/>
@@ -2539,9 +2556,9 @@
           if (botPath) botPath.style.strokeDashoffset = '0';
           if (fill) fill.style.opacity = '1';
           if (badge) {
-            badge.style.backgroundColor = '#540D6E';
+            badge.style.backgroundColor = '#354F52';
             badge.style.color = '#FFFFFF';
-            badge.style.borderColor = '#540D6E';
+            badge.style.borderColor = '#354F52';
           }
           if (i < 4) {
             const conn = document.getElementById(`conn-step-${i}`);
@@ -2622,7 +2639,7 @@
 
         if (card) {
           tl.to(card, {
-            boxShadow: "0 14px 30px -6px rgba(84, 13, 110, 0.14)",
+            boxShadow: "0 14px 30px -6px rgba(53, 79, 82, 0.16)",
             y: -2,
             duration: 0.22,
             ease: "power1.out"
@@ -2631,9 +2648,9 @@
 
         if (badge) {
           tl.to(badge, {
-            backgroundColor: "#540D6E",
+            backgroundColor: "#354F52",
             color: "#FFFFFF",
-            borderColor: "#540D6E",
+            borderColor: "#354F52",
             scale: 1.08,
             duration: 0.22,
             ease: "back.out(1.5)"
