@@ -319,191 +319,188 @@
 
   <!-- Structured Data: LocalBusiness, FAQPage & HowTo (GEO & AEO Schema) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ProfessionalService",
-        "@id": "https://sparrenweb.de/#organization",
-        "name": "SparrenWeb",
-        "legalName": "SparrenWeb",
-        "alternateName": "SparrenWeb Webagentur Bielefeld",
-        "url": "https://sparrenweb.de/",
-        "logo": "https://sparrenweb.de/logo.svg",
-        "image": "https://sparrenweb.de/og-cover.jpg",
-        "description": "Schlüsselfertige Websites, strukturierte Kundenanfragen mit Foto-Upload und mobile 60-Sekunden-Kurzbewerbungen für Handwerksbetriebe in Bielefeld & Ostwestfalen-Lippe (OWL) zum fairen Festpreis von 1.490 € netto ohne Monatsabo.",
-        "telephone": "+49 521 2580910",
-        "email": "hallo@sparrenweb.de",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bielefeld",
-          "postalCode": "33602",
-          "addressRegion": "Nordrhein-Westfalen",
-          "addressCountry": "DE"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 52.0202,
-          "longitude": 8.5325
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "07:30",
-            "closes": "17:00"
-          }
-        ],
-        "priceRange": "€€",
-        "currenciesAccepted": "EUR",
-        "paymentAccepted": "Rechnung, Banküberweisung",
-        "areaServed": [
-          { "@type": "City", "name": "Bielefeld" },
-          { "@type": "City", "name": "Gütersloh" },
-          { "@type": "City", "name": "Herford" },
-          { "@type": "City", "name": "Paderborn" },
-          { "@type": "AdministrativeArea", "name": "Ostwestfalen-Lippe" }
-        ],
-        "knowsAbout": [
-          "Webdesign für Handwerksbetriebe",
-          "Mitarbeitergewinnung im Handwerk",
-          "Vorqualifizierung von Kundenanfragen",
-          "Google Unternehmensprofil Optimierung",
-          "Google Jobs Schema Markup",
-          "NFC-Kundenbewertungen vor Ort"
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Leistungspakete für Handwerksbetriebe",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "name": "Website-Komplettpaket für Handwerksbetriebe",
-              "price": "1490.00",
-              "priceCurrency": "EUR",
-              "description": "Schlüsselfertige Handwerker-Website, mobile Kurzbewerbung ohne Lebenslauf, strukturiertes Anfrageformular mit Foto-Upload, Schema-Markup für Google Jobs, 5 NFC-Karten. Einmal-Festpreis, 0 € Monatsabo."
-            },
-            {
-              "@type": "Offer",
-              "name": "Google- & Bewertungs-Booster",
-              "price": "490.00",
-              "priceCurrency": "EUR",
-              "description": "Google-Unternehmensprofil-Optimierung für Bielefeld & OWL, 5 physische NFC-Bewertungskarten, Branchenverzeichnisse. Einmal-Festpreis, 0 € Monatsabo."
-            },
-            {
-              "@type": "Offer",
-              "name": "Betriebs-Automation & Telefon-Assistenz",
-              "price": "2990.00",
-              "priceCurrency": "EUR",
-              "description": "Schlüsselfertiges Setup für Telefon-Assistenz, Multi-Standort und Software-Schnittstellen."
-            }
-          ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://sparrenweb.de/#organization",
+      "name": "SparrenWeb",
+      "legalName": "SparrenWeb",
+      "alternateName": "SparrenWeb Webagentur Bielefeld",
+      "url": "https://sparrenweb.de/",
+      "logo": "https://sparrenweb.de/logo.svg",
+      "image": "https://sparrenweb.de/og-cover.jpg",
+      "description": "Schlüsselfertige Websites, strukturierte Kundenanfragen mit Foto-Upload und mobile 60-Sekunden-Kurzbewerbungen für Handwerksbetriebe in Bielefeld & Ostwestfalen-Lippe (OWL) zum fairen Festpreis von 1.490 € netto ohne Monatsabo.",
+      "telephone": "+49 521 2580910",
+      "email": "hallo@sparrenweb.de",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bielefeld",
+        "postalCode": "33602",
+        "addressRegion": "Nordrhein-Westfalen",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.0202,
+        "longitude": 8.5325
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "07:30",
+          "closes": "17:00"
         }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://sparrenweb.de/#faq",
-        "mainEntity": [
+      ],
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Rechnung, Banküberweisung",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Bielefeld"
+        },
+        {
+          "@type": "City",
+          "name": "Gütersloh"
+        },
+        {
+          "@type": "City",
+          "name": "Herford"
+        },
+        {
+          "@type": "City",
+          "name": "Paderborn"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Ostwestfalen-Lippe"
+        }
+      ],
+      "knowsAbout": [
+        "Webdesign für Handwerksbetriebe",
+        "Mitarbeitergewinnung im Handwerk",
+        "Vorqualifizierung von Kundenanfragen",
+        "Google Unternehmensprofil Optimierung",
+        "Google Jobs Schema Markup",
+        "NFC-Kundenbewertungen vor Ort"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungspakete für Handwerksbetriebe",
+        "itemListElement": [
           {
-            "@type": "Question",
-            "name": "Was genau ist im Website-Komplettpaket für 1.490 € enthalten?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Das Komplettpaket für 1.490 € netto umfasst eine schlüsselfertig gestaltete Handwerker-Website inklusive aller Fachtexte für Ihr Gewerk, ein mobiles Kurzbewerbungs-Formular ohne Lebenslauf, ein strukturiertes Kundenanfrage-Formular mit Foto-Upload, Google-Jobs-Schema-Markup und 5 physische NFC-Karten für Baustellen-Bewertungen. Es fallen 0 € monatliche Agenturabos an."
-            }
+            "@type": "Offer",
+            "name": "Website-Komplettpaket für Handwerksbetriebe",
+            "price": "1490.00",
+            "priceCurrency": "EUR",
+            "description": "Schlüsselfertige Handwerker-Website, mobile Kurzbewerbung ohne Lebenslauf, strukturiertes Anfrageformular mit Foto-Upload, Schema-Markup für Google Jobs, 5 NFC-Karten. Einmal-Festpreis, 0 € Monatsabo."
           },
           {
-            "@type": "Question",
-            "name": "Welche laufenden Kosten entstehen nach der Fertigstellung?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bei SparrenWeb zahlen Sie 0 € laufende Agentur-Monatsgebühren. Sie benötigen lediglich ein reguläres Webhosting-Paket inklusive Domain für ca. 8 bis 15 € netto pro Monat, das direkt mit dem Hosting-Provider abgerechnet wird – ohne versteckte Aufschläge."
-            }
+            "@type": "Offer",
+            "name": "Google- & Bewertungs-Booster",
+            "price": "490.00",
+            "priceCurrency": "EUR",
+            "description": "Google-Unternehmensprofil-Optimierung für Bielefeld & OWL, 5 physische NFC-Bewertungskarten, Branchenverzeichnisse. Einmal-Festpreis, 0 € Monatsabo."
           },
           {
-            "@type": "Question",
-            "name": "Wie viel Zeitaufwand habe ich als Meister wirklich?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ihr Zeitaufwand beträgt etwa 15 bis 20 Minuten für das telefonische Bedarfsgespräch sowie etwas Zeit zur Prüfung und Freigabe des fertigen Vorab-Entwurfs. Sämtliche Texte und die technische Einrichtung übernimmt SparrenWeb."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Ab wann gilt das Versprechen der Umsetzung in 7 Werktagen?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Die Umsetzungsfrist von 7 Werktagen beginnt verlässlich an dem Tag, an dem alle erforderlichen Angaben, Domain-Zugänge und inhaltlichen Freigaben vollständig vorliegen."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Können unsere bestehende Domain und unsere E-Mail-Adressen erhalten bleiben?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. Ihre bestehende Domain und alle geschäftlichen E-Mail-Postfächer bleiben ohne Unterbrechung erhalten. Die neue Website wird nahtlos aufgeschaltet."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wem gehören die fertige Website und die Zugänge?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Die Website, alle verfassten Texte, Bilder und Zugänge gehören nach der einmaligen Zahlung zu 100 % Ihrem Handwerksbetrieb. Es gibt keine vertragliche Bindung oder spätere Wartungspflicht."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Bringt die Website automatisch neue Kunden und Bewerber?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Eine Website wandelt vorhandenes Interesse aus Empfehlungen, Firmenfahrzeugen, Google Maps und lokaler Suche verlässlich in qualifizierte Anfragen und Bewerbungen um. Bezahlte Werbekampagnen sind nicht im Festpreis enthalten und können bei Bedarf separat vereinbart werden."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Was umfasst der kostenlose Vorab-Entwurf?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Nach einem 15-minütigen Kennenlerngespräch erstellt SparrenWeb einen unverbindlichen Vorab-Entwurf für Ihren Betrieb. Sie entscheiden erst nach Ansicht des Entwurfs über die Beauftragung – ohne Vorauszahlung und ohne Risiko."
-            }
-          }
-        ]
-      },
-      {
-        "@type": "HowTo",
-        "@id": "https://sparrenweb.de/#ablauf-howto",
-        "name": "In 4 Schritten zur schlüsselfertigen Handwerker-Website",
-        "description": "Der strukturierte Projektablauf für Handwerksbetriebe in Bielefeld & OWL.",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "position": 1,
-            "name": "Bedarf besprechen",
-            "text": "In einem 15- bis 20-minütigen Telefonat klären wir Leistungen, Region und Zielgruppen Ihres Handwerksbetriebs."
-          },
-          {
-            "@type": "HowToStep",
-            "position": 2,
-            "name": "Entwurf abstimmen",
-            "text": "Wir erstellen kostenlos einen individuellen Vorab-Entwurf inklusive Texten für Ihr Gewerk."
-          },
-          {
-            "@type": "HowToStep",
-            "position": 3,
-            "name": "Schlüsselfertig umsetzen",
-            "text": "Nach Freigabe setzen wir die Website innerhalb von 7 Werktagen vollständig schlüsselfertig um."
-          },
-          {
-            "@type": "HowToStep",
-            "position": 4,
-            "name": "Prüfen & übergeben",
-            "text": "Endabnahme, Aufschaltung auf Ihre Domain und vollständige Übergabe aller Zugänge zu 100 % in Ihr Eigentum."
+            "@type": "Offer",
+            "name": "Betriebs-Automation & Telefon-Assistenz",
+            "price": "2990.00",
+            "priceCurrency": "EUR",
+            "description": "Schlüsselfertiges Setup für Telefon-Assistenz, Multi-Standort und Software-Schnittstellen."
           }
         ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sparrenweb.de/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was genau ist im Website-Komplettpaket für 1.490 € enthalten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Das Komplettpaket für 1.490 € netto umfasst eine schlüsselfertig gestaltete Handwerker-Website inklusive aller Fachtexte für Ihr Gewerk, ein mobiles Kurzbewerbungs-Formular ohne Lebenslauf, ein strukturiertes Kundenanfrage-Formular mit Foto-Upload, Google-Jobs-Schema-Markup und 5 physische NFC-Karten für Baustellen-Bewertungen. Es fallen 0 € monatliche Agenturabos an."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche laufenden Kosten entstehen nach der Fertigstellung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bei SparrenWeb zahlen Sie 0 € laufende Agentur-Monatsgebühren. Sie benötigen lediglich ein reguläres Webhosting-Paket inklusive Domain für ca. 8 bis 15 € netto pro Monat, das direkt mit dem Hosting-Provider abgerechnet wird – ohne versteckte Aufschläge."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie viel Zeitaufwand habe ich als Meister wirklich?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ihr Zeitaufwand beträgt etwa 15 bis 20 Minuten für das telefonische Bedarfsgespräch sowie etwas Zeit zur Prüfung und Freigabe des fertigen Vorab-Entwurfs. Sämtliche Texte und die technische Einrichtung übernimmt SparrenWeb."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ab wann gilt das Versprechen der Umsetzung in 7 Werktagen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Umsetzungsfrist von 7 Werktagen beginnt verlässlich an dem Tag, an dem alle erforderlichen Angaben, Domain-Zugänge und inhaltlichen Freigaben vollständig vorliegen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wem gehören die fertige Website und die Zugänge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Website, alle verfassten Texte, Bilder und Zugänge gehören nach der einmaligen Zahlung zu 100 % Ihrem Handwerksbetrieb. Es gibt keine vertragliche Bindung oder spätere Wartungspflicht."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://sparrenweb.de/#ablauf-howto",
+      "name": "In 4 Schritten zur schlüsselfertigen Handwerker-Website",
+      "description": "Der strukturierte Projektablauf für Handwerksbetriebe in Bielefeld & OWL.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Bedarf besprechen",
+          "text": "In einem 15- bis 20-minütigen Telefonat klären wir Leistungen, Region und Zielgruppen Ihres Handwerksbetriebs."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Entwurf abstimmen",
+          "text": "Wir erstellen kostenlos einen individuellen Vorab-Entwurf inklusive Texten für Ihr Gewerk."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Schlüsselfertig umsetzen",
+          "text": "Nach Freigabe setzen wir die Website innerhalb von 7 Werktagen vollständig schlüsselfertig um."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Prüfen & übergeben",
+          "text": "Endabnahme, Aufschaltung auf Ihre Domain und vollständige Übergabe aller Zugänge zu 100 % in Ihr Eigentum."
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body class="selection:bg-pastel-sage selection:text-ink-950">
@@ -643,21 +640,21 @@
             </div>
           </div>
 
-          <!-- Kompakte Vorteilszeile (3 Punkte) -->
-          <div class="grid sm:grid-cols-3 gap-2.5 pt-2 text-xs text-ink-700">
-            <div class="flex items-center gap-2 bg-white/90 border border-pastel-sage/70 px-3 py-2 rounded-xl">
+          <!-- Schlichte vertikale Check-Liste ohne Kartenrahmen -->
+          <ul class="space-y-2.5 pt-2 text-xs sm:text-sm text-ink-700">
+            <li class="flex items-center gap-2.5">
               <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0"></i>
-              <span class="font-medium">Gestaltung, Texte & Technik inklusive</span>
-            </div>
-            <div class="flex items-center gap-2 bg-white/90 border border-pastel-sage/70 px-3 py-2 rounded-xl">
+              <span class="font-medium">Gestaltung, Texte und Technik inklusive</span>
+            </li>
+            <li class="flex items-center gap-2.5">
               <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0"></i>
-              <span class="font-medium">Persönlicher Ansprechpartner</span>
-            </div>
-            <div class="flex items-center gap-2 bg-white/90 border border-pastel-sage/70 px-3 py-2 rounded-xl">
+              <span class="font-medium">Persönlicher Ansprechpartner in Bielefeld & OWL</span>
+            </li>
+            <li class="flex items-center gap-2.5">
               <i data-lucide="check" class="w-4 h-4 text-pastel-caramel flex-shrink-0"></i>
-              <span class="font-medium">Unverbindlicher Vorab-Entwurf</span>
-            </div>
-          </div>
+              <span class="font-medium">Unverbindlicher Vorab-Entwurf vor Beauftragung</span>
+            </li>
+          </ul>
 
           <!-- Dezente Kontaktzeile darunter -->
           <div class="pt-2 text-xs sm:text-sm text-ink-600 flex items-center gap-2">
@@ -670,53 +667,67 @@
 
         </div>
 
-        <!-- Right Column: Konzeptdemo-Vorschau (5 cols) -->
+        <!-- Right Column: Kompakte Konzeptdemo-Vorschau mit Smartphone-Ausschnitt (5 cols) -->
         <div class="lg:col-span-5 relative mt-6 lg:mt-0">
           <a href="#beispiel" class="block group text-left focus:outline-none focus:ring-2 focus:ring-pastel-caramel rounded-3xl" title="Zur ausführlichen Konzeptdemo springen">
-            <div class="bg-white rounded-3xl p-5 sm:p-6 border border-pastel-sage shadow-lg hover:shadow-xl transition-all group-hover:border-pastel-caramel/50 relative overflow-hidden">
+            <div class="bg-[#0F172A] rounded-3xl p-5 sm:p-6 border border-slate-800 shadow-xl hover:shadow-2xl transition-all group-hover:border-slate-700 relative overflow-hidden text-white">
               
               <!-- Kennzeichnung an der Vorschau -->
-              <div class="flex items-center justify-between pb-4 border-b border-pastel-sage/50">
-                <div class="inline-flex items-center gap-1.5 bg-pastel-sand/80 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold text-ink-950">
-                  <span class="w-2 h-2 rounded-full bg-pastel-caramel"></span>
+              <div class="flex items-center justify-between pb-3.5 border-b border-slate-800">
+                <div class="inline-flex items-center gap-2 bg-slate-800/90 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold text-slate-300">
+                  <span class="w-2 h-2 rounded-full bg-[#2563EB]"></span>
                   <span>Konzeptdemo – kein Kundenprojekt</span>
                 </div>
-                <div class="text-[11px] font-semibold text-pastel-caramel flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-                  <span>Demo öffnen</span>
+                <div class="text-[11px] font-semibold text-blue-400 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                  <span>Vollansicht</span>
                   <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
                 </div>
               </div>
 
-              <!-- Vorschau-Inhalt: Elektro- & Gebäudetechnik Bielefeld -->
-              <div class="pt-5 space-y-4">
-                <div class="space-y-1.5">
-                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-ink-500">
-                    Elektro- & Gebäudetechnik Bielefeld
-                  </span>
-                  <h3 class="text-lg sm:text-xl font-extrabold text-ink-950 leading-snug group-hover:text-pastel-caramel transition-colors">
-                    Zuverlässige Elektroinstallation & Smart Home für Bielefeld & OWL
-                  </h3>
-                  <p class="text-xs text-ink-600 line-clamp-2 leading-relaxed">
-                    Inhabergeführter Meisterbetrieb. Saubere Installationen, E-Check und moderne Gebäudetechnik aus Meisterhand.
-                  </p>
-                </div>
-
-                <!-- 3 Leistungs-Pills der Demo -->
-                <div class="flex flex-wrap gap-1.5 pt-1 text-[11px]">
-                  <span class="bg-pastel-sand/50 text-ink-800 px-2.5 py-1 rounded-md font-medium border border-pastel-sage/50">Installation & Neubau</span>
-                  <span class="bg-pastel-sand/50 text-ink-800 px-2.5 py-1 rounded-md font-medium border border-pastel-sage/50">E-Check & Wartung</span>
-                  <span class="bg-pastel-sand/50 text-ink-800 px-2.5 py-1 rounded-md font-medium border border-pastel-sage/50">Wallbox & PV</span>
-                </div>
-
-                <!-- Vorschau Kontakt-Auszug -->
-                <div class="p-3.5 bg-pastel-sand/30 rounded-2xl border border-pastel-sage/60 flex items-center justify-between text-xs">
-                  <div>
-                    <div class="text-[10px] font-mono text-ink-500 font-semibold uppercase">Muster-Kontakt</div>
-                    <div class="font-bold text-ink-950">0521 / 123 456 78</div>
+              <!-- Smartphone-Ausschnitt des Kundenanfrage-Formulars -->
+              <div class="pt-4">
+                <div class="max-w-[310px] mx-auto bg-slate-900/95 rounded-2xl border border-slate-700/80 p-4 shadow-inner space-y-3">
+                  
+                  <!-- Phone Status Header -->
+                  <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 border-b border-slate-800 pb-2">
+                    <span class="font-bold text-white flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      Elektrotechnik Meisterbetrieb
+                    </span>
+                    <span>Bielefeld</span>
                   </div>
-                  <span class="bg-white px-3 py-1.5 rounded-lg border border-pastel-sage text-ink-900 font-bold text-[11px] shadow-2xs">
-                    Anfrage online
-                  </span>
+
+                  <div class="space-y-1">
+                    <div class="text-[10px] font-bold text-blue-400 uppercase font-mono tracking-wider">Mobiles Anfrageformular</div>
+                    <div class="text-xs sm:text-sm font-extrabold text-white leading-tight">Projekt in 60 Sek. anfragen</div>
+                  </div>
+
+                  <!-- Simulierte Optionen -->
+                  <div class="space-y-1.5 text-xs">
+                    <div class="bg-[#1E293B] border border-blue-500/70 p-2 rounded-xl flex items-center justify-between text-white font-medium text-[11px]">
+                      <span>Komplettsanierung & Neubau</span>
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-blue-400 flex-shrink-0"></i>
+                    </div>
+                    <div class="bg-slate-800/40 border border-slate-700/50 p-2 rounded-xl flex items-center justify-between text-slate-300 text-[11px]">
+                      <span>Wallbox & Photovoltaik</span>
+                      <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-500 flex-shrink-0"></i>
+                    </div>
+                  </div>
+
+                  <!-- Foto-Upload Hinweis & Button -->
+                  <div class="bg-slate-800/30 border border-dashed border-slate-700 rounded-lg p-1.5 text-center text-[10px] text-slate-400 flex items-center justify-center gap-1.5">
+                    <i data-lucide="camera" class="w-3 h-3 text-slate-400"></i>
+                    <span>Foto von Baustelle optional beifügen</span>
+                  </div>
+
+                  <div class="w-full bg-[#2563EB] text-white text-xs font-bold py-2 rounded-xl text-center shadow-sm">
+                    Anfrage online senden
+                  </div>
+
+                </div>
+
+                <div class="pt-2.5 text-center text-[10px] text-slate-400 font-medium">
+                  Smartphone-optimiert: Einfache Bedienung für Ihre Kunden.
                 </div>
               </div>
 
@@ -726,20 +737,7 @@
 
       </div>
 
-      <!-- Trust Bar: Gewerke in OWL -->
-      <div class="mt-12 pt-6 border-t border-pastel-sage/50 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold text-ink-700">
-        <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-pastel-caramel"></i>Elektro</span>
-        <span class="text-pastel-sage">•</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="droplets" class="w-3.5 h-3.5 text-pastel-caramel"></i>SHK & Heizung</span>
-        <span class="text-pastel-sage">•</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="home" class="w-3.5 h-3.5 text-pastel-caramel"></i>Dachdecker</span>
-        <span class="text-pastel-sage">•</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="wrench" class="w-3.5 h-3.5 text-pastel-caramel"></i>Metallbau</span>
-        <span class="text-pastel-sage">•</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="trees" class="w-3.5 h-3.5 text-pastel-caramel"></i>GalaBau</span>
-        <span class="text-pastel-sage">•</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="layers" class="w-3.5 h-3.5 text-pastel-caramel"></i>Tischlerei</span>
-      </div>
+
 
     </div>
   </section>
@@ -764,87 +762,87 @@
         </p>
       </div>
 
-      <!-- Browser Preview Mockup -->
-      <div class="bg-white rounded-3xl border border-pastel-sage shadow-xl overflow-hidden max-w-4xl mx-auto">
+      <!-- Browser Preview Mockup mit markantem Handwerks-Farbschema -->
+      <div class="bg-[#0F172A] rounded-3xl border border-slate-800 shadow-2xl overflow-hidden max-w-4xl mx-auto">
         <!-- Mockup Header Bar -->
-        <div class="bg-pastel-sand/60 px-4 py-3 border-b border-pastel-sage/50 flex items-center justify-between text-xs font-mono">
+        <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between text-xs font-mono">
           <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-pastel-sage inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-pastel-sage inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-pastel-sage inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-slate-700 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-slate-700 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-slate-700 inline-block"></span>
           </div>
-          <div class="bg-white/90 px-4 py-1 rounded-full border border-pastel-sage text-ink-700 text-[11px] font-medium shadow-2xs flex items-center gap-1.5">
-            <i data-lucide="lock" class="w-3 h-3 text-pastel-caramel"></i>
+          <div class="bg-slate-800 px-4 py-1 rounded-full border border-slate-700 text-slate-300 text-[11px] font-medium shadow-2xs flex items-center gap-1.5">
+            <i data-lucide="lock" class="w-3 h-3 text-blue-400"></i>
             <span>elektrotechnik-beispiel.de</span>
           </div>
-          <div class="text-[10px] text-ink-400 font-bold uppercase hidden sm:block">
-            Vorschau
+          <div class="text-[10px] text-slate-400 font-bold uppercase hidden sm:block">
+            Muster-Design
           </div>
         </div>
 
-        <!-- Mockup Content Canvas -->
-        <div class="p-6 sm:p-10 space-y-8 bg-pastel-cream/40">
+        <!-- Mockup Content Canvas (Dunkles, markantes Handwerks-Farbschema) -->
+        <div class="p-6 sm:p-10 space-y-8 bg-[#0F172A] text-white">
           
-          <!-- Mock Hero -->
-          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-pastel-sage/40">
+          <!-- Mock Hero der Handwerker-Website -->
+          <div class="bg-[#1E293B]/80 p-6 sm:p-8 rounded-2xl border border-slate-700/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
             <div class="space-y-3 max-w-xl text-left">
-              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-ink-950 bg-pastel-sand px-2.5 py-0.5 rounded-full border border-pastel-caramel/30">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-blue-400 bg-blue-950/70 px-3 py-1 rounded-full border border-blue-700/50">
                 Elektro- & Gebäudetechnik Bielefeld
               </span>
-              <h3 class="text-2xl sm:text-3xl font-extrabold text-ink-950 leading-snug">
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
                 Zuverlässige Elektroinstallation & Gebäudetechnik für Bielefeld & OWL.
               </h3>
-              <p class="text-xs sm:text-sm text-ink-600 leading-relaxed">
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Inhabergeführter Fachbetrieb in Ihrer Region. Wir planen, installieren und warten Ihre Anlagen fachgerecht, termintreu und sauber.
               </p>
               <div class="flex flex-wrap gap-2 pt-1 text-xs">
-                <span class="bg-white px-3 py-1 rounded-lg border border-pastel-sage font-medium text-ink-800">Installation & Neubau</span>
-                <span class="bg-white px-3 py-1 rounded-lg border border-pastel-sage font-medium text-ink-800">E-Check & Wartung</span>
-                <span class="bg-white px-3 py-1 rounded-lg border border-pastel-sage font-medium text-ink-800">Wallbox & PV-Anschluss</span>
+                <span class="bg-slate-800 text-slate-200 px-3 py-1 rounded-lg border border-slate-700 font-medium">Installation & Neubau</span>
+                <span class="bg-slate-800 text-slate-200 px-3 py-1 rounded-lg border border-slate-700 font-medium">E-Check & Wartung</span>
+                <span class="bg-slate-800 text-slate-200 px-3 py-1 rounded-lg border border-slate-700 font-medium">Wallbox & PV-Anschluss</span>
               </div>
             </div>
 
             <!-- Direct Contact Card in Demo (Sichere, inaktive Links) -->
-            <div class="w-full md:w-auto bg-white p-5 rounded-2xl border border-pastel-sage shadow-xs space-y-3 flex-shrink-0 text-left">
-              <div class="text-[11px] font-bold text-ink-500 uppercase font-mono">Muster-Kontakt</div>
-              <div class="space-y-1.5 text-xs text-ink-900 font-bold">
-                <div class="flex items-center gap-2 text-ink-950">
-                  <i data-lucide="phone" class="w-3.5 h-3.5 text-pastel-caramel"></i>
+            <div class="w-full md:w-auto bg-slate-900/90 p-5 rounded-2xl border border-slate-700 shadow-md space-y-3 flex-shrink-0 text-left">
+              <div class="text-[11px] font-bold text-slate-400 uppercase font-mono">Muster-Kontakt</div>
+              <div class="space-y-1.5 text-xs text-white font-bold">
+                <div class="flex items-center gap-2 text-white">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 text-blue-400"></i>
                   <span>0521 / 123 456 78</span>
                 </div>
-                <div class="flex items-center gap-2 text-ink-700 font-medium">
-                  <i data-lucide="mail" class="w-3.5 h-3.5 text-pastel-caramel"></i>
+                <div class="flex items-center gap-2 text-slate-300 font-medium">
+                  <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-400"></i>
                   <span>kontakt@musterbetrieb-owl.de</span>
                 </div>
               </div>
-              <a href="#demo" class="block text-center bg-pastel-sand hover:bg-pastel-caramel hover:text-white text-ink-950 text-xs font-bold py-2.5 px-4 rounded-xl transition-all border border-pastel-caramel/30">
+              <a href="#demo" class="block text-center bg-[#2563EB] hover:bg-blue-600 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-all shadow-md">
                 Formular testen
               </a>
             </div>
           </div>
 
-          <!-- Mockup Leistungs-Schwerpunkte des Handwerksbetriebs (Echte Handwerksinhalte statt Webdesign-Eigenlob) -->
-          <div class="grid sm:grid-cols-3 gap-4 pt-2 text-left">
-            <div class="bg-white p-4 rounded-xl border border-pastel-sage/70 text-xs space-y-1">
-              <div class="font-bold text-ink-950 flex items-center gap-1.5">
-                <i data-lucide="zap" class="w-3.5 h-3.5 text-pastel-caramel"></i>
+          <!-- Mockup Leistungs-Schwerpunkte des Handwerksbetriebs -->
+          <div class="grid sm:grid-cols-3 gap-4 pt-1 text-left">
+            <div class="bg-[#1E293B]/60 p-4 rounded-xl border border-slate-700/60 text-xs space-y-1">
+              <div class="font-bold text-white flex items-center gap-1.5">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-blue-400"></i>
                 <span>Moderne Hausinstallation</span>
               </div>
-              <p class="text-ink-600 leading-relaxed text-[11px]">Fachgerechte Neu- und Umverkabelung von Wohn- und Gewerbeobjekten nach aktuellen VDE-Normen.</p>
+              <p class="text-slate-300 leading-relaxed text-[11px]">Fachgerechte Neu- und Umverkabelung von Wohn- und Gewerbeobjekten nach aktuellen VDE-Normen.</p>
             </div>
-            <div class="bg-white p-4 rounded-xl border border-pastel-sage/70 text-xs space-y-1">
-              <div class="font-bold text-ink-950 flex items-center gap-1.5">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-pastel-caramel"></i>
+            <div class="bg-[#1E293B]/60 p-4 rounded-xl border border-slate-700/60 text-xs space-y-1">
+              <div class="font-bold text-white flex items-center gap-1.5">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-400"></i>
                 <span>E-Check & Betriebssicherheit</span>
               </div>
-              <p class="text-ink-600 leading-relaxed text-[11px]">Prüfung elektrischer Anlagen und Betriebsmittel für Gewerbekunden und Hausverwaltungen mit Prüfprotokoll.</p>
+              <p class="text-slate-300 leading-relaxed text-[11px]">Prüfung elektrischer Anlagen und Betriebsmittel für Gewerbekunden und Hausverwaltungen mit Prüfprotokoll.</p>
             </div>
-            <div class="bg-white p-4 rounded-xl border border-pastel-sage/70 text-xs space-y-1">
-              <div class="font-bold text-ink-950 flex items-center gap-1.5">
-                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-pastel-caramel"></i>
+            <div class="bg-[#1E293B]/60 p-4 rounded-xl border border-slate-700/60 text-xs space-y-1">
+              <div class="font-bold text-white flex items-center gap-1.5">
+                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-blue-400"></i>
                 <span>Wallbox & Zählerschrank</span>
               </div>
-              <p class="text-ink-600 leading-relaxed text-[11px]">Vorbereitung und Installation von Ladeinfrastruktur inklusive Anmeldung beim Netzbetreiber.</p>
+              <p class="text-slate-300 leading-relaxed text-[11px]">Vorbereitung und Installation von Ladeinfrastruktur inklusive Anmeldung beim Netzbetreiber.</p>
             </div>
           </div>
 
@@ -1284,7 +1282,7 @@
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-pastel-sage/50">
             <div>
               <span class="text-xs font-bold text-pastel-caramel uppercase tracking-wider font-mono">Hauptangebot</span>
-              <h3 class="text-2xl sm:text-3xl font-extrabold text-ink-950 mt-1">Website-Komplettpaket – 1.490 € netto einmalig</h3>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-ink-950 mt-1">Website-Komplettpaket</h3>
               <p class="text-xs sm:text-sm text-ink-600 mt-1">Das schlüsselfertige System für strukturierte Kundenanfragen & einfache Bewerbungen</p>
             </div>
             <div class="sm:text-right flex-shrink-0">
@@ -1468,39 +1466,49 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-3xl p-8 sm:p-10 border border-pastel-sage shadow-md space-y-6">
-        <div class="grid md:grid-cols-12 gap-8 items-center text-left">
+      <div class="bg-white rounded-3xl p-8 sm:p-10 border border-pastel-sage shadow-md">
+        <div class="grid md:grid-cols-12 gap-8 items-start text-left">
           
-          <!-- Profilbild-Container / Hook für Foto -->
-          <div class="md:col-span-4 flex flex-col items-center text-center space-y-3">
-            <div id="author-photo-container" class="w-28 h-28 rounded-2xl bg-pastel-sand border border-pastel-sage flex flex-col items-center justify-center p-3 text-ink-600 overflow-hidden relative shadow-2xs">
-              <!-- Platzhalter für echtes Foto des Gründers/Inhabers -->
-              <i data-lucide="user" class="w-10 h-10 text-pastel-caramel mb-1"></i>
-              <span class="text-[10px] font-mono font-medium text-ink-500">SparrenWeb Ansprechpartner</span>
-            </div>
+          <!-- Linke Spalte: Sauber typografisch ohne generisches Icon -->
+          <div class="md:col-span-4 space-y-4 pb-6 md:pb-0 md:border-r border-pastel-sage/60 md:pr-6">
             <div>
-              <div class="font-extrabold text-base text-ink-950">SparrenWeb</div>
-              <div class="text-xs text-ink-500 font-medium">Bielefeld & Ostwestfalen-Lippe</div>
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-ink-500">Ihr Ansprechpartner</span>
+              <div class="font-extrabold text-xl text-ink-950 tracking-tight mt-0.5">SparrenWeb</div>
+              <div class="text-xs text-ink-600 font-medium mt-0.5 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-pastel-caramel"></span>
+                Bielefeld & OWL
+              </div>
+            </div>
+
+            <div class="space-y-3 pt-2 border-t border-pastel-sage/50 text-xs">
+              <div>
+                <span class="text-[10px] font-mono font-bold uppercase text-ink-500 block">Direkter Anruf</span>
+                <a href="tel:05212580910" class="font-bold text-ink-950 hover:text-pastel-caramel transition-colors flex items-center gap-1.5 mt-0.5">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 text-pastel-caramel flex-shrink-0"></i>
+                  <span>0521 / 25 80 910</span>
+                </a>
+              </div>
+              <div>
+                <span class="text-[10px] font-mono font-bold uppercase text-ink-500 block">E-Mail-Kontakt</span>
+                <a href="mailto:hallo@sparrenweb.de" class="font-bold text-ink-950 hover:text-pastel-caramel transition-colors flex items-center gap-1.5 mt-0.5">
+                  <i data-lucide="mail" class="w-3.5 h-3.5 text-pastel-caramel flex-shrink-0"></i>
+                  <span>hallo@sparrenweb.de</span>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="md:col-span-8 space-y-3 text-xs sm:text-sm text-ink-600 leading-relaxed">
+          <!-- Rechte Spalte: Verlässliche Betreuung für Betriebe in OWL -->
+          <div class="md:col-span-8 space-y-3.5 text-xs sm:text-sm text-ink-600 leading-relaxed">
             <p>
               Handwerksmeister haben keine Zeit für Agentur-Kauderwelsch, unklare Monatsabos oder überladene Software-Systeme. Wenn auf der Baustelle gearbeitet wird, muss die Website im Hintergrund verlässlich funktionieren.
             </p>
             <p>
               Wir entwickeln schlüsselfertige Internetseiten speziell für Handwerksbetriebe in Bielefeld, Gütersloh, Herford, Paderborn und ganz OWL. Direkt erreichbar, transparent kalkuliert und mit klarem Fokus auf das, was im Alltag zählt: strukturierte Anfragen und einfache Bewerbungen.
             </p>
-            <div class="pt-2 flex flex-wrap gap-4 text-xs font-bold text-ink-900">
-              <div class="flex items-center gap-1.5">
-                <i data-lucide="phone" class="w-4 h-4 text-pastel-caramel"></i>
-                <span>Direkter Draht: <a href="tel:05212580910" class="hover:underline text-ink-950">0521 / 25 80 910</a></span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <i data-lucide="mail" class="w-4 h-4 text-pastel-caramel"></i>
-                <span>E-Mail: <a href="mailto:hallo@sparrenweb.de" class="hover:underline text-ink-950">hallo@sparrenweb.de</a></span>
-              </div>
-            </div>
+            <p class="font-medium text-ink-900 pt-1">
+              Feste Ansprechpartner vor Ort · Schnelle Abstimmung auf Augenhöhe · 0 € Agentur-Monatsabo
+            </p>
           </div>
 
         </div>
@@ -1521,13 +1529,13 @@
           Klare Antworten vor der Zusammenarbeit
         </h2>
         <p class="text-sm sm:text-base text-ink-600 leading-relaxed">
-          Alles, was Handwerksmeister zu Kosten, Ablauf und Inhalten wissen möchten.
+          Die 5 wichtigsten Fragen zu Kosten, Zeitaufwand und Ablauf für Handwerksmeister.
         </p>
       </div>
 
       <div class="space-y-3">
         
-        <!-- FAQ 1 -->
+        <!-- FAQ 1: Paketinhalt -->
         <div class="bg-white rounded-2xl overflow-hidden border border-pastel-sage/70">
           <button type="button" onclick="toggleFAQ(this)" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left hover:bg-pastel-sand/20 transition-colors">
             <span class="text-sm font-bold text-ink-950 pr-4">Was genau ist im Website-Komplettpaket für 1.490 € enthalten?</span>
@@ -1540,7 +1548,7 @@
           </div>
         </div>
 
-        <!-- FAQ 2 -->
+        <!-- FAQ 2: Laufende Kosten -->
         <div class="bg-white rounded-2xl overflow-hidden border border-pastel-sage/70">
           <button type="button" onclick="toggleFAQ(this)" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left hover:bg-pastel-sand/20 transition-colors">
             <span class="text-sm font-bold text-ink-950 pr-4">Welche laufenden Kosten entstehen nach der Fertigstellung?</span>
@@ -1553,7 +1561,7 @@
           </div>
         </div>
 
-        <!-- FAQ 3 -->
+        <!-- FAQ 3: Zeitaufwand -->
         <div class="bg-white rounded-2xl overflow-hidden border border-pastel-sage/70">
           <button type="button" onclick="toggleFAQ(this)" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left hover:bg-pastel-sand/20 transition-colors">
             <span class="text-sm font-bold text-ink-950 pr-4">Wie viel Zeitaufwand habe ich als Meister wirklich?</span>
@@ -1566,7 +1574,7 @@
           </div>
         </div>
 
-        <!-- FAQ 4 -->
+        <!-- FAQ 4: 7 Werktage Frist -->
         <div class="bg-white rounded-2xl overflow-hidden border border-pastel-sage/70">
           <button type="button" onclick="toggleFAQ(this)" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left hover:bg-pastel-sand/20 transition-colors">
             <span class="text-sm font-bold text-ink-950 pr-4">Ab wann gilt das Versprechen der Umsetzung in 7 Werktagen?</span>
@@ -1579,20 +1587,7 @@
           </div>
         </div>
 
-        <!-- FAQ 5 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-pastel-sage/70">
-          <button type="button" onclick="toggleFAQ(this)" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left hover:bg-pastel-sand/20 transition-colors">
-            <span class="text-sm font-bold text-ink-950 pr-4">Können unsere bestehende Domain und unsere E-Mail-Adressen erhalten bleiben?</span>
-            <i data-lucide="chevron-down" class="w-4 h-4 text-pastel-caramel flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer px-5">
-            <p class="text-xs text-ink-600 leading-relaxed">
-              Ja, absolut. Ihre bestehenden E-Mail-Postfächer und Ihre gewohnte Domain bleiben vollständig erhalten und laufen ohne Unterbrechung weiter. Wir schalten die neue Website sauber auf Ihre Domain auf.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 6 -->
+        <!-- FAQ 5: Eigentum & Zugänge -->
         <div class="bg-white rounded-2xl overflow-hidden border border-pastel-sage/70">
           <button type="button" onclick="toggleFAQ(this)" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left hover:bg-pastel-sand/20 transition-colors">
             <span class="text-sm font-bold text-ink-950 pr-4">Wem gehören die fertige Website und die Zugänge?</span>
@@ -1601,32 +1596,6 @@
           <div class="faq-answer px-5">
             <p class="text-xs text-ink-600 leading-relaxed">
               Die Website, alle verfassten Texte und die Zugänge gehören nach der Bezahlung zu 100 % Ihrem Unternehmen. Es gibt keine Abhängigkeiten und keine vertragliche Bindung an uns für spätere Wartungen.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 7 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-pastel-sage/70">
-          <button type="button" onclick="toggleFAQ(this)" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left hover:bg-pastel-sand/20 transition-colors">
-            <span class="text-sm font-bold text-ink-950 pr-4">Bringt die Website automatisch neue Kunden und Bewerber?</span>
-            <i data-lucide="chevron-down" class="w-4 h-4 text-pastel-caramel flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer px-5">
-            <p class="text-xs text-ink-600 leading-relaxed">
-              Eine Website allein erzeugt keine magischen Besucherströme. Sie sorgt jedoch dafür, dass Interessenten, die durch Empfehlungen, Ihre Firmenfahrzeuge, Ihr Google-Unternehmensprofil oder die lokale Suche auf Sie aufmerksam werden, sofort Vertrauen fassen und sich unkompliziert melden. Werbung oder Werbebudgets sind nicht im Festpreis enthalten und können bei Bedarf separat vereinbart werden.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 8 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-pastel-sage/70">
-          <button type="button" onclick="toggleFAQ(this)" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left hover:bg-pastel-sand/20 transition-colors">
-            <span class="text-sm font-bold text-ink-950 pr-4">Was umfasst der kostenlose Vorab-Entwurf?</span>
-            <i data-lucide="chevron-down" class="w-4 h-4 text-pastel-caramel flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer px-5">
-            <p class="text-xs text-ink-600 leading-relaxed">
-              Wir erstellen nach einem 15-minütigen Kennenlerngespräch unverbindlich ein erstes visuelles Konzept für Ihre neue Website. Sie sehen vorab, wie Ihr Betrieb präsentiert wird. Erst wenn Sie sagen: „Das gefällt uns“, entscheiden Sie über die kostenpflichtige Umsetzung. Wenn es nicht passt, entstehen Ihnen keinerlei Kosten.
             </p>
           </div>
         </div>
