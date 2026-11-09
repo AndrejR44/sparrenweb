@@ -854,6 +854,90 @@
       animation: heroMockupEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
     }
 
+    /* ═══════════════════════════════════════════ */
+    /* PRICING ARCHITECTURE & PEER-DIMMING HOVER  */
+    /* ═══════════════════════════════════════════ */
+    @keyframes flagshipAmbientGlow {
+      0%, 100% {
+        box-shadow: 0 14px 38px -8px rgba(37, 99, 235, 0.22), 0 0 0 2px rgba(37, 99, 235, 0.3), 0 0 24px -2px rgba(37, 99, 235, 0.18);
+      }
+      50% {
+        box-shadow: 0 22px 50px -8px rgba(37, 99, 235, 0.38), 0 0 0 2px rgba(37, 99, 235, 0.6), 0 0 36px 3px rgba(37, 99, 235, 0.32);
+      }
+    }
+    .flagship-pulse {
+      animation: flagshipAmbientGlow 3.5s ease-in-out infinite;
+    }
+
+    @keyframes btnSheenSweep {
+      0% { transform: translateX(-160%) skewX(-20deg); }
+      30%, 100% { transform: translateX(260%) skewX(-20deg); }
+    }
+    .btn-sheen {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-sheen::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.42) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: translateX(-160%) skewX(-20deg);
+      animation: btnSheenSweep 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      pointer-events: none;
+    }
+
+    .pricing-card {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity, filter, box-shadow;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      /* Peer Dimming: When grid is hovered, dim non-hovered sibling cards */
+      .pricing-cards-grid:hover > .pricing-card:not(:hover) {
+        opacity: 0.42 !important;
+        filter: grayscale(35%) contrast(92%);
+        transform: scale(0.975) !important;
+      }
+
+      /* Hovered card lifts and shines */
+      .pricing-card:hover {
+        opacity: 1 !important;
+        filter: none !important;
+        z-index: 25 !important;
+      }
+
+      #cardPkgPilot:hover {
+        transform: translateY(-8px) scale(1.02) !important;
+        border-color: #d97706 !important;
+        box-shadow: 0 20px 42px -10px rgba(217, 119, 6, 0.22), 0 0 0 1.5px rgba(217, 119, 6, 0.35) !important;
+      }
+
+      #cardPkgMeister:hover {
+        transform: translateY(-12px) scale(1.025) !important;
+        border-color: #2563eb !important;
+        box-shadow: 0 26px 54px -10px rgba(37, 99, 235, 0.38), 0 0 0 2px #2563eb, 0 0 38px 4px rgba(37, 99, 235, 0.3) !important;
+      }
+
+      #cardPkgKombi:hover {
+        transform: translateY(-8px) scale(1.02) !important;
+        border-color: #059669 !important;
+        box-shadow: 0 20px 42px -10px rgba(16, 185, 129, 0.22), 0 0 0 1.5px rgba(16, 185, 129, 0.35) !important;
+      }
+    }
+
     /* Respect Reduced Motion (WCAG 2.2 / Accessibility) */
     @media (prefers-reduced-motion: reduce) {
       *, ::before, ::after {
@@ -886,8 +970,13 @@
         filter: none !important;
         transition: none !important;
       }
-      .shimmer-active::after, .pulse-glow {
+      .shimmer-active::after, .pulse-glow, .flagship-pulse, .btn-sheen::after {
         animation: none !important;
+      }
+      .pricing-cards-grid:hover > .pricing-card:not(:hover), .pricing-card:hover {
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
       }
     }
   </style>
@@ -2835,27 +2924,35 @@
         </div>
       </div>
 
-      <!-- 3 HAUPTANGEBOTE IM KOMPAKTEN ARCHITEKTUR-GRID -->
-      <div class="grid lg:grid-cols-3 gap-5 sm:gap-6 items-stretch pt-1">
+      <!-- 3 HAUPTANGEBOTE IM KOMPAKTEN ARCHITEKTUR-GRID MIT PEER-DIMMING & STATIC ANIMATIONS -->
+      <div class="pricing-cards-grid grid lg:grid-cols-3 gap-5 sm:gap-6 items-stretch pt-2">
         
         <!-- PAKET A: OWL-Referenz-Pilot (1.500 €) -->
-        <div id="cardPkgPilot" class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md flex flex-col justify-between relative transition-all duration-300">
+        <div id="cardPkgPilot" class="pricing-card bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between relative">
           <div class="space-y-3.5">
             <!-- Top Meta Row -->
             <div class="flex items-center justify-between pb-2 border-b border-slate-100 text-[11px] font-mono">
               <span class="font-bold uppercase tracking-wider text-amber-800 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
                 Angebot A · Limitiert
               </span>
-              <span class="text-amber-900 bg-amber-100/80 px-2 py-0.5 rounded font-bold border border-amber-200/80">
-                Noch 2 von 3 frei
+              <span class="inline-flex items-center gap-1.5 text-amber-900 bg-amber-100/90 px-2 py-0.5 rounded-full font-bold border border-amber-300/80 shadow-xs">
+                <span class="flex gap-1 items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-slate-400" title="1 Platz vergeben"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse" title="Frei"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse" title="Frei"></span>
+                </span>
+                <span>Noch 2 von 3 frei</span>
               </span>
             </div>
 
             <div>
               <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">OWL-Referenz-Pilot</h3>
               <p class="text-xs text-slate-600 mt-0.5 leading-snug">
-                Für Betriebe in OWL, die als Vorzeige-Referenz von 1.300 € Vorteil profitieren.
+                Für qualitätsbewusste Betriebe in OWL, die als Vorzeige-Referenz 1.300 € Gründer-Vorteil sichern wollen.
               </p>
             </div>
 
@@ -2863,10 +2960,11 @@
             <div class="py-2 border-y border-slate-100">
               <div class="flex items-baseline gap-1.5 flex-wrap">
                 <span class="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight text-slate-900">1.500 €</span>
+                <span class="text-xs font-mono text-slate-400 line-through">2.800 €</span>
                 <span class="text-xs font-semibold text-slate-500">netto einmalig</span>
               </div>
-              <p class="text-[11px] text-slate-500 mt-0.5">
-                50 % Start (750 €) · 50 % nach Abnahme (750 €)
+              <p class="text-[11px] text-amber-800 font-semibold mt-0.5">
+                1.300 € Vorteil · 50 % Start (750 €) · 50 % nach Abnahme (750 €)
               </p>
             </div>
 
@@ -2874,19 +2972,19 @@
             <ul class="space-y-1.5 text-xs text-slate-700">
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span><strong>Schlüsselfertig:</strong> Bis zu 5 Seiten nach Maß</span>
+                <span><strong>Schlüsselfertig:</strong> Bis zu 5 Seiten nach Maß im Gewerk-Design</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span><strong>Kunden-Vorabfilter:</strong> Strukturierte Anfragen &amp; Foto-Upload</span>
+                <span><strong>Kunden-Vorabfilter:</strong> Strukturierte Anfragen mit Foto-Upload</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span><strong>Fachtexte für Ihr Gewerk:</strong> 0 Min. Schreibaufwand</span>
+                <span><strong>Fachtexte für Ihr Gewerk:</strong> 0 Min. Schreibaufwand für Sie</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span><strong>Google Local SEO:</strong> Basis-Setup für Bielefeld &amp; OWL</span>
+                <span><strong>Google Local SEO:</strong> Basis-Setup für Bielefeld &amp; Ihren Landkreis</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
@@ -2894,37 +2992,47 @@
               </li>
             </ul>
 
-            <div class="text-[11px] text-amber-950 bg-amber-50/80 p-2 rounded-lg border border-amber-200/70 leading-tight">
-              <strong>Bedingung:</strong> 15-min. Feedback nach 60 Tagen &amp; Fallstudien-Freigabe.
+            <div class="text-[11px] text-amber-950 bg-amber-50/90 p-2.5 rounded-xl border border-amber-200/80 leading-tight">
+              <strong>Faire Partnerschaft:</strong> Nur 15-min. Feedback nach 60 Tagen &amp; Freigabe als Fallstudie.
             </div>
           </div>
 
           <div class="pt-3.5 border-t border-slate-100 mt-3.5">
-            <a href="anfrage.html" class="w-full inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold py-2.5 px-4 rounded-xl transition-all shadow-xs hover:-translate-y-0.5">
-              <span>Pilot-Platz anfragen</span>
-              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <a href="anfrage.html" class="w-full inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-amber-600 text-white text-xs sm:text-sm font-semibold py-2.5 px-4 rounded-xl transition-all shadow-xs hover:-translate-y-0.5 group">
+              <span>Pilot-Platz sichern (2 frei)</span>
+              <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- PAKET B: Meister-Auftrags-System (2.800 €) - DAS ERHABENE FLAGGSCHIFF -->
-        <div id="cardPkgMeister" class="bg-white rounded-2xl p-5 sm:p-6 border-2 border-blue-600 shadow-xl flex flex-col justify-between relative transition-all duration-300 lg:-translate-y-2 z-10 ring-4 ring-blue-600/10">
-          <div class="space-y-3.5">
+        <!-- PAKET B: Meister-Auftrags-System (2.800 €) - DAS ERHABENE FLAGGSCHIFF MIT AMBIENT GLOW -->
+        <div id="cardPkgMeister" class="pricing-card flagship-pulse bg-white rounded-2xl p-5 sm:p-6 border-2 border-blue-600 shadow-xl flex flex-col justify-between relative lg:-translate-y-2 z-10 ring-4 ring-blue-600/10">
+          
+          <!-- Bestseller Floating Badge -->
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 text-white text-[11px] font-extrabold uppercase tracking-wider py-1 px-3.5 rounded-full shadow-md flex items-center gap-1.5 whitespace-nowrap z-20">
+            <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            Meistgewählt · Bestseller OWL
+          </div>
+
+          <div class="space-y-3.5 pt-1 sm:pt-0">
             <!-- Top Meta Row -->
             <div class="flex items-center justify-between pb-2 border-b border-slate-100 text-[11px] font-mono">
-              <span class="font-bold uppercase tracking-wider text-blue-600 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                Angebot B · Hauptangebot
+              <span class="font-bold uppercase tracking-wider text-blue-700 flex items-center gap-1.5">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                </span>
+                Angebot B · Meister-Standard
               </span>
-              <span class="text-blue-700 bg-blue-50 px-2 py-0.5 rounded font-semibold border border-blue-200/60">
-                Standard für Betriebe
+              <span class="text-blue-900 bg-blue-100/90 px-2.5 py-0.5 rounded-full font-bold border border-blue-200">
+                Für 4–20 Mitarbeiter
               </span>
             </div>
 
             <div>
               <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">SparrenWeb Meister-System</h3>
               <p class="text-xs text-slate-600 mt-0.5 leading-snug">
-                Vollständiges Auftrags- und Filtersystem für Handwerksbetriebe (4–20 MA).
+                Schlüsselfertiges Auftrags- &amp; Filtersystem: Sortiert unrentable Anfragen aus und bringt lukrative Direktaufträge.
               </p>
             </div>
 
@@ -2956,61 +3064,65 @@
             <ul class="space-y-1.5 text-xs text-slate-700">
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span><strong>Bis zu 6 Seiten:</strong> Startseite, Gewerke, Referenzen, Kontakt</span>
+                <span><strong>Bis zu 6 Seiten:</strong> Startseite, Gewerke, Referenzen, Kontakt &amp; Anfrage</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span><strong>Digitaler Vorabfilter:</strong> Gewerk-Selektion &amp; Foto-Upload</span>
+                <span><strong>Digitaler Vorabfilter:</strong> Gewerk-Selektion &amp; Foto-/Schadens-Upload</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span><strong>Alle Fachtexte schlüsselfertig:</strong> 0 Min. Schreibaufwand</span>
+                <span><strong>Alle Fachtexte schlüsselfertig:</strong> 0 Min. Schreibaufwand für Sie</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span><strong>Google Profil &amp; Local SEO OWL:</strong> Regionale Keyword-Einrichtung</span>
+                <span><strong>Google Profil &amp; Local SEO OWL:</strong> Regionale Spitzenplatzierungen</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span><strong>5 Baustellen-NFC-Karten:</strong> Google-Sterne direkt beim Kunden</span>
+                <span><strong>5 Baustellen-NFC-Karten:</strong> Google-Sterne direkt beim Kunden vor Ort</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span><strong>100 % Eigentum:</strong> Quellcode &amp; Domain gehören Ihnen</span>
+                <span><strong>100 % Eigentum:</strong> Quellcode &amp; Domain gehören Ihnen (Kein Knebel-Abo)</span>
               </li>
             </ul>
 
-            <div class="text-[11px] text-blue-950 bg-blue-50/70 p-2 rounded-lg border border-blue-100 leading-tight">
-              <strong>Kaufmännische Rechnung:</strong> 1 gewonnener Auftrag amortisiert das System sofort.
+            <div class="text-[11px] text-blue-950 bg-blue-50/80 p-2.5 rounded-xl border border-blue-200/80 leading-tight">
+              <strong>Kaufmännische Rechnung:</strong> Schon 1 gewonnener Meisterauftrag amortisiert das System vollständig.
             </div>
           </div>
 
           <div class="pt-3.5 border-t border-slate-100 mt-3.5">
-            <a href="anfrage.html" class="w-full inline-flex items-center justify-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-4 rounded-xl transition-all duration-200 shadow-md shadow-blue-600/25 hover:-translate-y-0.5">
-              <span>System-Entwurf anfordern</span>
-              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <a href="anfrage.html" class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold py-3 px-4 rounded-xl transition-all duration-200 shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 hover:-translate-y-0.5 btn-sheen">
+              <span>Kostenlosen Vorab-Entwurf anfordern</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
+            <p class="text-[10px] text-center text-slate-500 mt-1.5 font-medium">100 % unverbindlich · Sie sehen den Entwurf vor jeder Zusage</p>
           </div>
         </div>
 
         <!-- PAKET E: Meister-System + Recruiting-Kombi (3.500 €) -->
-        <div id="cardPkgKombi" class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md flex flex-col justify-between relative transition-all duration-300">
+        <div id="cardPkgKombi" class="pricing-card bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between relative">
           <div class="space-y-3.5">
             <!-- Top Meta Row -->
             <div class="flex items-center justify-between pb-2 border-b border-slate-100 text-[11px] font-mono">
-              <span class="font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                Angebot E · 500 € Vorteil
+              <span class="font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" style="animation-duration: 2.2s;"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+                </span>
+                Angebot E · Komplett-Lösung
               </span>
-              <span class="text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-semibold border border-emerald-200/60">
-                Aufträge + Recruiting
+              <span class="text-emerald-900 bg-emerald-100/90 px-2.5 py-0.5 rounded-full font-bold border border-emerald-300/80 shadow-xs">
+                -500 € Paket-Ersparnis
               </span>
             </div>
 
             <div>
-              <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">Komplett-Kombi</h3>
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">Meister- &amp; Recruiting-Kombi</h3>
               <p class="text-xs text-slate-600 mt-0.5 leading-snug">
-                Meister-Auftrags-System + 60-Sekunden-Recruiting für Kunden &amp; Team.
+                Rundum-Sorglos-System: Lukrative Kundenanfragen filtern &amp; qualifizierte Fachkräfte direkt vom Smartphone gewinnen.
               </p>
             </div>
 
@@ -3022,7 +3134,7 @@
                 <span class="text-xs font-semibold text-slate-500 whitespace-nowrap">netto einmalig</span>
               </div>
               <div class="text-[11px] text-emerald-700 font-semibold mt-0.5">
-                500 € Ersparnis gegenüber Einzelbuchung (50/50 Split möglich)
+                500 € Ersparnis gegenüber Einzelbuchung · 50/50 Split möglich
               </div>
             </div>
 
@@ -3038,7 +3150,7 @@
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span><strong>Google Jobs &amp; Schema:</strong> Stellenanzeigen auf Seite 1 in Bielefeld</span>
+                <span><strong>Google Jobs &amp; Schema:</strong> Stellenanzeigen auf Seite 1 in Bielefeld &amp; OWL</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
@@ -3050,19 +3162,35 @@
               </li>
             </ul>
 
-            <div class="text-[11px] text-slate-700 bg-slate-50 p-2 rounded-lg border border-slate-200/80 leading-tight">
-              <strong>Doppelter Hebel:</strong> Filtert Kundenanfragen &amp; löst den Fachkräftemangel.
+            <div class="text-[11px] text-emerald-950 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-200/80 leading-tight">
+              <strong>Doppelter Hebel:</strong> Filtert unrentable Aufträge aus und löst den Fachkräftemangel gleichzeitig.
             </div>
           </div>
 
           <div class="pt-3.5 border-t border-slate-100 mt-3.5">
-            <a href="anfrage.html" class="w-full inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold py-2.5 px-4 rounded-xl transition-all shadow-xs hover:-translate-y-0.5">
-              <span>Kombi anfragen</span>
-              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <a href="anfrage.html" class="w-full inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-emerald-600 text-white text-xs sm:text-sm font-semibold py-2.5 px-4 rounded-xl transition-all shadow-xs hover:-translate-y-0.5 group">
+              <span>Kombi-Entwurf unverbindlich anfragen</span>
+              <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </div>
 
+      </div>
+
+      <!-- VERKAUFSPSYCHOLOGISCHE TRUST-BAR (0 € VORAB-RISIKO & FESTPREISGARANTIE) -->
+      <div class="mt-5 py-3 px-4 bg-slate-50/90 rounded-xl border border-slate-200/80 flex flex-wrap items-center justify-center sm:justify-between gap-3 text-xs text-slate-700 font-medium">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <span><strong>100 % Festpreisgarantie:</strong> Keine versteckten Zusatzkosten</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span><strong>0 € Vorab-Risiko:</strong> Entwurf unverbindlich prüfen vor Auftragsvergabe</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <span><strong>Volles Eigentum:</strong> Quellcode &amp; Domain gehören Ihnen (Kein Knebel-Abo)</span>
+        </div>
       </div>
 
       <!-- ZUSATZOPTIONEN & SYSTEMBETRIEB (MIT BILLING TOGGLE) -->
