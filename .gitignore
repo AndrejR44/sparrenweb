@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Scratch and temporary logs
+scratch/
+.system_generated/

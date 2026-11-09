@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /docs/intern/
+Allow: /
+
+# Sitemaps
+Sitemap: https://sparrenweb.de/sitemap.xml
