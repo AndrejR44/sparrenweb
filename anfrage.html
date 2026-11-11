@@ -566,16 +566,79 @@
     }
   }
 
-  function submitFunnel(e) {
+  async function submitFunnel(e) {
     e.preventDefault();
     const form = document.getElementById('funnelForm');
     const feedback = document.getElementById('funnelFeedback');
-    
-    // Simulate submit
-    if (form) form.classList.add('hidden');
-    if (feedback) feedback.classList.remove('hidden');
-    
-    window.scrollTo({ top: 200, behavior: 'smooth' });
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (!form) return;
+
+    // Ladeanzeige im Button
+    const origBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span class="inline-block animate-spin mr-1.5">⟳</span>
+        <span>Übertrage an CRM...</span>
+      `;
+    }
+
+    try {
+      const formData = new FormData(form);
+      const payload = {
+        trade: formData.get('trade') || '',
+        employees: formData.get('employees') || '',
+        webstatus: formData.get('webstatus') || '',
+        existingUrl: formData.get('existingUrl') || '',
+        package: formData.get('package') || '',
+        name: formData.get('name') || '',
+        phone: formData.get('phone') || '',
+        email: formData.get('email') || '',
+        location: formData.get('location') || '',
+        notes: formData.get('notes') || '',
+        source: 'anfrage.html Funnel'
+      };
+
+      const crmApiUrl = window.SPARRENWEB_CRM_URL || 'http://localhost:3000/api/leads';
+
+      const response = await fetch(crmApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        console.warn('CRM API Status:', response.status);
+      } else {
+        const result = await response.json();
+        console.log('CRM Lead erfolgreich erfasst:', result);
+      }
+    } catch (err) {
+      console.warn('Lokaler CRM-Server pausiert oder nicht erreichbar. Speichere lokal als Fallback:', err);
+      try {
+        const formData = new FormData(form);
+        const offlineQueue = JSON.parse(localStorage.getItem('sparrenweb_offline_leads') || '[]');
+        offlineQueue.push({
+          timestamp: new Date().toISOString(),
+          data: Object.fromEntries(formData.entries())
+        });
+        localStorage.setItem('sparrenweb_offline_leads', JSON.stringify(offlineQueue));
+      } catch (localErr) {
+        console.warn('Fallback-Speicherung:', localErr);
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origBtnHtml;
+      }
+      if (form) form.classList.add('hidden');
+      if (feedback) feedback.classList.remove('hidden');
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
